@@ -11,23 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->string('user_id', 50)->primary();
-            $table->string('firstname', 150)->nullable();
-            $table->string('othername', 150)->nullable();
-            $table->string('email')->unique();
-            $table->string('password', 100);
+        Schema::create('newsletter', function (Blueprint $table) {
+            $table->string('newsletter_id', 50)->primary();
+            $table->string('is_active', 50)->default('Yes');
+            $table->string('email', 50)->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('access_level')->nullable();
-            $table->string('is_admin')->nullable()->default(false);
-            $table->string('email_verified')->default('No');
-            $table->timestamp('added_date')->nullable();
             $table->string('status', 50)->default('Active')->index();
             $table->string('archived', 50)->default('No')->index();
             $table->string('archived_id', 50)->nullable();
             $table->string('archived_by', 50)->nullable();
             $table->date('archived_date')->nullable();
-
         });
     }
 
@@ -36,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('newsletter');
     }
 };

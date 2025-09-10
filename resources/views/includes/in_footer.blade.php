@@ -10,7 +10,7 @@
                         We look forward to your visit. We are readily available for further discussions.</p>
                         <form action="#" method="POST">
                             <div class="input-group">
-                                <input type="email" class="form-control border-white p-3" placeholder="For newsletters" name="this account have successfully suscribed" required>
+                                <input type="email" class="form-control border-white p-3" placeholder="subscribe to newsletters" name="newsletters_subscription" required>
                                 <button class="btn metro-fill text-white">Sign Up</button>
                             </div>
                         </form>

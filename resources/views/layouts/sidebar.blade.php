@@ -85,13 +85,13 @@
                     </li>
                     <li class="dropdown">
                         <a href="javascript:;" class="dropdown-toggle">
-                            <span class="micon dw dw-analytics-21"></span><span class="mtext">Charts</span>
+                            <span class="micon dw dw-analytics-21"></span><span class="mtext">Users</span>
                         </a>
                         <ul class="submenu">
-                            <li><a href="highchart.html">Highchart</a></li>
-                            <li><a href="knob-chart.html">jQuery Knob</a></li>
+                            <li><a href="/users/list">User List</a></li>
+                            <!-- <li><a href="knob-chart.html">jQuery Knob</a></li>
                             <li><a href="jvectormap.html">jvectormap</a></li>
-                            <li><a href="apexcharts.html">Apexcharts</a></li>
+                            <li><a href="apexcharts.html">Apexcharts</a></li> -->
                         </ul>
                     </li>
                      <li>

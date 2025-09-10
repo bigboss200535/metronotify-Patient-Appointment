@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AppointmentController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,7 +49,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-
+    Route::prefix('users')->group(function () {
+            Route::get('/list', [UserController::class, 'index'])->name('users.index');
+            // Route::get('/appointmentlist', [AppointmentController::class, 'index'])->name('appointment.index');
+    });
     Route::prefix('selfservice')->group(function () {
             Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
             Route::get('/appointmentlist', [AppointmentController::class, 'index'])->name('appointment.index');
