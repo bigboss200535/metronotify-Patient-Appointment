@@ -2,10 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Metro Health Services | Appointments</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+    <title>Magazine Clinic| Appointments</title>
      @include('includes.in_favicon') 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,17 +33,18 @@
                 </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="/" class="nav-item nav-link ">Home</a>
-                    <a href="/abput" class="nav-item nav-link">About Us</a>
+                    <a href="{{ url('/') }}" class="nav-item nav-link ">Home</a>
+                    <a href="{{ url('/about') }}" class="nav-item nav-link">About Us</a>
                   <div class="nav-item dropdown">
-                        <a href="/services" class="nav-link dropdown-toggle" data-bs-toggle="dropdown active">Our Services</a>
+                        <a href="{{ url('/services') }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown active">Our Services</a>
                         <div class="dropdown-menu m-0">
                              @include('includes.in_service_list') 
                         </div>
                     </div>
                     <!-- <a href="blogpost.php" class="nav-item nav-link">Blog</a> -->
-                    <a href="/contact" class="nav-item nav-link">Contact Us</a>
-                     <a href="/appointments" class="nav-item nav-link active">Appointment</a>
+                    <a href="{{ url('/contact') }}" class="nav-item nav-link">Contact Us</a>
+                    <a href="{{ url('/appointments') }}" class="nav-item nav-link active">Appointment</a>
+                    <a href="{{ url('/selfservice/portal') }}" class="nav-item nav-link">Portal <sup style="color:red">New</sup></a>
                 </div>
                 <!-- <button type="button" class="btn text-white ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button> -->
                 <!-- <a href="appointment.php" class="btn metro-fill metro-text py-2 px-4 ms-3">Book Appointment</a> -->
@@ -59,16 +57,13 @@
                     <h1 class="display-4 text-white animated zoomIn">Appointments</h1>
                     <a href="" class="h5 text-white">Home</a>
                      <i class="far fa-hospital text-white px-2"></i>
-                    <a href="/appointments" class="h5 text-white">Appointments</a>
+                    <a href="{{ url('/appointments') }}" class="h5 text-white">Appointments</a>
                 </div>
             </div>
         </div>
     </div>
     <!-- Navbar End -->
 
-    <!-- Full Screen Search Start -->
-   
-    <!-- Full Screen Search End -->
 
     <!-- Quote Start -->
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -76,15 +71,15 @@
             <div class="row g-5">
                 <div class="col-lg-7">
                     <div class="section-title position-relative pb-3 mb-5">
-                        <h5 class="fw-bold metro-main-text text-uppercase">Book Appointment</h5>
+                        <h5 class="fw-bold magazine-main-text text-uppercase">Book Appointment</h5>
                         <h1 class="mb-0">Do you want to visit us? Book an appointment with us.</h1>
                     </div>
                     <div class="row gx-3">
                         <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
-                            <h5 class="mb-4"><i class="fa fa-reply metro-main-text me-3"></i>Reply within 24 hours</h5>
+                            <h5 class="mb-4"><i class="fa fa-reply magazine-main-text me-3"></i>Reply within 24 hours</h5>
                         </div>
                         <div class="col-sm-6 wow zoomIn" data-wow-delay="0.4s">
-                            <h5 class="mb-4"><i class="fa fa-phone-alt metro-main-text me-3"></i>24 hrs telephone support</h5>
+                            <h5 class="mb-4"><i class="fa fa-phone-alt magazine-main-text me-3"></i>24 hrs telephone support</h5>
                         </div>
                     </div>
                     <p class="mb-4">We have fully-manned and equipped units that run 24 hours a day, 7 days a week. Our services are full-option (as we attend to both Health Maintenance Organisation and private patients). Contact our front desk to help facilitate your prompt and personalised consultation.
@@ -97,13 +92,16 @@
                         </div>
                         <div class="ps-4">
                             <h5 class="mb-2">Call to ask any question</h5>
-                            <h4 class="metro-main-text">+233 (0)3220 89675</h4>
+                            <h4 class="magazine-main-text">+233 (0)3220 89675</h4>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-5">
+                    <!-- form response -->
+                <div id="form_response" class="mt-3"></div>
+
                     <div class="metro-fill rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
-                        <form method="post" id="appointment_submission">
+                        <form id="appointment_form" data-url="{{ route('enquiry.store') }}" method="POST" onsubmit="return false">
                             <div class="row g-3">
                                 <div class="col-xl-12">
                                     <input type="text" class="form-control bg-light border-0" placeholder="Your Name" style="height: 55px;">
@@ -114,22 +112,15 @@
                                 <div class="col-12">
                                     <select class="form-select bg-light border-0" style="height: 55px;">
                                         <option selected disabled>Select A Service</option>
-                                        <option value="General Medicine">General/Family Medicine</option>
-                                        <option value="Obstetrics">Obstetrics/Gynaecology</option>
-                                        <option value="Geriatric">Geriatric/Elder Care</option>
-                                        <option value="Eye">Eye Service</option>
-                                        <option value="ENT">ENT Service</option>
-                                        <option value="Surgery">Surgery</option>
-                                        <option value="General Laboratory">General Laboratory</option>
-                                        <option value="Pharmacy">Pharmacy</option>
-                                        <option value="Ultrasound Scan Services">Advanced Ultrasound Services</option>
+                                        @include('includes.in_services_option') 
                                     </select>
                                 </div>
                                 <div class="col-12">
                                     <textarea class="form-control bg-light border-0" rows="3" placeholder="Message"></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn metro-fill-gold w-100 py-3 text-white" type="submit">Book Appointment</button>
+                                     <button class="btn metro-fill-gold text-white w-100 py-3" name="save_appointment_form" id="save_appointment_form" type="submit">Book Appointment</button>
+                                    <!-- <button class="btn metro-fill-gold w-100 py-3 text-white" type="submit">Book Appointment</button> -->
                                 </div>
                             </div>
                         </form>
@@ -154,6 +145,68 @@
     <script src="{{ asset('lib/counterup/counterup.min.js') }}"></script>
     <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('appointment_form');
+            const submitBtn = document.getElementById('save_appointment_form');
+            const responseBox = document.getElementById('form_response');
+            // const actionUrl = form.dataset.url; // Get the route from data-url attribute
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                // Clear previous messages
+                responseBox.innerHTML = '';
+
+                // Disable submit button to prevent multiple clicks
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Submitting...';
+
+                try {
+                    // Collect form data
+                    const formData = new FormData(form);
+
+                    // Send AJAX request
+                    const response = await fetch("{{ route('enquiry.store') }}", {
+                        method: "POST",
+                        headers: {
+                            'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
+                        },
+                        body: formData
+                    });
+
+                    const result = await response.json();
+
+                    // Handle validation or server errors
+                    if (!response.ok) {
+                        if (result.errors) {
+                            let errorList = '<div class="alert alert-danger"><ul>';
+                            for (const key in result.errors) {
+                                errorList += `<li>${result.errors[key][0]}</li>`;
+                            }
+                            errorList += '</ul></div>';
+                            responseBox.innerHTML = errorList;
+                        } else {
+                            responseBox.innerHTML = `<div class="alert alert-danger">${result.message || 'Something went wrong. Please try again.'}</div>`;
+                        }
+                    } else {
+                        // Success response
+                        responseBox.innerHTML = `<div class="alert alert-success">${result.message}</div>`;
+                        
+                        // Reset form after success
+                        form.reset();
+                    }
+                } catch (error) {
+                    console.error('Submission error:', error);
+                    responseBox.innerHTML = `<div class="alert alert-danger">An unexpected error occurred. Please try again.</div>`;
+                } finally {
+                    // Re-enable the submit button
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Book Appointment';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

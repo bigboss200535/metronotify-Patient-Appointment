@@ -20,6 +20,9 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('access_level')->nullable();
             $table->string('is_admin')->nullable()->default(false);
+            $table->string('is_blocked', 20)->default(false);
+            $table->timestamp('blocked_at')->nullable();
+            $table->string('blocked_by', 50)->nullable();
             $table->string('email_verified')->default('No');
             $table->timestamp('added_date')->nullable();
             $table->string('status', 50)->default('Active')->index();

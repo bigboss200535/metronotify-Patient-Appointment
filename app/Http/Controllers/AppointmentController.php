@@ -14,5 +14,7 @@ class AppointmentController extends Controller
         return view('portal.appointments.index');
     }
 
+    
+
 
 }

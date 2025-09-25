@@ -2,12 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Metro Health Services | General Medicine</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Metro Health Services" name="keywords">
-    <meta content="Hospital Services" name="description">
-    <meta content="Surgery, Laboratory" name="services">
-    <!-- Favicon -->
+    <title> @include('includes.in_facility')  | General Medicine</title>
     @include('includes.in_favicon') 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,17 +40,17 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
 
-                    <a href="/" class="nav-item nav-link">Home</a>
-                    <a href="/about" class="metro-main-text nav-item nav-link">About Us</a>
+                    <a href="{{ url('/') }}" class="nav-item nav-link">Home</a>
+                    <a href="{{ url('/about') }}" class="nav-item nav-link">About Us</a>
                   <div class="nav-item dropdown">
-                        <a href="/services" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown active">Our Services</a>
+                        <a href="{{ url('/services') }}" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown active">Our Services</a>
                         <div class="dropdown-menu m-0">
                               @include('includes.in_service_list') 
                         </div>
                     </div>
                     <!-- <a href="blogpost.php" class="nav-item nav-link text-dark">Blog</a> -->
-                    <a href="/contact" class="nav-item nav-link">Contact Us</a>
-                     <a href="/appointments" class="nav-item nav-link">Appointments</a>
+                    <a href="{{ url('/contact') }}" class="nav-item nav-link">Contact Us</a>
+                     <a href="{{ url('/appointments') }}" class="nav-item nav-link">Appointments</a>
                 </div>
                 <!-- <button type="button" class="btn metro-main-text ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button> -->
                 <!-- <a href="appointment.php" class="btn metro-fill metro-text py-2 px-4 ms-3">Book Appointment</a> -->
@@ -66,9 +61,9 @@
             <div class="row py-5">
                 <div class="col-12 pt-lg-5 mt-lg-5 text-center">
                     <h1 class="display-4 text-white animated zoomIn">General and Family Medicine</h1>
-                    <a href="/" class="h5 text-white">Home</a>
+                    <a href="{{ url('/') }}" class="h5 text-white">Home</a>
                     <i class="far fa-hospital text-white px-2"></i>
-                    <a href="/services" class="h5 text-white">Services</a>
+                    <a href="{{ url('/services') }}" class="h5 text-white">Services</a>
                 </div>
             </div>
         </div>
@@ -103,7 +98,7 @@
                     <!-- Blog Detail Start -->
                     <div class="mb-5">
                         <img class="img-fluid w-100 rounded mb-5" src="{{ asset('img/serv1-blog-1.jpg') }}" alt="">
-                        <h1 class="mb-4 metro-main-text">General and Family Medicine</h1>
+                        <h1 class="mb-4 magazine-main-text">General and Family Medicine</h1>
                         <p>Our department have highly experienced specialists in family medicine. 
 						      These specialists provide the best medical response to your condition.  
                         </p>
@@ -156,17 +151,17 @@
     
                    <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
                         <div class="section-title section-title-sm position-relative pb-3 mb-4">
-                            <h3 class="mb-0 metro-main-text">Other Services</h3>
+                            <h3 class="mb-0 magazine-main-text">Other Services</h3>
                         </div>
                         <div class="link-animated d-flex flex-column justify-content-start">
-                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="/services/geriatric"><i class="bi bi-arrow-right me-2"></i>Geriatric / Elderly Care</a>
-                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="/services/obstetrics"><i class="bi bi-arrow-right me-2"></i>Obstetrics/Gynaecology</a>
-                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="/services/ent"><i class="bi bi-arrow-right me-2"></i>ENT Care</a>
-                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="/services/eye"><i class="bi bi-arrow-right me-2"></i>Eye Care</a>
-                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="/services/surgery"><i class="bi bi-arrow-right me-2"></i>General Surgery</a>
-							<a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="/services/pharmacy"><i class="bi bi-arrow-right me-2"></i>Pharmacy Services</a>
-							<a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="services/laboratory"><i class="bi bi-arrow-right me-2"></i>Laboratory Services</a>
-                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="services/ultrasound"><i class="bi bi-arrow-right me-2"></i>Advanced Ultrasound Services</a>
+                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="{{ url('/services/geriatric') }}"><i class="bi bi-arrow-right me-2"></i>Geriatric / Elderly Care</a>
+                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="{{ url('/services/obstetrics') }}"><i class="bi bi-arrow-right me-2"></i>Obstetrics/Gynaecology</a>
+                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="{{ url('/services/ent') }}"><i class="bi bi-arrow-right me-2"></i>ENT Care</a>
+                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="{{ url('/services/eye') }}"><i class="bi bi-arrow-right me-2"></i>Eye Care</a>
+                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="{{ url('/services/surgery') }}"><i class="bi bi-arrow-right me-2"></i>General Surgery</a>
+							<a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="{{ url('/services/pharmacy') }}"><i class="bi bi-arrow-right me-2"></i>Pharmacy Services</a>
+							<a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="{{ url('services/laboratory') }}"><i class="bi bi-arrow-right me-2"></i>Laboratory Services</a>
+                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="{{ url('services/ultrasound') }}"><i class="bi bi-arrow-right me-2"></i>Advanced Ultrasound Services</a>
                         </div>
                     </div>
 					
@@ -196,7 +191,7 @@
                         </div>
                         <div class="bg-light text-center" style="padding: 30px;">
                             <!-- <p></p> -->
-                            <a href="/appointments" class="btn metro-fill text-white py-2 px-4">24-hour Service</a>
+                            <a href="{{ url('/appointments') }}" class="btn metro-fill text-white py-2 px-4">24-hour Service</a>
                         </div>
                     </div>
                     <!-- Plain Text End -->

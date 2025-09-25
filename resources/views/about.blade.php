@@ -2,12 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Metro Health Services | About Us</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Metro Health Services" name="keywords">
-    <meta content="Hospital Services" name="description">
-    <meta content="Surgery, Laboratory" name="services">
-    <!-- Favicon -->
+    <title>Magazine Clinic | About Us</title>
     @include('includes.in_favicon') 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +31,7 @@
     <!-- Navbar Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
-            <a href="/" class="navbar-brand p-0">
+            <a href="{{ url('/') }}" class="navbar-brand p-0">
                <h1 class="m-0"><img src="{{ asset('images/logo_1.png') }}" alt=""></i></h1>
             </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -44,17 +39,18 @@
                 </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="/" class="nav-item nav-link ">Home</a>
-                    <a href="/about" class="nav-item nav-link active">About Us</a>
+                    <a href="{{ url('/') }}" class="nav-item nav-link ">Home</a>
+                    <a href="{{ url('/about') }}" class="nav-item nav-link active">About Us</a>
                   <div class="nav-item dropdown">
-                        <a href="/services" class="nav-link dropdown-toggle" data-bs-toggle="dropdown active">Our Services</a>
+                        <a href="{{ url('/services') }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown active">Our Services</a>
                         <div class="dropdown-menu m-0">
                              @include('includes.in_service_list') 
                         </div>
                     </div>
                     <!-- <a href="blogpost.php" class="nav-item nav-link">Blog</a> -->
-                    <a href="/contact" class="nav-item nav-link">Contact Us</a>
-                     <a href="/appointments" class="nav-item nav-link">Appointment</a>
+                    <a href="{{ url('/contact') }}" class="nav-item nav-link">Contact Us</a>
+                    <a href="{{ url('/appointments') }}" class="nav-item nav-link">Appointment</a>
+                    <a href="{{ url('/selfservice/portal') }}" class="nav-item nav-link">Portal <sup style="color:red">New</sup></a>
                 </div>
                 <!-- <button type="button" class="btn text-white ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button> -->
                 <!-- <a href="appointment.php" class="btn metro-fill metro-text py-2 px-4 ms-3">Book Appointment</a> -->
@@ -65,9 +61,9 @@
             <div class="row py-5">
                 <div class="col-12 pt-lg-5 mt-lg-5 text-center">
                     <h1 class="display-4 text-white animated zoomIn">About Us</h1>
-                    <a href="/" class="h5 text-white">Home</a>
+                    <a href="{{ url('/') }}" class="h5 text-white">Home</a>
                     <i class="far fa-hospital text-white px-2"></i>
-                    <a href="/about" class="h5 text-white">About</a>
+                    <a href="{{ url('/about') }}" class="h5 text-white">About</a>
                 </div>
             </div>
         </div>
@@ -84,10 +80,10 @@
             <div class="row g-5">
                 <div class="col-lg-7">
                     <div class="section-title position-relative pb-3 mb-5">
-                        <h5 class="fw-bold metro-main-text text-uppercase">About Us</h5>
+                        <h5 class="fw-bold magazine-main-text text-uppercase">About Us</h5>
                         <h1 class="mb-0">The best health solution</h1>
                     </div>
-                        <p class="mb-4">Metro Health is a clinic that prides itself as offering high quality and Professional Health Treatments for our clients. We have always been committed to having an intense focus on the patient care while bringing the best of international standards to Ghana.
+                        <p class="mb-4">@include('includes.in_facility')  is a clinic that prides itself as offering high quality and Professional Health Treatments for our clients. We have always been committed to having an intense focus on the patient care while bringing the best of international standards to Ghana.
 
                         We sincerely believe that visiting us shouldn’t be a stressful experience! We provide an equally comfortable experience of relaxation for all our young and adult patients!
 
@@ -99,12 +95,12 @@
                         </p>
                     <div class="row g-0 mb-3">
                         <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
-                            <h5 class="mb-3"><i class="fa fa-check metro-main-text me-3"></i>High Expertise</h5>
-                            <h5 class="mb-3"><i class="fa fa-check metro-main-text me-3"></i>Professional Staff</h5>
+                            <h5 class="mb-3"><i class="fa fa-check magazine-main-text me-3"></i>High Expertise</h5>
+                            <h5 class="mb-3"><i class="fa fa-check magazine-main-text me-3"></i>Professional Staff</h5>
                         </div>
                         <div class="col-sm-6 wow zoomIn" data-wow-delay="0.4s">
-                            <h5 class="mb-3"><i class="fa fa-check metro-main-text me-3"></i>24/7 Service</h5>
-                            <h5 class="mb-3"><i class="fa fa-check metro-main-text me-3"></i>Top-Class Facilities</h5>
+                            <h5 class="mb-3"><i class="fa fa-check magazine-main-text me-3"></i>24/7 Service</h5>
+                            <h5 class="mb-3"><i class="fa fa-check magazine-main-text me-3"></i>Top-Class Facilities</h5>
                         </div>
                     </div>
                     <div class="d-flex align-items-center mb-4 wow fadeIn" data-wow-delay="0.6s">
@@ -113,10 +109,10 @@
                         </div>
                         <div class="ps-4">
                             <h5 class="mb-2">Call to ask any question</h5>
-                            <h4 class="metro-main-text mb-0">+233 (0)3220 89675</h4>
+                            <h4 class="magazine-main-text mb-0">+233 (0)3220 89675</h4>
                         </div>
                     </div>
-                    <a href="/contact" class="btn metro-fill text-white py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Get In Touch</a>
+                    <a href="{{ url('/contact') }}" class="btn metro-fill text-white py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Get In Touch</a>
                 </div>
                 <div class="col-lg-5" style="min-height: 500px;">
                     <div class="position-relative h-100">
@@ -132,7 +128,7 @@
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-                <h5 class="fw-bold metro-main-text text-uppercase">Our Core Values</h5>
+                <h5 class="fw-bold magazine-main-text text-uppercase">Our Core Values</h5>
                 <h1 class="mb-0">We are here to help our patients </h1>
             </div>
             <div class="row g-5">

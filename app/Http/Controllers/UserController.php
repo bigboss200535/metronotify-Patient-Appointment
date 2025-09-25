@@ -64,4 +64,16 @@ class UserController extends Controller
     {
         //
     }
+
+    public function block(User $user_id)
+    {
+        $user->block();
+        return back()->with('Status', 'User has been blocked successfully');
+    }
+
+    public function unblock(User $user_id)
+    {
+        $user->unblock();
+        return back()->with('Status', 'User has been unblocked successfully');
+    }
 }

@@ -1,7 +1,7 @@
 <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-                <h5 class="fw-bold metro-main-text text-uppercase"> OUR SERVICES</h5>
+                <h5 class="fw-bold magazine-main-text text-uppercase"> OUR SERVICES</h5>
                 <!-- <h2 class="fw-bold metro-main-text text-uppercase">OUR SERVICES</h2> -->
                 <h1 class="mb-0">What we can offer you</h1>
             </div>
@@ -10,7 +10,7 @@
                     <div class="blog-item bg-light rounded overflow-hidden">
                         <div class="blog-img position-relative overflow-hidden">
                             <img class="img-fluid" src="{{ asset('img/blog-4.jpg') }}" alt="">
-                            <a class="position-absolute top-0 start-0 metro-fill text-white rounded-end mt-5 py-2 px-4" href="/services/general">General Medicine</a>
+                            <a class="position-absolute top-0 start-0 magazine-fill text-white rounded-end mt-5 py-2 px-4" href="{{ url('/services/general') }}">General Medicine</a>
                         </div>
                         <div class="p-4">
                             <h4 class="mb-3"></h4>
@@ -24,16 +24,15 @@
                     <div class="blog-item bg-light rounded overflow-hidden">
                         <div class="blog-img position-relative overflow-hidden">
                             <img class="img-fluid" src="{{ asset('img/blog-4.jpg') }}" alt="">
-                            <a class="position-absolute top-0 start-0 metro-fill text-white rounded-end mt-5 py-2 px-4" href="/services/geriatric">Geriatric / Elderly Care</a>
+                            <a class="position-absolute top-0 start-0 magazine-fill text-white rounded-end mt-5 py-2 px-4" href="{{ url('/services/geriatric') }}">Geriatric / Elderly Care</a>
                         </div>
                         <div class="p-4">
                             <div class="d-flex mb-3">
-                                
                             </div>
                             <h4 class="mb-3"></h4>
                             <p>Our Geriatric or Elder care unit provides excellent services for the aged. Our specialists are experienced in many disciplines in Geriatric care. 
                             </p>
-                            <a class="text-uppercase metro-main-text gold-text"  href="/services/geriatric">Read More <i class="bi bi-arrow-right"></i></a>
+                            <a class="text-uppercase metro-main-text gold-text"  href="{{ url('/services/geriatric') }}">Read More <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -41,7 +40,7 @@
                     <div class="blog-item bg-light rounded overflow-hidden">
                         <div class="blog-img position-relative overflow-hidden">
                             <img class="img-fluid" src="{{ asset('img/blog-4.jpg') }}" alt="">
-                            <a class="position-absolute top-0 start-0 metro-fill text-white rounded-end mt-5 py-2 px-4" href="/services/obstetrics">Obstetrics And Gynaecology</a>
+                            <a class="position-absolute top-0 start-0 magazine-fill text-white rounded-end mt-5 py-2 px-4" href="/services/obstetrics">Obstetrics And Gynaecology</a>
                         </div>
                         <div class="p-4">
                             <div class="d-flex mb-3">
@@ -57,7 +56,7 @@
                     <div class="blog-item bg-light rounded overflow-hidden">
                         <div class="blog-img position-relative overflow-hidden">
                             <img class="img-fluid" src="{{ asset('img/blog-4.jpg') }}" alt="">
-                            <a class="position-absolute top-0 start-0 metro-fill text-white rounded-end mt-5 py-2 px-4" href="/services/ent">ENT Care</a>
+                            <a class="position-absolute top-0 start-0 magazine-fill text-white rounded-end mt-5 py-2 px-4" href="/services/ent">ENT Care</a>
                         </div>
                         <div class="p-4">
                             <div class="d-flex mb-3">
@@ -74,7 +73,7 @@
                     <div class="blog-item bg-light rounded overflow-hidden">
                         <div class="blog-img position-relative overflow-hidden">
                             <img class="img-fluid" src="{{ asset('img/blog-4.jpg') }}" alt="">
-                            <a class="position-absolute top-0 start-0 metro-fill text-white rounded-end mt-5 py-2 px-4" href="/services/eye">Eye Care</a>
+                            <a class="position-absolute top-0 start-0 magazine-fill text-white rounded-end mt-5 py-2 px-4" href="/services/eye">Eye Care</a>
                         </div>
                         <div class="p-4">
                             <div class="d-flex mb-3">
@@ -93,7 +92,7 @@
                     <div class="blog-item bg-light rounded overflow-hidden">
                         <div class="blog-img position-relative overflow-hidden">
                             <img class="img-fluid" src="{{ asset('img/blog-4.jpg') }}" alt="">
-                            <a class="position-absolute top-0 start-0 metro-fill text-white rounded-end mt-5 py-2 px-4" href="/services/surgery">General Surgery</a>
+                            <a class="position-absolute top-0 start-0 magazine-fill text-white rounded-end mt-5 py-2 px-4" href="/services/surgery">General Surgery</a>
                         </div>
                         <div class="p-4">
                             <div class="d-flex mb-3">
@@ -111,7 +110,7 @@
                     <div class="blog-item bg-light rounded overflow-hidden">
                         <div class="blog-img position-relative overflow-hidden">
                             <img class="img-fluid" src="{{ asset('img/blog-4.jpg') }}" alt="">
-                            <a class="position-absolute top-0 start-0 metro-fill text-white rounded-end mt-5 py-2 px-4" href="/services/pharmacy">Pharmacy Services</a>
+                            <a class="position-absolute top-0 start-0 magazine-fill text-white rounded-end mt-5 py-2 px-4" href="/services/pharmacy">Pharmacy Services</a>
                         </div>
                         <div class="p-4">
                             <div class="d-flex mb-3">
@@ -129,7 +128,7 @@
                     <div class="blog-item bg-light rounded overflow-hidden">
                         <div class="blog-img position-relative overflow-hidden">
                             <img class="img-fluid" src="{{ asset('img/blog-4.jpg') }}" alt="">
-                            <a class="position-absolute top-0 start-0 metro-fill text-white rounded-end mt-5 py-2 px-4" href="/services/laboratory">Laboratory Services</a>
+                            <a class="position-absolute top-0 start-0 magazine-fill text-white rounded-end mt-5 py-2 px-4" href="/services/laboratory">Laboratory Services</a>
                         </div>
                         <div class="p-4">
                             <div class="d-flex mb-3">
@@ -147,7 +146,7 @@
                     <div class="blog-item bg-light rounded overflow-hidden">
                         <div class="blog-img position-relative overflow-hidden">
                             <img class="img-fluid" src="{{ asset('img/blog-4.jpg') }}" alt="">
-                            <a class="position-absolute top-0 start-0 metro-fill text-white rounded-end mt-5 py-2 px-4" href="/services/ultrasound">Advanced Ultrasound Services</a>
+                            <a class="position-absolute top-0 start-0 magazine-fill text-white rounded-end mt-5 py-2 px-4" href="/services/ultrasound">Advanced Ultrasound Services</a>
                         </div>
                         <div class="p-4">
                             <div class="d-flex mb-3">

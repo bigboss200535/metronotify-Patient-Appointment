@@ -2,7 +2,7 @@
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="section-title text-center position-relative pb-3 mb-4 mx-auto" style="max-width: 600px;">
-                <h5 class="fw-bold metro-main-text mb-0">FAQs</h5>
+                <h5 class="fw-bold magazine-main-text mb-0">FAQs</h5>
                 <h1 class="mb-0">Frequently Asked Questions</h1>
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.6s">
@@ -10,7 +10,7 @@
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                         <!--<img class="img-fluid rounded" src="img/testimonial-1.jpg" style="width: 60px; height: 60px;" >-->
                         <div class="ps-4">
-                            <h5 class="metro-main-text mb-1">1. Today is my first visit to METRO HEALTH SERVICES. Where do I start?</h5>
+                            <h5 class="magazine-main-text mb-1">1. Today is my first visit to  @include('includes.in_facility'). Where do I start?</h5>
                             <!--<small class="text-lowercase">Today is my first visit to OAK. Where do I start?</small>-->
                         </div>
                     </div>
@@ -24,7 +24,7 @@
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                         <!--<img class="img-fluid rounded" src="img/testimonial-2.jpg" style="width: 60px; height: 60px;" >-->
                         <div class="ps-4">
-                            <h5 class="metro-main-text mb-1">2. I am a foreigner; do I need a special registration?</h5>
+                            <h5 class="magazine-main-text mb-1">2. I am a foreigner; do I need a special registration?</h5>
                             <!--<small class="text-uppercase">Profession</small>-->
                         </div>
                     </div>
@@ -37,13 +37,13 @@
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                         <!--<img class="img-fluid rounded" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;" >-->
                         <div class="ps-4">
-                            <h5 class="metro-main-text mb-1">3. Do you take health insurance? Which of them do you accept?</h5>
+                            <h5 class="magazine-main-text mb-1">3. Do you take health insurance? Which of them do you accept?</h5>
                             <!--<small class="text-uppercase">Profession</small>-->
                         </div>
                     </div>
                     <div class="pt-4 pb-5 px-5">
                         Yes, we accept a wide range of private health insurance claims.  
-						Kindly <a href="/contact"><strong class="metro-main-text">click here</strong></a> for more info.
+						Kindly <a href="/contact"><strong class="magazine-main-text">click here</strong></a> for more info.
                     </div>
                 </div>
 				
@@ -51,7 +51,7 @@
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                         <!--<img class="img-fluid rounded" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;" >-->
                         <div class="ps-4">
-                            <h5 class="metro-main-text mb-1">4. Do you accept card payments and foreign currencies?</h5>
+                            <h5 class="magazine-main-text mb-1">4. Do you accept card payments and foreign currencies?</h5>
                             <!--<small class="text-uppercase">Profession</small>-->
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                         <!--<img class="img-fluid rounded" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;" >-->
                         <div class="ps-4">
-                            <h5 class="metro-main-text mb-1">5. Will you permit visitors while I am on admission?</h5>
+                            <h5 class="magazine-main-text mb-1">5. Will you permit visitors while I am on admission?</h5>
                             <!--<small class="text-uppercase">Profession</small>-->
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                         <!--<img class="img-fluid rounded" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;" >-->
                         <div class="ps-4">
-                            <h5 class="metro-main-text mb-1">6. How can I get a medical report after my visit?</h5>
+                            <h5 class="magazine-main-text mb-1">6. How can I get a medical report after my visit?</h5>
                             <!--<small class="text-uppercase">Profession</small>-->
                         </div>
                     </div>
@@ -93,14 +93,14 @@
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                         <!--<img class="img-fluid rounded" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;" >-->
                         <div class="ps-4">
-                            <h5 class="metro-main-text mb-1">7. Are all the specialist consultants available 24/7?</h5>
+                            <h5 class="magazine-main-text mb-1">7. Are all the specialist consultants available 24/7?</h5>
                             <!--<small class="text-uppercase">Profession</small>-->
                         </div>
                     </div>
                     <div class="pt-4 pb-5 px-5">
                         Physicians at the Family Medicine department are available 24hours.
 						Other specialists are available at specified days and times within the week
-						Kindly <a href="/services"><strong class="metro-main-text">click here</strong></a> for more info.
+						Kindly <a href="/services"><strong class="magazine-main-text">click here</strong></a> for more info.
                     </div>
                 </div>
 				
@@ -108,13 +108,13 @@
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                         <!--<img class="img-fluid rounded" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;" >-->
                         <div class="ps-4">
-                            <h5 class="metro-main-text mb-1">8. I must visit the doctor again, what do I do?</h5>
+                            <h5 class="magazine-main-text mb-1">8. I must visit the doctor again, what do I do?</h5>
                             <!--<small class="text-uppercase">Profession</small>-->
                         </div>
                     </div>
                     <div class="pt-4 pb-5 px-5">
                         Kindly speak to the front desk personnel to make a review appointment if you are present at the facility.
-						You may also call or WhatsApp any of our  <a href="/contact"><strong class="metro-main-text">office numbers</strong></a> to book an appointment.
+						You may also call or WhatsApp any of our  <a href="/contact"><strong class="magazine-main-text">office numbers</strong></a> to book an appointment.
                     </div>
                 </div>
 				
@@ -122,7 +122,7 @@
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                         <!--<img class="img-fluid rounded" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;" >-->
                         <div class="ps-4">
-                            <h5 class="metro-main-text mb-1">9. Am I permitted to see a specialist without booking an appointment?</h5>
+                            <h5 class="magazine-main-text mb-1">9. Am I permitted to see a specialist without booking an appointment?</h5>
                             <!--<small class="text-uppercase">Profession</small>-->
                         </div>
                     </div>
@@ -135,7 +135,7 @@
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                         <!--<img class="img-fluid rounded" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;" >-->
                         <div class="ps-4">
-                            <h5 class="metro-main-text mb-1">10. How is the appointment system at METRO HEALTH SERVICES?</h5>
+                            <h5 class="magazine-main-text mb-1">10. How is the appointment system at  @include('includes.in_facility') ?</h5>
                             <!--<small class="text-uppercase">Profession</small>-->
                         </div>
                     </div>
@@ -148,7 +148,7 @@
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                         <!--<img class="img-fluid rounded" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;" >-->
                         <div class="ps-4">
-                            <h5 class="metro-main-text mb-1">11. I called to book an appointment, where do I go when I arrive at the hospital?</h5>
+                            <h5 class="magazine-main-text mb-1">11. I called to book an appointment, where do I go when I arrive at the hospital?</h5>
                             <!--<small class="text-uppercase">Profession</small>-->
                         </div>
                     </div>
@@ -161,12 +161,12 @@
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                         <!--<img class="img-fluid rounded" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;" >-->
                         <div class="ps-4">
-                            <h5 class="metro-main-text mb-1">12. I met a doctor and was asked to see another doctor in a different department, what should I do?</h5>
+                            <h5 class="magazine-main-text mb-1">12. I met a doctor and was asked to see another doctor in a different department, what should I do?</h5>
                             <!--<small class="text-uppercase">Profession</small>-->
                         </div>
                     </div>
                     <div class="pt-4 pb-5 px-5">
-                        Please you will have to inform the front desk personnel. If you are out of the hospital, kindly call any of our <a href="/contact"><strong class="metro-main-text"> office numbers</strong></a> for assistance.
+                        Please you will have to inform the front desk personnel. If you are out of the hospital, kindly call any of our <a href="/contact"><strong class="magazine-main-text"> office numbers</strong></a> for assistance.
                     </div>
                 </div>
 				
@@ -174,7 +174,7 @@
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                         <!--<img class="img-fluid rounded" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;" >-->
                         <div class="ps-4">
-                            <h5 class="metro-main-text mb-1">13. How do I get my lab investigations done?</h5>
+                            <h5 class="magazine-main-text mb-1">13. How do I get my lab investigations done?</h5>
                             <!--<small class="text-uppercase">Profession</small>-->
                         </div>
                     </div>
@@ -187,7 +187,7 @@
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                         <!--<img class="img-fluid rounded" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;" >-->
                         <div class="ps-4">
-                            <h5 class="metro-main-text mb-1">14. Will I get a copy of my laboratory reports?</h5>
+                            <h5 class="magazine-main-text mb-1">14. Will I get a copy of my laboratory reports?</h5>
                             <!--<small class="text-uppercase">Profession</small>-->
                         </div>
                     </div>
@@ -201,7 +201,7 @@
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                         <!--<img class="img-fluid rounded" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;" >-->
                         <div class="ps-4">
-                            <h5 class="metro-main-text mb-1">15. Do you take part-payment for your services?</h5>
+                            <h5 class="magazine-main-text mb-1">15. Do you take part-payment for your services?</h5>
                             <!--<small class="text-uppercase">Profession</small>-->
                         </div>
                     </div>
@@ -216,7 +216,7 @@
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                         <!--<img class="img-fluid rounded" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;" >-->
                         <div class="ps-4">
-                            <h5 class="metro-main-text mb-1">16. Will you permit a relative to stay with me when admitted at METRO HEALTH?</h5>
+                            <h5 class="magazine-main-text mb-1">16. Will you permit a relative to stay with me when admitted at  @include('includes.in_facility') ?</h5>
                             <!--<small class="text-uppercase">Profession</small>-->
                         </div>
                     </div>
@@ -230,7 +230,7 @@
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                         <!--<img class="img-fluid rounded" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;" >-->
                         <div class="ps-4">
-                            <h5 class="metro-main-text mb-1">17. I want to visit a friend on admission at METRO HEALTH SERVICES, where do I go?</h5>
+                            <h5 class="magazine-main-text mb-1">17. I want to visit a friend on admission at  @include('includes.in_facility'), where do I go?</h5>
                             <!--<small class="text-uppercase">Profession</small>-->
                         </div>
                     </div>
@@ -244,7 +244,7 @@
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                         <!--<img class="img-fluid rounded" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;" >-->
                         <div class="ps-4">
-                            <h5 class="metro-main-text mb-1">18. I have a prescription from a different hospital, can I buy the drugs from your pharmacy?</h5>
+                            <h5 class="magazine-main-text mb-1">18. I have a prescription from a different hospital, can I buy the drugs from your pharmacy?</h5>
                             <!--<small class="text-uppercase">Profession</small>-->
                         </div>
                     </div>
@@ -257,7 +257,7 @@
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                         <!--<img class="img-fluid rounded" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;" >-->
                         <div class="ps-4">
-                            <h5 class="metro-main-text mb-1">19. The doctor prescribed a drug for me, I missed a dose, what do I do?</h5>
+                            <h5 class="magazine-main-text mb-1">19. The doctor prescribed a drug for me, I missed a dose, what do I do?</h5>
                             <!--<small class="text-uppercase">Profession</small>-->
                         </div>
                     </div>

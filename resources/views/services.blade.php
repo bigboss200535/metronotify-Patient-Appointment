@@ -2,11 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Metro Health Services | Our Services</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Metro Health Services" name="keywords">
-    <meta content="Hospital Services" name="description">
-    <meta content="Surgery, Laboratory" name="services">
+    <title>Magazine Clinic | Our Services</title>
     @include('includes.in_favicon') 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +25,7 @@
     <!-- Navbar Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
-            <a href="/" class="navbar-brand p-0">
+            <a href="{{ url('/') }}" class="navbar-brand p-0">
                <h1 class="m-0"><img src="{{ asset('images/logo_1.png') }}" alt=""></i></h1>
             </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -37,17 +33,18 @@
                 </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="/" class="nav-item nav-link">Home</a>
-                    <a href="/about" class="nav-item nav-link">About Us</a>
+                    <a href="{{ url('/') }}" class="nav-item nav-link">Home</a>
+                    <a href="{{ url('/about') }}" class="nav-item nav-link">About Us</a>
                   <div class="nav-item dropdown">
-                        <a href="/services" class="nav-link active dropdown-toggle" data-bs-toggle="dropdown active">Our Services</a>
+                        <a href="{{ url('/services') }}" class="nav-link active dropdown-toggle" data-bs-toggle="dropdown active">Our Services</a>
                         <div class="dropdown-menu m-0">
                               @include('includes.in_service_list') 
                         </div>
                     </div>
                     <!-- <a href="blogpost.php" class="nav-item nav-link">Blog</a> -->
-                    <a href="/contact" class="nav-item nav-link">Contact Us</a>
-                     <a href="/appointments" class=" nav-item nav-link">Appointment</a>
+                    <a href="{{ url('/contact') }}" class="nav-item nav-link">Contact Us</a>
+                     <a href="{{ url('/appointments') }}" class=" nav-item nav-link">Appointment</a>
+                    <a href="{{ url('/selfservice/portal') }}" class="nav-item nav-link">Portal <sup style="color:red">New</sup></a>
                 </div>
             </div>
         </nav>
@@ -56,9 +53,9 @@
             <div class="row py-5">
                 <div class="col-12 pt-lg-5 mt-lg-5 text-center">
                     <h1 class="display-4 text-white animated zoomIn">Services</h1>
-                   <a href="/" class="h5 text-white">Home</a>
+                   <a href="{{ url('/') }}" class="h5 text-white">Home</a>
                     <i class="far fa-hospital text-white px-2"></i>
-                    <a href="/services" class="h5 text-white">Our Services</a>
+                    <a href="{{ url('/services') }}" class="h5 text-white">Our Services</a>
                 </div>
             </div>
         </div>

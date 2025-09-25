@@ -41,5 +41,7 @@
     <script src="{{ asset('portal/src/plugins/datatables/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('portal/src/plugins/datatables/js/responsive.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('portal/vendors/scripts/dashboard3.js') }}"></script>
+    
+
  </body>
 </html>

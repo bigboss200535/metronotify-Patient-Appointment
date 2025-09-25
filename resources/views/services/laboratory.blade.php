@@ -3,12 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Metro Health Services | Laboratory Services</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Metro Health Services" name="keywords">
-    <meta content="Hospital Services" name="description">
-    <meta content="Surgery, Laboratory" name="services">
-    <!-- Favicon -->
+    <title> @include('includes.in_facility')  | Laboratory Services</title>
      @include('includes.in_favicon') 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapixs.com">
@@ -109,7 +104,7 @@
                         <h1 class="mb-4">Our Laboratory Services</h1>
                         <p>In the current era of evidence-based medicine, we provide the best solutions to you with the help of our state-of-the-art laboratory, 
 						manned by experienced and skilled laboratory scientists. </p>
-                        <p> Laboratory services at Metro Health Services function 24/7 with an emphasis on
+                        <p> Laboratory services at @include('includes.in_facility')  function 24/7 with an emphasis on
 						accuracy, precision, reproducibility, and prompt reporting.</p>
                     </div>
                     <!-- Blog Detail End -->

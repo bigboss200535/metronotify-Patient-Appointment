@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AppointmentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EnquiryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +29,8 @@ Route::middleware('web')->group(function () {
     Route::view('/appointments', 'appointments')->name('appointments');
     Route::view('/selfservice/portal', 'portal.login')->name('login');
     
+    Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiry.store');
+    
     // Services group
     Route::prefix('services')->group(function () {
         Route::view('/', 'services')->name('services');
@@ -49,8 +52,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    
+
+
     Route::prefix('users')->group(function () {
-            Route::get('/list', [UserController::class, 'index'])->name('users.index');
+         // list users
+        Route::get('/list', [UserController::class, 'index'])->name('users.index');
+        //block and unblock user
+        Route::get('/{user_id}/block', [UserController::class, 'block'])->name('users.block');
+        Route::get('/{user_id}/unblock', [UserController::class, 'unblock'])->name('users.unblock');
+
             // Route::get('/appointmentlist', [AppointmentController::class, 'index'])->name('appointment.index');
     });
     Route::prefix('selfservice')->group(function () {

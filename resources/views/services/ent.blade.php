@@ -2,26 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Metro Health Services | Ear, Nose & Throat</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Metro Health Services" name="keywords">
-    <meta content="Hospital Services" name="description">
-    <meta content="Surgery, Laboratory" name="services">
-    <!-- Favicon -->
+    <title> @include('includes.in_facility')  | Ear, Nose & Throat</title>
      @include('includes.in_favicon') 
-    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapixs.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Libraries Stylesheet -->
     <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
-    <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <!-- Template Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -44,18 +34,18 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="/" class="nav-item nav-link">Home</a>
-                    <a href="/about" class="nav-item nav-link">About Us</a>
+                    <a href="{{ url('/') }}" class="nav-item nav-link">Home</a>
+                    <a href="{{ url('/about') }}" class="nav-item nav-link">About Us</a>
                     <!--<a href="service.php" class="nav-item nav-link">Services</a>-->
                     <div class="nav-item dropdown">
-                        <a href="/services" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown active">Our Services</a>
+                        <a href="{{ url('/services') }}" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown active">Our Services</a>
                         <div class="dropdown-menu m-0">
                              @include('includes.in_service_list') 
                         </div>
                     </div>
 					<!-- <a href="blogpost.php" class="nav-item nav-link">Blog</a> -->
-                    <a href="/contact" class="nav-item nav-link">Contact Us</a>
-                     <a href="/appointments" class="nav-item nav-link">Appointments</a>
+                    <a href="{{ url('/contact') }}" class="nav-item nav-link">Contact Us</a>
+                     <a href="{{ url('/appointments') }}" class="nav-item nav-link">Appointments</a>
                 </div>
                 <!-- <butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton> -->
                 <!-- <a href="appointment.php" class="btn btn-primary py-2 px-4 ms-3">Book Appointment</a> -->
@@ -66,18 +56,14 @@
             <div class="row py-5">
                 <div class="col-12 pt-lg-5 mt-lg-5 text-center">
                     <h1 class="display-4 text-white animated zoomIn">Ear, Nose & Throat (ENT)</h1>
-                    <a href="/" class="h5 text-white">Home</a>
+                    <a href="{{ url('/') }}" class="h5 text-white">Home</a>
                     <i class="far fa-hospital text-white px-2"></i>
-                    <a href="/services" class="h5 text-white">Services</a>
+                    <a href="{{ url('/services') }}" class="h5 text-white">Services</a>
                 </div>
             </div>
         </div>
     </div>
     <!-- Navbar End -->
-
-    <!-- Full Screen Search Start -->
-     
-    <!-- Full Screen Search End -->
 
     <!-- Blog Start -->
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -89,7 +75,7 @@
                         <img class="img-fluid w-100 rounded mb-5" src="{{ asset('img/blog-1.jpg') }}" alt="">
                         <h1 class="mb-4">Ear, Nose and Throat (ENT)</h1>
                         <p>Today’s woman is busier than ever, balancing careers, families, and a myriad of other responsibilities.
-						We at Metro Health Services understand and are committed to bringing smiles to your faces. Our consultants are passionate to
+						We at  @include('includes.in_facility')  understand and are committed to bringing smiles to your faces. Our consultants are passionate to
 						supply solutions to preconception, antenatal, and postnatal concerns.</p>
                         <p>We offer labour and delivery services. We also offer programmes, classes, and support for our expecting mothers.</p>
                         <p>Subspecialty services supplied include general obstetrics and gynaecology, maternal-fetal medicine, 
@@ -144,14 +130,14 @@
                             <h3 class="mb-0">Other Services</h3>
                         </div>
                         <div class="link-animated d-flex flex-column justify-content-start">
-                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="/general"><i class="bi bi-arrow-right me-2"></i>General and Family Medicine</a>
-                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="/obstetrics"><i class="bi bi-arrow-right me-2"></i>Geriatrics /Elderly Care</a>
-                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="/obstetrics"><i class="bi bi-arrow-right me-2"></i>Obstetrics & Gynaecology Care</a>
-                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="/eye"><i class="bi bi-arrow-right me-2"></i>Eye Care</a>
-                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="/surgery"><i class="bi bi-arrow-right me-2"></i>General Surgery</a>
-                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="/pharmacy"><i class="bi bi-arrow-right me-2"></i>Pharmacy Services</a>
-                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="/laboratory"><i class="bi bi-arrow-right me-2"></i>Laboratory Services</a>
-                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="/ultrasound"><i class="bi bi-arrow-right me-2"></i>Advanced Ultrasound Services</a>
+                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="{{ url('/general') }}"><i class="bi bi-arrow-right me-2"></i>General and Family Medicine</a>
+                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="{{ url('/obstetrics') }}"><i class="bi bi-arrow-right me-2"></i>Geriatrics /Elderly Care</a>
+                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="{{ url('/obstetrics') }}"><i class="bi bi-arrow-right me-2"></i>Obstetrics & Gynaecology Care</a>
+                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="{{ url('/eye') }}"><i class="bi bi-arrow-right me-2"></i>Eye Care</a>
+                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="{{ url('/surgery') }}"><i class="bi bi-arrow-right me-2"></i>General Surgery</a>
+                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="{{ url('/pharmacy') }}"><i class="bi bi-arrow-right me-2"></i>Pharmacy Services</a>
+                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="{{ url('/laboratory') }}"><i class="bi bi-arrow-right me-2"></i>Laboratory Services</a>
+                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2 gold-text" href="{{ url('/ultrasound') }}"><i class="bi bi-arrow-right me-2"></i>Advanced Ultrasound Services</a>
                         </div>
                     </div>
     

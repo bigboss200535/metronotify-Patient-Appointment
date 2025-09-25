@@ -2,12 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Metro Health Services | Geriatric Care</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Metro Health Services" name="keywords">
-    <meta content="Hospital Services" name="description">
-    <meta content="Surgery, Laboratory" name="services">
-    <!-- Favicon -->
+    <title> @include('includes.in_facility')  | Geriatric Care</title>
+    
     @include('includes.in_favicon') 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +40,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
                     <a href="/" class="nav-item nav-link">Home</a>
-                    <a href="/about" class="metro-main-text nav-item nav-link">About Us</a>
+                    <a href="/about" class="nav-item nav-link">About Us</a>
                   <div class="nav-item dropdown">
                         <a href="/services" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown active">Our Services</a>
                         <div class="dropdown-menu m-0">

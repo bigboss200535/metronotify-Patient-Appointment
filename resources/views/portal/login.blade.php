@@ -92,7 +92,7 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="input-group mb-0">
-                                        <input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign In" style="background-color: #673466; border-color: #673466;">
+                                        <input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign In">
                                     </div>
                                     <div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">OR</div>
                                     <div class="input-group mb-0">

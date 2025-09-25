@@ -2,12 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Metro Health Services | Home</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Metro Health Services" name="keywords">
-    <meta content="Hospital Services" name="description">
-    <meta content="Surgery, Laboratory" name="services">
-    <link href="{{ asset('img/favicon.png') }}" rel="icon">
+    <title>Magazine Clinic | Home</title>
+    @include('includes.in_favicon') 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -34,7 +30,7 @@
     <!-- Navbar & Carousel Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
-            <a href="/" class="navbar-brand p-0">
+            <a href="{{ url('/') }}" class="navbar-brand p-0">
                <h1 class="m-0"><img src="{{ asset('images/logo_1.png') }}" alt=""></i></h1>
             </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -42,17 +38,18 @@
                 </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="/" class="nav-item nav-link active">Home</a>
-                    <a href="/about" class=" nav-item nav-link">About Us</a>
+                    <a href="{{ url('/') }}" class="nav-item nav-link active">Home</a>
+                    <a href="{{ url('/about') }}" class=" nav-item nav-link">About Us</a>
                   <div class="nav-item dropdown">
-                        <a href="/services" class="nav-link dropdown-toggle" data-bs-toggle="dropdown active">Our Services</a>
+                        <a href="{{ url('/services') }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown active">Our Services</a>
                         <div class="dropdown-menu m-0">
                             @include('includes.in_service_list') 
                         </div>
                     </div>
                     <!-- <a href="blogpost.php" class="nav-item nav-link">Blog</a> -->
-                    <a href="/contact" class="nav-item nav-link">Contact Us</a>
-                    <a href="/appointments" class="nav-item nav-link">Appointment</a>
+                    <a href="{{ url('/contact') }}" class="nav-item nav-link">Contact Us</a>
+                    <a href="{{ url('/appointments') }}" class="nav-item nav-link">Appointment</a>
+                     <a href="{{ url('/selfservice/portal') }}" class="nav-item nav-link">Portal <sup style="color:red">New</sup></a>
                     <!-- <a href="/portal" class="nav-item nav-link">Portal</a> -->
                 </div>
                 <!-- <button type="button" class="btn text-white ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button> -->
@@ -69,7 +66,7 @@
                             <h5 class="text-white text-lowercase mb-3 animated slideInDown"></h5>
                             <h1 class="display-1 text-white mb-md-4 animated zoomIn">...your health, our concern.</h1>
                             <a href="" class="btn metro-fill metro-text py-md-3 px-md-5 me-3 animated slideInLeft">Get in touch</a>
-                            <a href="/contact" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
+                            <a href="{{ url('/contact') }}" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -80,7 +77,7 @@
                             <h5 class="text-white text-lowercase mb-3 animated slideInDown"></h5>
                             <h1 class="display-1 text-white mb-md-4 animated zoomIn">“we are right here, When you need us”</h1>
                             <a href="" class="btn metro-fill metro-text py-md-3 px-md-5 me-3 animated slideInLeft">Get in touch</a>
-                            <a href="/contact" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
+                            <a href="{{ url('/contact') }}" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -91,7 +88,7 @@
                             <h5 class="text-white text-lowercase mb-3 animated slideInDown"></h5>
                             <h1 class="display-1 text-white mb-md-4 animated zoomIn">“The science of medicine, the art of healing."</h1>
                             <a href="" class="btn metro-fill metro-text py-md-3 px-md-5 me-3 animated slideInLeft">Get in touch</a>
-                            <a href="/contact" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
+                            <a href="{{ url('/contact') }}" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -102,7 +99,7 @@
                             <h5 class="text-white text-lowercase mb-3 animated slideInDown"></h5>
                             <h1 class="display-1 text-white mb-md-4 animated zoomIn">“Private hospital practices, done right.”</h1>
                             <a href="" class="btn metro-fill metro-text py-md-3 px-md-5 me-3 animated slideInLeft">Get in touch</a>
-                            <a href="/contact" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
+                            <a href="{{ url('/contact') }}" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -113,7 +110,7 @@
                             <h5 class="text-white text-lowercase mb-3 animated slideInDown"></h5>
                             <h1 class="display-1 text-white mb-md-4 animated zoomIn">“..quality service, redefined.”</h1>
                             <a href="" class="btn metro-fill metro-text py-md-3 px-md-5 me-3 animated slideInLeft">Get in touch</a>
-                            <a href="/contact" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
+                            <a href="{{ url('/contact') }}" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -143,7 +140,7 @@
             <div class="row g-5">
                 <div class="col-lg-7">
                     <div class="section-title position-relative pb-3 mb-5">
-                        <h5 class="fw-bold metro-main-text text-uppercase">WELCOME TO METRO HEALTH SERVICES</h5>
+                        <h5 class="fw-bold magazine-main-text text-uppercase">WELCOME TO MAGAZINE CLINIC</h5>
                         <h1 class="mb-0"></h1>
                     </div>
                     <h1 class="mb-1">We care for you, with compassion and respect at every visit.</h1>
@@ -152,12 +149,12 @@
                     <p class="mb-0"></p>
                     
                         <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
-                            <h5 class="mb-3"><i class="fa fa-check metro-main-text me-3"></i>High Expertise</h5>
-                            <h5 class="mb-3"><i class="fa fa-check metro-main-text me-3"></i>Professional Staff</h5>
+                            <h5 class="mb-3"><i class="fa fa-check magazine-main-text me-3"></i>High Expertise</h5>
+                            <h5 class="mb-3"><i class="fa fa-check magazine-main-text me-3"></i>Professional Staff</h5>
                         </div>
                         <div class="col-sm-6 wow zoomIn" data-wow-delay="0.4s">
-                            <h5 class="mb-3"><i class="fa fa-check metro-main-text me-3"></i>24/7 Service</h5>
-                            <h5 class="mb-3"><i class="fa fa-check metro-main-text me-3"></i>Top-class facilities</h5>
+                            <h5 class="mb-3"><i class="fa fa-check magazine-main-text me-3"></i>24/7 Service</h5>
+                            <h5 class="mb-3"><i class="fa fa-check magazine-main-text me-3"></i>Top-class facilities</h5>
                         </div>
                     </div>
                     <div class="d-flex align-items-center mb-4 wow fadeIn" data-wow-delay="0.6s">
@@ -166,10 +163,10 @@
                         </div>
                         <div class="ps-4">
                             <h5 class="mb-2">Call to ask any question.</h5>
-                            <a href="#"><h4 class="metro-main-text">+233 (0)3220 89675</h4></a>
+                            <a href="#"><h4 class="magazine-main-text">+233 (0)3220 89675</h4></a>
                         </div>
                     </div>
-                    <a href="/contact" class="btn metro-fill text-white py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Get in touch</a>
+                    <a href="{{ url('/contact') }}" class="btn metro-fill-gold  text-white py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Get in touch</a>
                 </div>
                 <div class="col-lg-5" style="min-height: 500px;">
                     <div class="position-relative h-100">
@@ -186,7 +183,7 @@
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-                <h5 class="fw-bold metro-main-text text-uppercase"> Why choose Metro Health?</h5>
+                <h5 class="fw-bold magazine-main-text text-uppercase"> Why choose Magazine Clinic?</h5>
                 <h1 class="mb-0">Our healthcare professionals are proud to offer these services everyday.</h1>
             </div>
             <div class="row g-5">
@@ -221,7 +218,7 @@
                             <i class="fas fa-medkit text-white"></i>
                         </div>
                         <h4 class="mb-3">Connected Care</h4>
-                        <p class="m-0">The refreshing welcome experienced at Metro Health Services is a feature at every unit you visit,
+                        <p class="m-0">The refreshing welcome experienced at Magazine Clinic is a feature at every unit you visit,
                         a credit to the built-up system by our professionals.</p>
                         <a class="btn btn-lg metro-fill text-white rounded" href="">
                             <i class="bi bi-arrow-right"></i>
@@ -275,29 +272,27 @@
         <div class="container py-5">
             <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
                 <h5 class="fw-bold text-primary text-uppercase"></h5>
-                <h5 class="fw-bold metro-main-text text-uppercase"> Our purpose, mission, and vision</h5>
-                <!-- <h1 class="mb-0 metro-main-text">Our purpose, mission, and vision</h1> -->
+                <h5 class="fw-bold magazine-main-text text-uppercase"> Our purpose, mission, and vision</h5>
+                <!-- <h1 class="mb-0 magazine-main-text">Our purpose, mission, and vision</h1> -->
             </div>
             <div class="row g-0">
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
                     <div class="bg-light rounded">
                         <div class="border-bottom py-4 px-5 mb-4">
-                            <h4 class="metro-main-text mb-1">Purpose</h4>
+                            <h4 class="magazine-main-text mb-1">Purpose</h4>
                             <small class="text-sentencecase">Why We are here</small>
                         </div>
                         <div class="p-5 pt-0">
                             <p class="m-0"><strong></strong>Our purpose is to make standardized medical services accessible to all. </p>
                             <!-- <p></p> -->
-                        
-                            
-                            <a href="/contact" class="btn metro-fill py-2 px-4 mt-4 text-white">Get in touch</a>
+                            <a href="{{ url('/contact') }}" class="btn metro-fill py-2 px-4 mt-4 text-white">Get in touch</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
                     <div class="bg-white rounded shadow position-relative" style="z-index: 1;">
                         <div class="border-bottom py-4 px-5 mb-4">
-                            <h4 class="metro-main-text mb-1">Our Mission</h4>
+                            <h4 class="magazine-main-text mb-1">Our Mission</h4>
                             <small class="text-sentencecase">How we operate</small>
                         </div>
                         <div class="p-5 pt-0">
@@ -305,14 +300,14 @@
                                 Our Mission is to transform the lives of patients by surpassing expectations in healthcare, 
                                 inspiring hope for a better Ghana.
                                 </p>
-                            <a href="/contact" class="btn metro-fill py-2 px-4 mt-4 text-white">Get in touch</a>
+                            <a href="{{ url('/contact') }}" class="btn metro-fill py-2 px-4 mt-4 text-white">Get in touch</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
                     <div class="bg-light rounded">
                         <div class="border-bottom py-4 px-5 mb-4">
-                            <h4 class="metro-main-text mb-1">Our Vision</h4>
+                            <h4 class="magazine-main-text mb-1">Our Vision</h4>
                             <small class="text-sentencecasecase">How You Will See It</small>
                         </div>
                         <div class="p-5 pt-0">
@@ -320,8 +315,7 @@
                                 Our vision is to be Ghana's most trusted name in healthcare <!-- by providing 
                                 patient-centred and excellent specialty healthcare services. -->
                             </p>
-                            
-                            <a href="/contact" class="btn metro-fill py-2 px-4 mt-4 text-white">Get in touch</a>
+                            <a href="{{ url('/contact') }}" class="btn metro-fill py-2 px-4 mt-4 text-white">Get in touch</a>
                         </div>
                     </div>
                 </div>
@@ -337,14 +331,14 @@
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-                <h5 class="fw-bold metro-main-text text-uppercase">Our Specialist Days</h5>
+                <h5 class="fw-bold magazine-main-text text-uppercase">Our Specialist Days</h5>
                 <h1 class="mb-0">We provide specialised cases so support our clients schedules</h1>
             </div>
             <div class="row g-0">
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
                     <div class="bg-light rounded">
                         <div class="border-bottom py-4 px-5 mb-4">
-                            <h4 class="metro-main-text mb-1">OBSTETRICS & GYNAE</h4>
+                            <h4 class="magazine-main-text mb-1">OBSTETRICS & GYNAE</h4>
                             <small class="text-uppercase text-dark">MONDAYS</small>
                         </div>
                         <div class="p-5 pt-0">
@@ -360,7 +354,7 @@
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
                     <div class="bg-white rounded shadow position-relative" style="z-index: 1;">
                         <div class="border-bottom py-4 px-5 mb-4">
-                            <h4 class="metro-main-text mb-1"> EAR, NOSE AND THROAT</h4>
+                            <h4 class="magazine-main-text mb-1"> EAR, NOSE AND THROAT</h4>
                             <small class="text-uppercase text-dark">WEDNESDAYS</small>
                         </div>
                         <div class="p-5 pt-0">
@@ -376,7 +370,7 @@
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
                     <div class="bg-light rounded">
                         <div class="border-bottom py-4 px-5 mb-4">
-                            <h4 class="metro-main-text mb-1">ORTHOPEDICS CARE</h4>
+                            <h4 class="magazine-main-text mb-1">ORTHOPEDICS CARE</h4>
                             <small class="text-uppercase text-dark">WEDNESDAYS</small>
                         </div>
                         <div class="p-5 pt-0">
@@ -401,16 +395,15 @@
             <div class="row g-5">
                 <div class="col-lg-7">
                     <div class="section-title position-relative pb-3 mb-5">
-
-                        <h5 class="fw-bold metro-main-text text-uppercase">MAKE AN ENQUIRY</h5>
+                        <h5 class="fw-bold magazine-main-text text-uppercase">MAKE AN ENQUIRY</h5>
                         <h1 class="mb-0">Need to make an enquiry? Please  contact us</h1>
                     </div>
                     <div class="row gx-3">
                         <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
-                            <h5 class="mb-4"><i class="fa fa-reply metro-main-text me-3"></i>Reply within 24 hours</h5>
+                            <h5 class="mb-4"><i class="fa fa-reply magazine-main-text me-3"></i>Reply within 24 hours</h5>
                         </div>
                         <div class="col-sm-6 wow zoomIn" data-wow-delay="0.4s">
-                            <h5 class="mb-4 "><i class="fa fa-phone-alt metro-main-text me-3"></i>24-hour telephone support</h5>
+                            <h5 class="mb-4 "><i class="fa fa-phone-alt magazine-main-text me-3"></i>24-hour telephone support</h5>
                         </div>
                     </div>
                     <p class="mb-4">We have fully-manned and equipped units that run 24 hours a day, 7 days a week.
@@ -424,42 +417,44 @@
                         </div>
                         <div class="ps-4">
                             <h5 class="mb-2">Call to ask any question</h5>
-                            <h4 class="metro-main-text">+233 (0) 509760659</h4>
+                            <h4 class="magazine-main-text">+233 (0) 509760659</h4>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-5">
+                    <!-- form response -->
+                     <div id="form_response" class="mt-3"></div>
+
                     <div class="metro-fill rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
-                        <form action="#" method="POST">
+                        <!-- <div class="col-12"> -->
+                               
+                        <!-- </div> -->
+                        <form id="info_page" method="POST" onsubmit="return false">
+                            @csrf
                             <div class="row g-3">
                                 <div class="col-xl-12">
-                                    <input type="text" class="form-control bg-light border-0" placeholder="Your Name" name="name" required style="height: 55px;">
+                                    <input type="text" class="form-control bg-light border-0" placeholder="Your Name" name="fullname" id="fullname" required style="height: 55px;">
+                                    <input type="text" name="page_type" id="page_type" value="enquiry" hidden>
+                                    <input type="text" name="page_name" id="page_name" value="home_page" hidden>
                                 </div>
                                 <div class="col-12">
                                     <input type="email" class="form-control bg-light border-0" placeholder="Your Email" name="email" required style="height: 55px;">
                                 </div>
                                 <div class="col-12">
-                                    <input type="contact" class="form-control bg-light border-0" placeholder="Your Contact" name="contact" required style="height: 55px;">
+                                    <input type="text" class="form-control bg-light border-0" placeholder="Your Telephone" name="telephone" id="telephone" minlength="10" maxlength="15" required style="height: 55px;">
                                 </div>
                                 <div class="col-12">
-                                    <select class="form-select bg-light border-0" name="Services" required style="height: 55px;">
-                                        <option selected>Select A Service</option>
-                                        <option value="General Practice">General/Family Medicine</option>
-                                        <option value="Obstetrics And Gynaecology">Obstetrics/Gynaecology</option>
-                                        <option value="Pediatrics">Pediatrics</option>
-                                        <option value="Internal Medicine">Internal Medicine</option>
-                                        <option value="Surgery">Surgery</option>
-                                        <option value="General Laboratory">General Laboratory</option>
-                                        <option value="Pharmacy">Pharmacy</option>
-                                        <option value="Ultrasound Scan Services">Ultrasound Scan Services</option>
-                                        <option value="Any Other Services">Any Other Services</option>
+                                    <select class="form-select bg-light border-0" name="service" id="service" required style="height: 55px;">
+                                        <option selected disabled>Select A Service</option>
+                                        @include('includes.in_services_option') 
                                     </select>
                                 </div>
                                 <div class="col-12">
-                                    <textarea class="form-control bg-light border-0" rows="3" placeholder="Message" name="messages" required></textarea>
+                                    <textarea class="form-control bg-light border-0" rows="3" placeholder="Message" name="message" id="message" required></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn metro-fill-gold w-100 py-3 text-white" type="submit">Sign up </button>
+                                    <!-- <button class="btn metro-fill-gold w-100 py-3 text-white" type="submit">Submit </button> -->
+                                    <button class="btn metro-fill-gold text-white w-100 py-3" name="save_contact_form" id="save_contact_form" type="submit">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -478,7 +473,7 @@
    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="section-title text-center position-relative pb-3 mb-4 mx-auto" style="max-width: 600px;">
-                <h5 class="fw-bold metro-main-text text-uppercase">Testimonial</h5>
+                <h5 class="fw-bold magazine-main-text text-uppercase">Testimonial</h5>
                 <h1 class="mb-0">What Our Clients Say About Our  Services</h1>
             </div>
             <div class="owl-carousel testimonial-carousel position-relative wow fadeInUp" data-wow-delay="0.1s">
@@ -494,11 +489,11 @@
                     </div>
                     <!--<img class="bg-light rounded-circle p-2 mx-auto mb-2" src="img/testimonial-1.jpg') }}" style="width: 80px; height: 80px;">-->
                     <div class="mb-2">
-                        <small class="fa fa-star metro-main-text"></small>
-                        <small class="fa fa-star metro-main-text"></small>
-                        <small class="fa fa-star metro-main-text"></small>
-                        <small class="fa fa-star metro-main-text"></small>
-                        <small class="fa fa-star metro-main-text"></small>
+                        <small class="fa fa-star magazine-main-text"></small>
+                        <small class="fa fa-star magazine-main-text"></small>
+                        <small class="fa fa-star magazine-main-text"></small>
+                        <small class="fa fa-star magazine-main-text"></small>
+                        <small class="fa fa-star magazine-main-text"></small>
                     </div>
                     <h5 class="mb-1">Priscilla Esi Baidoo</h5>
                     <p class="m-0">Banker</p>
@@ -510,11 +505,11 @@
                     </div>
                     <!--<img class="bg-light rounded-circle p-2 mx-auto mb-2" src="img/testimonial-2.jpg') }}" style="width: 80px; height: 80px;">-->
                     <div class="mb-2">
-                        <small class="fa fa-star metro-main-text"></small>
-                        <small class="fa fa-star metro-main-text"></small>
-                        <small class="fa fa-star metro-main-text"></small>
-                        <small class="fa fa-star metro-main-text"></small>
-                        <small class="fa fa-star metro-main-text"></small>
+                        <small class="fa fa-star magazine-main-text"></small>
+                        <small class="fa fa-star magazine-main-text"></small>
+                        <small class="fa fa-star magazine-main-text"></small>
+                        <small class="fa fa-star magazine-main-text"></small>
+                        <small class="fa fa-star magazine-main-text"></small>
                     </div>
                     <h5 class="mb-1">Ann Ama Agyekum Anamah</h5>
                     <p class="m-0">Nurse</p>
@@ -527,11 +522,11 @@
                     </div>
                     <!--<img class="bg-light rounded-circle p-2 mx-auto mb-2" src="img/testimonial-3.jpg') }}" style="width: 80px; height: 80px;">-->
                     <div class="mb-2">
-                        <small class="fa fa-star metro-main-text"></small>
-                        <small class="fa fa-star metro-main-text"></small>
-                        <small class="fa fa-star metro-main-text"></small>
-                        <small class="fa fa-star metro-main-text"></small>
-                        <small class="fa fa-star metro-main-text"></small>
+                        <small class="fa fa-star magazine-main-text"></small>
+                        <small class="fa fa-star magazine-main-text"></small>
+                        <small class="fa fa-star magazine-main-text"></small>
+                        <small class="fa fa-star magazine-main-text"></small>
+                        <small class="fa fa-star magazine-main-text"></small>
                     </div>
                     <h5 class="mb-1">Mary Owusu Twum</h5>
                     <p class="m-0">Teacher</p>
@@ -544,11 +539,11 @@
                     </div>
                     <!--<img class="bg-light rounded-circle p-2 mx-auto mb-2" src="img/testimonial-4.jpg') }}" style="width: 80px; height: 80px;">-->
                     <div class="mb-2">
-                        <small class="fa fa-star metro-main-text"></small>
-                        <small class="fa fa-star metro-main-text"></small>
-                        <small class="fa fa-star metro-main-text"></small>
-                        <small class="fa fa-star metro-main-text"></small>
-                        <small class="fa fa-star metro-main-text"></small>
+                        <small class="fa fa-star magazine-main-text"></small>
+                        <small class="fa fa-star magazine-main-text"></small>
+                        <small class="fa fa-star magazine-main-text"></small>
+                        <small class="fa fa-star magazine-main-text"></small>
+                        <small class="fa fa-star magazine-main-text"></small>
                     </div>
                     <h5 class="mb-1">Mrs Eunice Oduro-Boateng</h5>
                     <p class="m-0">Guest Service Supervisor</p>
@@ -578,6 +573,69 @@
     <script src="{{ asset('lib/counterup/counterup.min.js') }}"></script>
     <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
+    <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('info_page');
+            const submitBtn = document.getElementById('save_contact_form');
+            const responseBox = document.getElementById('form_response');
+            // const actionUrl = form.dataset.url; // Get the route from data-url attribute
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                // Clear previous messages
+                responseBox.innerHTML = '';
+
+                // Disable submit button to prevent multiple clicks
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Submitting...';
+
+                try {
+                    // Collect form data
+                    const formData = new FormData(form);
+
+                    // Send AJAX request
+                    const response = await fetch("{{ route('enquiry.store') }}", {
+                        method: "POST",
+                        headers: {
+                            'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
+                        },
+                        body: formData
+                    });
+
+                    const result = await response.json();
+
+                    // Handle validation or server errors
+                    if (!response.ok) {
+                        if (result.errors) {
+                            let errorList = '<div class="alert alert-danger"><ul>';
+                            for (const key in result.errors) {
+                                errorList += `<li>${result.errors[key][0]}</li>`;
+                            }
+                            errorList += '</ul></div>';
+                            responseBox.innerHTML = errorList;
+                        } else {
+                            responseBox.innerHTML = `<div class="alert alert-danger">${result.message || 'Something went wrong. Please try again.'}</div>`;
+                        }
+                    } else {
+                        // Success response
+                        responseBox.innerHTML = `<div class="alert alert-success">${result.message}</div>`;
+                        
+                        // Reset form after success
+                        form.reset();
+                    }
+                } catch (error) {
+                    console.error('Submission error:', error);
+                    responseBox.innerHTML = `<div class="alert alert-danger">An unexpected error occurred. Please try again.</div>`;
+                } finally {
+                    // Re-enable the submit button
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Submit';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -2,12 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Metro Health Services | Obstetrics & Gynaecology</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Metro Health Services" name="keywords">
-    <meta content="Hospital Services" name="description">
-    <meta content="Surgery, Laboratory" name="services">
-    <!-- Favicon -->
+    <title> @include('includes.in_facility')  | Obstetrics & Gynaecology</title>
     @include('includes.in_favicon') 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,7 +86,7 @@
                         <img class="img-fluid w-100 rounded mb-5" src="{{ asset('img/blog-1.jpg') }}" alt="">
                         <h1 class="mb-4">Obstetrics and Gynaecology</h1>
                         <p>Today’s woman is busier than ever, balancing careers, families, and a myriad of other responsibilities.
-						We at Metro Health Services understand and are committed to bringing smiles to your faces. Our consultants are passionate to
+						We at @include('includes.in_facility') understand and are committed to bringing smiles to your faces. Our consultants are passionate to
 						supply solutions to preconception, antenatal, and postnatal concerns.</p>
                         <p>We offer labour and delivery services. We also offer programmes, classes, and support for our expecting mothers.</p>
                         <p>Subspecialty services supplied include general obstetrics and gynaecology, maternal-fetal medicine, 

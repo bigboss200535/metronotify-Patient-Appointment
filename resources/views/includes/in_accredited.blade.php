@@ -1,6 +1,8 @@
 <div class="section-title text-center position-relative pb-3 mb-4 mx-auto" style="max-width: 600px;">
-            <h5 class="fw-bold metro-main-text text-uppercase">ACCREDITTED HEALTH INSURANCE </h5>
-            <h1 class="mb-0">All accredited insurance with Metro Health Services</h1>
+            <h5 class="fw-bold magazine-main-text text-uppercase">ACCREDITTED HEALTH INSURANCE </h5>
+            <h1 class="mb-0">All accredited insurance with  
+            @include('includes.in_facility') 
+        </h1>
 </div>
 <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5 mb-5">

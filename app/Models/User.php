@@ -28,6 +28,7 @@ class User extends Authenticatable
         'firstname',
         'email',
         'password',
+        'is_blocked',
         'status',
         'archive',
         'archive_date'
@@ -51,5 +52,36 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'is_blocked' => 'boolean',
+        'blocked_at' => 'datetime',
     ];
+
+
+    // check if user is blocked
+    public function isBlocked(): bool
+    {
+        return $this->is_blocked;
+    }
+
+
+    // block the user 
+    public function block(): void
+    {
+        $this->update([
+            'is_blocked' => true,
+            'blocked_at' => now(),
+            'blocked_by' => '',
+        ]);
+    }
+
+    // unblock the user
+    public function unblock(): void
+    {
+       $this->update([
+            'is_blocked' => false,
+            'blocked_at' => null,
+            'blocked_by' => '',
+        ]);
+    }
+
 }

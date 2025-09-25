@@ -1,16 +1,22 @@
 /********** Template CSS **********/
 :root {
     --primary: #65740b;
+    /*--sliding: #65740b;*/
     --secondary: #c23034;
     --light: #65740b;
     --dark: #1b3e56;
-    --metro-fill: #673466;
-    --metro-fill-gold: #65740b;
+    --metro-fill: #002d72;/*#673466;*/
+    --red-fill: #ed1c24;
+    --metro-fill-gold: #589AFE; /*#ed1c24;*/
 }
 
 
 .metro-fill {
     background-color: var(--metro-fill) !important;
+}
+
+.magazine-fill {
+    background-color: var(--red-fill) !important;
 }
 
 .metro-text {
@@ -31,7 +37,11 @@
 }
 
 .metro-main-text {
-    color: #673466 !important;
+    color: #002d72 !important;
+}
+
+.magazine-main-text {
+    color: #ed1c24 !important;
 }
 
 .metro-white-text {
@@ -230,7 +240,7 @@ h6,
         height: 2px;
         bottom: -1px;
         left: 50%;
-        background: var(--primary);
+        background: var(--metro-fill-gold);
         transition: .5s;
     }
 

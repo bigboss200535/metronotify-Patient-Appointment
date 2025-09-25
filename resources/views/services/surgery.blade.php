@@ -2,12 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Metro Health Services | General Surgery</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Metro Health Services" name="keywords">
-    <meta content="Hospital Services" name="description">
-    <meta content="Surgery, Laboratory" name="services">
-    <!-- Favicon -->
+    <title> @include('includes.in_facility')  | General Surgery</title>
      @include('includes.in_favicon') 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,18 +40,18 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="/" class="nav-item nav-link">Home</a>
-                    <a href="/about" class="nav-item nav-link">About Us</a>
+                    <a href="{{ url('/') }}" class="nav-item nav-link">Home</a>
+                    <a href="{{ url('/about') }}" class="nav-item nav-link">About Us</a>
                     <!--<a href="service.php" class="nav-item nav-link">Services</a>-->
                     <div class="nav-item dropdown">
-                        <a href="/services" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown active">Our Services</a>
+                        <a href="{{ url('/services') }}" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown active">Our Services</a>
                         <div class="dropdown-menu m-0">
                               @include('includes.in_service_list') 
                         </div>
                     </div>
 					<!-- <a href="blogpost.php" class="nav-item nav-link">Blog</a> -->
-                    <a href="/contact" class="nav-item nav-link">Contact Us</a>
-                     <a href="/appointments" class="nav-item nav-link">Appointments</a>
+                    <a href="{{ url('/contact') }}" class="nav-item nav-link">Contact Us</a>
+                     <a href="{{ url('/appointments') }}" class="nav-item nav-link">Appointments</a>
                 </div>
                 <!-- <butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton> -->
                 <!-- <a href="appointment.php" class="btn btn-primary py-2 px-4 ms-3">Book Appointment</a> -->
@@ -67,9 +62,9 @@
             <div class="row py-5">
                 <div class="col-12 pt-lg-5 mt-lg-5 text-center">
                     <h1 class="display-4 text-white animated zoomIn">General Surgery</h1>
-                    <a href="/" class="h5 text-white">Home</a>
+                    <a href="{{ url('/') }}" class="h5 text-white">Home</a>
                     <i class="far fa-hospital text-white px-2"></i>
-                    <a href="/services" class="h5 text-white">Services</a>
+                    <a href="{{ url('/services') }}" class="h5 text-white">Services</a>
                 </div>
             </div>
         </div>
@@ -92,7 +87,7 @@
                         <img class="img-fluid w-100 rounded mb-5" src="{{ asset('img/blog-1.jpg') }}" alt="">
                         <h1 class="mb-4">General Surgery</h1>
                         <p>Today’s woman is busier than ever, balancing careers, families, and a myriad of other responsibilities.
-						We at Metro Health Services understand and are committed to bringing smiles to your faces. Our consultants are passionate to
+						We at @include('includes.in_facility') understand and are committed to bringing smiles to your faces. Our consultants are passionate to
 						supply solutions to preconception, antenatal, and postnatal concerns.</p>
                         <p>We offer labour and delivery services. We also offer programmes, classes, and support for our expecting mothers.</p>
                         <p>Subspecialty services supplied include general obstetrics and gynaecology, maternal-fetal medicine, 

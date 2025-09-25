@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('newsletter', function (Blueprint $table) {
-            $table->string('newsletter_id', 50)->primary();
+        Schema::create('newsletter_subscription', function (Blueprint $table) {
+            $table->string('subscription_id', 50)->primary();
             $table->string('is_active', 50)->default('Yes');
             $table->string('email', 50)->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('newsletter');
+        Schema::dropIfExists('newsletter_subscription');
     }
 };
