@@ -30,6 +30,7 @@ Route::middleware('web')->group(function () {
     Route::view('/selfservice/portal', 'portal.login')->name('login');
     
     Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiry.store');
+    Route::post('/bookappointment', [EnquiryController::class, 'bookappointment'])->name('enquiry.bookappointment');
     
     // Services group
     Route::prefix('services')->group(function () {

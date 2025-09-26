@@ -98,29 +98,32 @@
                 </div>
                 <div class="col-lg-5">
                     <!-- form response -->
-                <div id="form_response" class="mt-3"></div>
+                    <div id="form_response" class="mt-3"></div>
 
                     <div class="metro-fill rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
-                        <form id="appointment_form" data-url="{{ route('enquiry.store') }}" method="POST" onsubmit="return false">
+                        <form id="appointment_form" method="POST" onsubmit="return false">
+                             @csrf
                             <div class="row g-3">
-                                <div class="col-xl-12">
-                                    <input type="text" class="form-control bg-light border-0" placeholder="Your Name" style="height: 55px;">
+                                <div class="col-12">
+                                    <input type="text" class="form-control bg-light border-0" name="fullname" id="fullname" placeholder="Your Name" style="height: 55px;">
                                 </div>
                                 <div class="col-12">
-                                    <input type="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px;">
+                                    <input type="email" class="form-control bg-light border-0" name="email" id="email" placeholder="Your Email" style="height: 55px;">
                                 </div>
                                 <div class="col-12">
-                                    <select class="form-select bg-light border-0" style="height: 55px;">
+                                    <input type="text" class="form-control bg-light border-0" name="telephone" id="telephone" placeholder="Your Telephone" style="height: 55px;">
+                                </div>
+                                <div class="col-12">
+                                    <select class="form-select bg-light border-0" style="height: 55px;" name="service" id="service">
                                         <option selected disabled>Select A Service</option>
                                         @include('includes.in_services_option') 
                                     </select>
                                 </div>
                                 <div class="col-12">
-                                    <textarea class="form-control bg-light border-0" rows="3" placeholder="Message"></textarea>
+                                    <textarea class="form-control bg-light border-0" rows="3" name="message" id="message" placeholder="Message"></textarea>
                                 </div>
                                 <div class="col-12">
                                      <button class="btn metro-fill-gold text-white w-100 py-3" name="save_appointment_form" id="save_appointment_form" type="submit">Book Appointment</button>
-                                    <!-- <button class="btn metro-fill-gold w-100 py-3 text-white" type="submit">Book Appointment</button> -->
                                 </div>
                             </div>
                         </form>
@@ -167,7 +170,7 @@
                     const formData = new FormData(form);
 
                     // Send AJAX request
-                    const response = await fetch("{{ route('enquiry.store') }}", {
+                    const response = await fetch("{{ route('enquiry.bookappointment') }}", {
                         method: "POST",
                         headers: {
                             'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value

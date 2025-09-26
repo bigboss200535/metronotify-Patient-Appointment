@@ -12,17 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('appointments', function (Blueprint $table) {
-            $table->string('appointment_id', 50)->primary();
-            $table->timestamp('appointment_date')->nullable();
-            $table->timestamp('appointment_time')->nullable();
+            $table->id('appointment_id', 50);
             $table->string('fullname', 150)->nullable();
             $table->string('telephone', 20)->nullable();
-            $table->text('appointment_reason')->nullable();
+            $table->string('email', 200)->nullable();
+            $table->string('service', 50)->nullable();
+            $table->text('message')->nullable();
             $table->string('appointment_mode', 50)->nullable();
             $table->string('doctor_id', 50)->nullable();
             $table->string('appointment_status', 50)->nullable();
+            $table->timestamp('appointment_date')->nullable();
+            $table->timestamp('appointment_time')->nullable();
             $table->string('confirmation', 50)->nullable();
-            $table->string('user_id', 50)->nullable();
+            $table->string('confirmation_id', 50)->nullable();
             $table->string('added_id', 100)->nullable();
             $table->timestamp('added_date')->nullable();
             $table->string('updated_by', 100)->nullable();
@@ -33,7 +35,8 @@ return new class extends Migration
             $table->date('archived_date')->nullable();
 
               // key
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('doctor_id')->references('user_id')->on('users');
+            $table->foreign('confirmation_id')->references('user_id')->on('users');
         });
     }
 

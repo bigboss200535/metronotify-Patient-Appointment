@@ -12,8 +12,8 @@
                     <div class="card-box height-100-p widget-style3">
                         <div class="d-flex flex-wrap">
                             <div class="widget-data">
-                                <div class="weight-700 font-24 text-dark">75</div>
-                                <div class="font-14 text-secondary weight-500">Total Appointments</div>
+                                <div class="weight-700 font-24 text-dark">{{ $appointments ?? 0 }}</div>
+                                <div class="font-14 text-secondary weight-500">Appointments this month</div>
                             </div>
                             <div class="widget-icon"style="background-color: #673466;" >
                                 <div class="icon" data-color="#ffffff"><i class="icon-copy dw dw-calendar1"></i></div>
@@ -25,8 +25,8 @@
                     <div class="card-box height-100-p widget-style3">
                         <div class="d-flex flex-wrap">
                             <div class="widget-data">
-                                <div class="weight-700 font-24 text-dark">124,551</div>
-                                <div class="font-14 text-secondary weight-500">Total Patient</div>
+                                <div class="weight-700 font-24 text-dark">{{ $enquiry ?? 0 }}</div>
+                                <div class="font-14 text-secondary weight-500">Enquiries this month</div>
                             </div>
                             <div class="widget-icon" style="background-color:#673466">
                                 <div class="icon" data-color="#ffffff"><span class="icon-copy ti-heart"></span></div>
@@ -38,8 +38,8 @@
                     <div class="card-box height-100-p widget-style3">
                         <div class="d-flex flex-wrap">
                             <div class="widget-data">
-                                <div class="weight-700 font-24 text-dark">400+</div>
-                                <div class="font-14 text-secondary weight-500">Total Doctor</div>
+                                <div class="weight-700 font-24 text-dark">{{ $users ?? 0 }}</div>
+                                <div class="font-14 text-secondary weight-500">Total Users</div>
                             </div>
                             <div class="widget-icon" style="background-color:#673466">
                                 <div class="icon"><i class="icon-copy fa fa-stethoscope" aria-hidden="true"></i></div>
@@ -52,7 +52,7 @@
                         <div class="d-flex flex-wrap">
                             <div class="widget-data">
                                 <div class="weight-700 font-24 text-dark">GHs 0.00</div>
-                                <div class="font-14 text-secondary weight-500">Earning</div>
+                                <div class="font-14 text-secondary weight-500">Total Earning</div>
                             </div>
                             <div class="widget-icon" style="background-color: #673466;">
                                 <div class="icon" data-color="#ffffff"><i class="icon-copy fa fa-money" aria-hidden="true"></i></div>
@@ -93,7 +93,7 @@
                         </div>
                         <div class="d-flex justify-content-between align-items-end">
                             <div class="text-white">
-                                <div class="font-14">Appointment</div>
+                                <div class="font-14">Total Appointment</div>
                                 <div class="font-24 weight-500">1865</div>
                             </div>
                             <div class="max-width-150">

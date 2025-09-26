@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Models\Enquiry;
+use App\Models\User;
+use App\Models\Appointment;
 
 class DashboardController extends Controller
 {
@@ -26,6 +29,17 @@ class DashboardController extends Controller
             else{
                 $greeting = 'Hello!';
             }
-        return view('portal.dashboard', compact('greeting'));
+
+         $enquiry = Enquiry::where('archived', 'No')->count();
+         $contact = Enquiry::where('archived', 'No')->where('page_type', 'contact')->count();
+
+         $appointments = Appointment::where('archived', 'No')->count();
+         $total_appointments = Appointment::where('archived', 'No')->count();
+         $users = User::where('archived', 'No')->count();
+
+        return view('portal.dashboard', compact('greeting', 'enquiry', 'appointments', 'contact', 'users', 'total_appointments'));
+
+
+
     }
 }

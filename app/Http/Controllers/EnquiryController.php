@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Appointment;
+use App\Models\Enquiry;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,7 +26,7 @@ class EnquiryController extends Controller
         $validated = $request->validate([
             'fullname'  => 'required|string|max:200',
             'telephone' => 'required|string|max:20',
-            'email'     => 'nullable|email|max:150|unique:enquiry,email',
+            'email'     => 'nullable|email|max:150',
             'subject'   => 'nullable|string|max:200',
             'service'   => 'nullable|string|max:100',
             'message'   => 'required|string|min:3|max:255',
@@ -55,28 +56,25 @@ class EnquiryController extends Controller
         ], 201);
     }
 
-    public function book_appointment(Request $request)
+    public function bookappointment(Request $request)
     {
+
         $validated = $request->validate([
             'fullname'  => 'required|string|max:200',
+            'email'     => 'nullable|email|max:150',
             'telephone' => 'required|string|max:20',
-            'email'     => 'nullable|email|max:150|unique:enquiry,email',
-            'subject'   => 'nullable|string|max:200',
             'service'   => 'nullable|string|max:100',
             'message'   => 'required|string|min:3|max:255',
-            'page_name' => 'nullable|string|min:3',
-            'page_type' => 'nullable|string|min:3',
         ]);
        
-       $enquiry = Appointment::create([
-            'fullname'   => $validated['fullname'] ?? null,
+       $appointment = Appointment::create([
+            'fullname'   => $validated['fullname'],
             'telephone'  => $validated['telephone'],
             'email'      => $validated['email'] ?? null,
-            'subject'    => $validated['subject'] ?? null,
-            'service'    => $validated['service'] ?? null,
+            'service'    => $validated['service'],
             'message'    => $validated['message'],
-            'page_name'  => $validated['page_name'] ?? null,
-            'page_type'  => $validated['page_type'] ?? null,
+            'appointment_date'  => now(),
+            'appointment_time'  => now(),
             'status'     => 'Active',
             'archived'   => 'No',
         ]);
@@ -84,6 +82,7 @@ class EnquiryController extends Controller
         return response()->json([
             'status'  => 'success',
             'message' => 'Appointment submitted successfully!',
+            'data' => $appointment,
         ], 201);
     }
 }

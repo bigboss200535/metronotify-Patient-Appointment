@@ -32,66 +32,31 @@
                     </li>
                     <li class="dropdown">
                         <a href="javascript:;" class="dropdown-toggle">
-                            <span class="micon dw dw-calendar1"></span><span class="mtext">Contacts</span>
+                            <span class="micon dw dw-calendar1"></span><span class="mtext">Enquiry</span>
                         </a>
                         <ul class="submenu">
-                            <li><a href="form-basic.html">Form Basic</a></li>
-                            <li><a href="advanced-components.html">Advanced Components</a></li>
-                            <li><a href="form-wizard.html">Form Wizard</a></li>
-                            <li><a href="html5-editor.html">HTML5 Editor</a></li>
-                            <li><a href="form-pickers.html">Form Pickers</a></li>
-                            <li><a href="image-cropper.html">Image Cropper</a></li>
-                            <li><a href="image-dropzone.html">Image Dropzone</a></li>
-                        </ul>
-                    </li>
-                     <li class="dropdown">
-                        <a href="javascript:;" class="dropdown-toggle">
-                            <span class="micon dw dw-library"></span><span class="mtext">Services</span>
-                        </a>
-                        <ul class="submenu">
-                            <li><a href="basic-table.html">Basic Tables</a></li>
-                            <li><a href="datatable.html">DataTables</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="javascript:;" class="dropdown-toggle">
-                            <span class="micon dw dw-library"></span><span class="mtext">Doctors</span>
-                        </a>
-                        <ul class="submenu">
-                            <li><a href="basic-table.html">Basic Tables</a></li>
-                            <li><a href="datatable.html">DataTables</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="javascript:;" class="dropdown-toggle">
-                            <span class="micon dw dw-apartment"></span><span class="mtext"> Notifications </span>
-                        </a>
-                        <ul class="submenu">
-                            <li><a href="ui-buttons.html">SMS</a></li>
-                            <li><a href="ui-cards.html">Email</a></li>
-                            <!--  -->
+                            <li><a href="#">All Enquiries </a></li>
+                            <li><a href="#">Contacts</a></li>
+                           
                         </ul>
                     </li>
                      <li>
                         <div class="sidebar-small-cap">Setup</div>
                     </li>
-                    <li class="dropdown">
+                    <!-- <li class="dropdown">
                         <a href="javascript:;" class="dropdown-toggle">
                             <span class="micon dw dw-paint-brush"></span><span class="mtext">Doctors</span>
                         </a>
                         <ul class="submenu">
                             <li><a href="#">List</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class="dropdown">
                         <a href="javascript:;" class="dropdown-toggle">
                             <span class="micon dw dw-analytics-21"></span><span class="mtext">Users</span>
                         </a>
                         <ul class="submenu">
                             <li><a href="/users/list">User List</a></li>
-                            <!-- <li><a href="knob-chart.html">jQuery Knob</a></li>
-                            <li><a href="jvectormap.html">jvectormap</a></li>
-                            <li><a href="apexcharts.html">Apexcharts</a></li> -->
                         </ul>
                     </li>
                      <li>
