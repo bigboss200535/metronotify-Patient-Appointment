@@ -12,10 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('newsletter_subscription', function (Blueprint $table) {
-            $table->string('subscription_id', 50)->primary();
+            $table->id('subscription_id', 50);
             $table->string('is_active', 50)->default('Yes');
-            $table->string('email', 50)->unique();
+            $table->string('email', 100)->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('subscribed')->nullable('Subscribed'); //Unsubscribed
+            $table->timestamp('date_added')->nullable();
+            $table->timestamp('updated_date')->nullable();
             $table->string('status', 50)->default('Active')->index();
             $table->string('archived', 50)->default('No')->index();
             $table->string('archived_id', 50)->nullable();

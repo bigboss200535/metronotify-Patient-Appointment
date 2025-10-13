@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Appointment;
 use App\Models\Enquiry;
+use App\Models\Newsletter;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,7 +45,7 @@ class EnquiryController extends Controller
             'message'    => $validated['message'],
             'page_name'  => $validated['page_name'] ?? null,
             'page_type'  => $validated['page_type'] ?? null,
-            // 'type' => $validated['type'] ?? null,
+            'added_date' => now(),
             'status'     => 'Active',
             'archived'   => 'No',
         ]);
@@ -56,7 +57,7 @@ class EnquiryController extends Controller
         ], 201);
     }
 
-    public function bookappointment(Request $request)
+    public function book_appointment(Request $request)
     {
 
         $validated = $request->validate([
@@ -82,7 +83,10 @@ class EnquiryController extends Controller
         return response()->json([
             'status'  => 'success',
             'message' => 'Appointment submitted successfully!',
-            'data' => $appointment,
+            // 'data' => $appointment,
         ], 201);
     }
+
+
+    
 }

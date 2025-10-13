@@ -4,20 +4,6 @@
     <meta charset="utf-8">
     <title>Magazine Clinic | Contact Us</title>
     @include('includes.in_favicon') 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Librari{es Stylesheet -->
-    <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <!-- Template Stylesheet -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <!-- Spinner Start -->
@@ -47,11 +33,11 @@
                     </div>
                     <!-- <a href="blogpost.php" class="nav-item nav-link">Blog</a> -->
                     <a href="{{ url('/contact') }}" class="nav-item nav-link active">Contact Us</a>
-                    <a href="{{ url('/appointments') }}" class="nav-item nav-link">Appointments</a>
+                    <!-- <a href="{{ url('/appointments') }}" class="nav-item nav-link">Appointments</a> -->
                     <a href="{{ url('/selfservice/portal') }}" class="nav-item nav-link">Portal <sup style="color:red">New</sup></a>
                 </div>
-                <!-- <button type="button" class="btn text-white ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button> -->
-                <!-- <a href="appointment.php" class="btn metro-fill metro-text py-2 px-4 ms-3">Book Appointment</a> -->
+                <button type="button" class="btn text-white ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
+                 <a href="{{ url('/appointments') }}" class="btn metro-fill metro-text py-2 px-4 ms-3">Book Appointment</a>
             </div>
         </nav>
 
@@ -87,8 +73,9 @@
                         </div>
                         <div class="ps-4">
                             <h5 class="mb-2"> Call us on</h5>
-                            <a href="#"><h6 class="magazine-main-text mb-1">+233 (0)3220 89675</h6></a>
-                            <!-- <h6 class="metro-main-text mb-0">+233 (0) 509760659</h6> -->
+                            <a><h6 class="magazine-main-text mb-1">+233 322190051</h6></a>
+                            <h6 class="magazine-main-text mb-0">+233 241413872</h6>
+                            <h6 class="magazine-main-text mb-0">+233 241413872</h6>
                         </div>
                     </div>
                 </div>
@@ -99,8 +86,8 @@
                         </div>
                         <div class="ps-4">
                             <h5 class="mb-2">Email</h5>
-                            <h6 class="magazine-main-text mb-1">metrohealthgh@gmail.com</h6>
-                            <h6 class="magazine-main-text mb-1">frontdesk@metrohealthgh.com</h6>
+                            <h6 class="magazine-main-text mb-1">mmagazineclinic@yahoo.com</h6>
+                            <!-- <h6 class="magazine-main-text mb-1">frontdesk@metrohealthgh.com</h6> -->
                         </div>
                     </div>
                 </div>
@@ -111,7 +98,7 @@
                         </div>
                         <div class="ps-4">
                         <h5 class="mb-2">Kindly WhatsApp us on</h5>
-                            <a href="https://wa.me/+233599642520"><h6 class="magazine-main-text mb-1">+233 (0)3220 89675</h6></a>
+                            <a href="https://wa.me/+233241413872"><h6 class="magazine-main-text mb-1">+233 241413872</h6></a>
                             <!-- <a href="https://wa.me/+233509760659"><h6 class="text-primary mb-0">+233 (0) 509760659</h6></a> -->
                         </div>
                     </div>
@@ -123,8 +110,8 @@
                         </div>
                         <div class="ps-4">
                             <h5 class="mb-2">Visit our Facility</h5>
-                            <h6 class="magazine-main-text mb-1">4 Barekese Road, Abrepo Junction Near Angel Fm</h6>
-                            <h6 class="magazine-main-text mb-1">Kumasi, Ghana.</h6>
+                            <h6 class="magazine-main-text mb-1">18 Valley View Cres. Ridge Residencial Area. Danyame, Kumasi.</h6>
+                            <!-- <h6 class="magazine-main-text mb-1"></h6> -->
                         </div>
                     </div>
                 </div>
@@ -179,7 +166,7 @@
     </div>
     <!-- Contact End -->
     <!-- Vendor Start -->
-       @include('includes.in_accredited') 
+       <!-- @include('includes.in_accredited')  -->
     <!-- Vendor End -->
     
     <!-- Footer Start -->

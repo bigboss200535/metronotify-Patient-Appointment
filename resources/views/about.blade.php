@@ -3,31 +3,15 @@
 <head>
     <meta charset="utf-8">
     <title>Magazine Clinic | About Us</title>
-    @include('includes.in_favicon') 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Libraries Stylesheet -->
-    <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <!-- Template Stylesheet -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+      @include('includes.in_favicon') 
 </head>
 <body>
      <!-- Spinner Start -->
      @include('includes.in_spinner') 
     <!-- Spinner End -->
-
     <!-- Topbar Start -->
-           @include('includes.in_topbar') 
+    @include('includes.in_topbar') 
     <!-- Topbar End -->
-
     <!-- Navbar Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
@@ -49,11 +33,11 @@
                     </div>
                     <!-- <a href="blogpost.php" class="nav-item nav-link">Blog</a> -->
                     <a href="{{ url('/contact') }}" class="nav-item nav-link">Contact Us</a>
-                    <a href="{{ url('/appointments') }}" class="nav-item nav-link">Appointment</a>
+                    <!-- <a href="{{ url('/appointments') }}" class="nav-item nav-link">Appointment</a> -->
                     <a href="{{ url('/selfservice/portal') }}" class="nav-item nav-link">Portal <sup style="color:red">New</sup></a>
                 </div>
-                <!-- <button type="button" class="btn text-white ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button> -->
-                <!-- <a href="appointment.php" class="btn metro-fill metro-text py-2 px-4 ms-3">Book Appointment</a> -->
+                <button type="button" class="btn text-white ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
+                <a href="{{ url('/appointments') }}" class="btn metro-fill metro-text py-2 px-4 ms-3">Book Appointment</a>
             </div>
         </nav>
 
@@ -83,9 +67,11 @@
                         <h5 class="fw-bold magazine-main-text text-uppercase">About Us</h5>
                         <h1 class="mb-0">The best health solution</h1>
                     </div>
-                        <p class="mb-4">@include('includes.in_facility')  is a clinic that prides itself as offering high quality and Professional Health Treatments for our clients. We have always been committed to having an intense focus on the patient care while bringing the best of international standards to Ghana.
+                        <p class="mb-4">At @include('includes.in_facility'), we are dedicated to providing exceptional, professional healthcare services with a personal touch. Our mission is to deliver world-class medical care right here in Ghana, combining international standards with deep-rooted compassion for our patients.
 
-                        We sincerely believe that visiting us shouldn’t be a stressful experience! We provide an equally comfortable experience of relaxation for all our young and adult patients!
+                        We believe that visiting a clinic shouldn't be stressful. That's why we’ve created a warm, welcoming environment designed to put both young and adult patients at ease. From the moment you walk through our doors, your comfort, care, and well-being are our top priorities.
+
+                        Discover the difference at Magazine Clinic, where quality treatment meets genuine care.
 
                         
                         </p>
@@ -112,7 +98,7 @@
                             <h4 class="magazine-main-text mb-0">+233 (0)3220 89675</h4>
                         </div>
                     </div>
-                    <a href="{{ url('/contact') }}" class="btn metro-fill text-white py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Get In Touch</a>
+                    <!-- <a href="{{ url('/contact') }}" class="btn metro-fill text-white py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Get In Touch</a> -->
                 </div>
                 <div class="col-lg-5" style="min-height: 500px;">
                     <div class="position-relative h-100">

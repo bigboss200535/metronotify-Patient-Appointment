@@ -3,16 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Magazine Clinic | Our Services</title>
-    @include('includes.in_favicon') 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    @include('includes.in_favicon')
 </head>
 <body>
     <!-- Spinner Start -->
@@ -21,7 +12,6 @@
     <!-- Topbar Start -->
         @include('includes.in_topbar') 
     <!-- Topbar End -->
-
     <!-- Navbar Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
@@ -36,16 +26,19 @@
                     <a href="{{ url('/') }}" class="nav-item nav-link">Home</a>
                     <a href="{{ url('/about') }}" class="nav-item nav-link">About Us</a>
                   <div class="nav-item dropdown">
-                        <a href="{{ url('/services') }}" class="nav-link active dropdown-toggle" data-bs-toggle="dropdown active">Our Services</a>
+                        <a href="{{ url('/services') }}" class="nav-link active dropdown-toggle" data-bs-toggle="dropdown active">Our Services
+                        </a>
                         <div class="dropdown-menu m-0">
                               @include('includes.in_service_list') 
                         </div>
                     </div>
                     <!-- <a href="blogpost.php" class="nav-item nav-link">Blog</a> -->
                     <a href="{{ url('/contact') }}" class="nav-item nav-link">Contact Us</a>
-                     <a href="{{ url('/appointments') }}" class=" nav-item nav-link">Appointment</a>
+                     <!-- <a href="{{ url('/appointments') }}" class=" nav-item nav-link">Appointment</a> -->
                     <a href="{{ url('/selfservice/portal') }}" class="nav-item nav-link">Portal <sup style="color:red">New</sup></a>
                 </div>
+                 <button type="button" class="btn text-white ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
+                <a href="{{ url('/appointments') }}" class="btn metro-fill metro-text py-2 px-4 ms-3">Book Appointment</a>
             </div>
         </nav>
 

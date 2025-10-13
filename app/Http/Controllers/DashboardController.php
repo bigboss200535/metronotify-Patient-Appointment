@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Models\Enquiry;
 use App\Models\User;
 use App\Models\Appointment;
+use Illuminate\Support\Str;
 
 class DashboardController extends Controller
 {
@@ -36,8 +37,8 @@ class DashboardController extends Controller
          $appointments = Appointment::where('archived', 'No')->count();
          $total_appointments = Appointment::where('archived', 'No')->count();
          $users = User::where('archived', 'No')->count();
-
-        return view('portal.dashboard', compact('greeting', 'enquiry', 'appointments', 'contact', 'users', 'total_appointments'));
+         $recent_enquiry = Enquiry::where('archived', 'No')->get();
+        return view('portal.dashboard', compact('greeting', 'enquiry', 'appointments', 'contact', 'users', 'total_appointments', 'recent_enquiry'));
 
 
 

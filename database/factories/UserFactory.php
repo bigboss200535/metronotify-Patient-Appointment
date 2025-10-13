@@ -25,13 +25,19 @@ class UserFactory extends Factory
     {
         return [
             'user_id' => Str::uuid(),
+            'email' => fake()->unique()->safeEmail(),
+            'password' => Hash::make('password'),
             'firstname' => fake()->firstName(),
             'othername' => fake()->lastName(),
-            'email' => fake()->unique()->safeEmail(),
+            'telephone' => $this->faker->phoneNumber(),
+            'gender' => $this->faker->randomElement(['Male', 'Female']),
+            'user_role' => $this->faker->randomElement(['Patient', 'Administrator', 'User']),
+            'is_admin' => $this->faker->randomElement([true, false]),
+            'is_blocked' => $this->faker->randomElement([true, false]),
+            'added_id' => '',
             'added_date' => now(),
-            'email_verified_at' => now(),
-            'password' => Hash::make('password'),
-            // 'remember_token' => Str::random(10),
+            'status' => 'Active',
+            'archived' => 'No',
         ];
     }
 

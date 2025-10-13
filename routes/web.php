@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\NewsletterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EnquiryController;
@@ -28,9 +29,12 @@ Route::middleware('web')->group(function () {
     Route::view('/contact', 'contact')->name('contact');
     Route::view('/appointments', 'appointments')->name('appointments');
     Route::view('/selfservice/portal', 'portal.login')->name('login');
-    
+    Route::view('/selfservice/forgot-password', 'portal.forgot')->name('forgot-password');
+
+    // form submissions
+    Route::post('/subscribe', [NewsletterController::class, 'newsletter_subscription'])->name('newsletter.subscribe');
     Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiry.store');
-    Route::post('/bookappointment', [EnquiryController::class, 'bookappointment'])->name('enquiry.bookappointment');
+    Route::post('/book-appointment', [EnquiryController::class, 'book_appointment'])->name('enquiry.book_appointment');
     
     // Services group
     Route::prefix('services')->group(function () {

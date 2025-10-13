@@ -16,14 +16,17 @@ return new class extends Migration
             $table->string('firstname', 150)->nullable();
             $table->string('othername', 150)->nullable();
             $table->string('email')->unique();
+            $table->string('telephone', 50)->nullable();
+            $table->string('gender', 10)->nullable();//male or female
             $table->string('password', 100);
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('access_level')->nullable();
+            $table->string('user_role', 50)->nullable();
             $table->string('is_admin')->nullable()->default(false);
             $table->string('is_blocked', 20)->default(false);
             $table->timestamp('blocked_at')->nullable();
             $table->string('blocked_by', 50)->nullable();
             $table->string('email_verified')->default('No');
+            $table->string('added_id', 50)->nullable();
             $table->timestamp('added_date')->nullable();
             $table->string('status', 50)->default('Active')->index();
             $table->string('archived', 50)->default('No')->index();

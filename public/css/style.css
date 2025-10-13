@@ -36,6 +36,10 @@
     background-color: var(--metro-fill-gold) !important;
 }
 
+.light-color {
+    color: var(--metro-fill-gold) !important;
+}
+
 .metro-main-text {
     color: #002d72 !important;
 }
@@ -302,7 +306,7 @@ h6,
     height: 5px;
     left: 0;
     bottom: 0;
-    background: var(--primary);
+    background: var(--metro-fill-gold);
     border-radius: 2px;
 }
 

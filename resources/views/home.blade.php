@@ -4,29 +4,14 @@
     <meta charset="utf-8">
     <title>Magazine Clinic | Home</title>
     @include('includes.in_favicon') 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Libraries Stylesheet -->
-    <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <!-- Template Stylesheet -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <!-- Spinner Start -->
      @include('includes.in_spinner') 
     <!-- Spinner End -->
-
     <!-- Topbar Start -->
      @include('includes.in_topbar') 
     <!-- Topbar End -->
-
     <!-- Navbar & Carousel Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
@@ -48,12 +33,11 @@
                     </div>
                     <!-- <a href="blogpost.php" class="nav-item nav-link">Blog</a> -->
                     <a href="{{ url('/contact') }}" class="nav-item nav-link">Contact Us</a>
-                    <a href="{{ url('/appointments') }}" class="nav-item nav-link">Appointment</a>
+                    <!-- <a href="{{ url('/appointments') }}" class="nav-item nav-link">Appointment</a> -->
                      <a href="{{ url('/selfservice/portal') }}" class="nav-item nav-link">Portal <sup style="color:red">New</sup></a>
-                    <!-- <a href="/portal" class="nav-item nav-link">Portal</a> -->
                 </div>
-                <!-- <button type="button" class="btn text-white ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button> -->
-                <!-- <a href="appointment.php" class="btn metro-fill metro-text py-2 px-4 ms-3">Book Appointment</a> -->
+                <button type="button" class="btn text-white ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
+                <a href="{{ url('/appointments') }}" class="btn metro-fill metro-text py-2 px-4 ms-3">Book Appointment</a>
             </div>
         </nav>
 
@@ -65,7 +49,7 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h5 class="text-white text-lowercase mb-3 animated slideInDown"></h5>
                             <h1 class="display-1 text-white mb-md-4 animated zoomIn">...your health, our concern.</h1>
-                            <a href="" class="btn metro-fill metro-text py-md-3 px-md-5 me-3 animated slideInLeft">Get in touch</a>
+                            <!-- <a href="" class="btn metro-fill metro-text py-md-3 px-md-5 me-3 animated slideInLeft">Get in touch</a> -->
                             <a href="{{ url('/contact') }}" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
                         </div>
                     </div>
@@ -76,7 +60,7 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h5 class="text-white text-lowercase mb-3 animated slideInDown"></h5>
                             <h1 class="display-1 text-white mb-md-4 animated zoomIn">“we are right here, When you need us”</h1>
-                            <a href="" class="btn metro-fill metro-text py-md-3 px-md-5 me-3 animated slideInLeft">Get in touch</a>
+                            <!-- <a href="" class="btn metro-fill metro-text py-md-3 px-md-5 me-3 animated slideInLeft">Get in touch</a> -->
                             <a href="{{ url('/contact') }}" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
                         </div>
                     </div>
@@ -87,7 +71,7 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h5 class="text-white text-lowercase mb-3 animated slideInDown"></h5>
                             <h1 class="display-1 text-white mb-md-4 animated zoomIn">“The science of medicine, the art of healing."</h1>
-                            <a href="" class="btn metro-fill metro-text py-md-3 px-md-5 me-3 animated slideInLeft">Get in touch</a>
+                            <!-- <a href="" class="btn metro-fill metro-text py-md-3 px-md-5 me-3 animated slideInLeft">Get in touch</a> -->
                             <a href="{{ url('/contact') }}" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
                         </div>
                     </div>
@@ -98,7 +82,7 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h5 class="text-white text-lowercase mb-3 animated slideInDown"></h5>
                             <h1 class="display-1 text-white mb-md-4 animated zoomIn">“Private hospital practices, done right.”</h1>
-                            <a href="" class="btn metro-fill metro-text py-md-3 px-md-5 me-3 animated slideInLeft">Get in touch</a>
+                            <!-- <a href="" class="btn metro-fill metro-text py-md-3 px-md-5 me-3 animated slideInLeft">Get in touch</a> -->
                             <a href="{{ url('/contact') }}" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
                         </div>
                     </div>
@@ -109,7 +93,7 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h5 class="text-white text-lowercase mb-3 animated slideInDown"></h5>
                             <h1 class="display-1 text-white mb-md-4 animated zoomIn">“..quality service, redefined.”</h1>
-                            <a href="" class="btn metro-fill metro-text py-md-3 px-md-5 me-3 animated slideInLeft">Get in touch</a>
+                            <!-- <a href="" class="btn metro-fill metro-text py-md-3 px-md-5 me-3 animated slideInLeft">Get in touch</a> -->
                             <a href="{{ url('/contact') }}" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
                         </div>
                     </div>
@@ -163,7 +147,7 @@
                         </div>
                         <div class="ps-4">
                             <h5 class="mb-2">Call to ask any question.</h5>
-                            <a href="#"><h4 class="magazine-main-text">+233 (0)3220 89675</h4></a>
+                            <a href="#"><h4 class="magazine-main-text">+233 241413872</h4></a>
                         </div>
                     </div>
                     <a href="{{ url('/contact') }}" class="btn metro-fill-gold  text-white py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Get in touch</a>
@@ -177,7 +161,6 @@
         </div>
     </div>
     <!-- About End -->
-
 
     <!-- Service Start -->
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -279,20 +262,20 @@
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
                     <div class="bg-light rounded">
                         <div class="border-bottom py-4 px-5 mb-4">
-                            <h4 class="magazine-main-text mb-1">Purpose</h4>
+                            <h4 class=" mb-1">Purpose</h4>
                             <small class="text-sentencecase">Why We are here</small>
                         </div>
                         <div class="p-5 pt-0">
                             <p class="m-0"><strong></strong>Our purpose is to make standardized medical services accessible to all. </p>
                             <!-- <p></p> -->
-                            <a href="{{ url('/contact') }}" class="btn metro-fill py-2 px-4 mt-4 text-white">Get in touch</a>
+                            <!-- <a href="{{ url('/contact') }}" class="btn metro-fill py-2 px-4 mt-4 text-white">Get in touch</a> -->
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
                     <div class="bg-white rounded shadow position-relative" style="z-index: 1;">
                         <div class="border-bottom py-4 px-5 mb-4">
-                            <h4 class="magazine-main-text mb-1">Our Mission</h4>
+                            <h4 class=" mb-1">Our Mission</h4>
                             <small class="text-sentencecase">How we operate</small>
                         </div>
                         <div class="p-5 pt-0">
@@ -300,14 +283,14 @@
                                 Our Mission is to transform the lives of patients by surpassing expectations in healthcare, 
                                 inspiring hope for a better Ghana.
                                 </p>
-                            <a href="{{ url('/contact') }}" class="btn metro-fill py-2 px-4 mt-4 text-white">Get in touch</a>
+                            <!-- <a href="{{ url('/contact') }}" class="btn metro-fill py-2 px-4 mt-4 text-white">Get in touch</a> -->
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
                     <div class="bg-light rounded">
                         <div class="border-bottom py-4 px-5 mb-4">
-                            <h4 class="magazine-main-text mb-1">Our Vision</h4>
+                            <h4 class=" mb-1">Our Vision</h4>
                             <small class="text-sentencecasecase">How You Will See It</small>
                         </div>
                         <div class="p-5 pt-0">
@@ -315,7 +298,7 @@
                                 Our vision is to be Ghana's most trusted name in healthcare <!-- by providing 
                                 patient-centred and excellent specialty healthcare services. -->
                             </p>
-                            <a href="{{ url('/contact') }}" class="btn metro-fill py-2 px-4 mt-4 text-white">Get in touch</a>
+                            <!-- <a href="{{ url('/contact') }}" class="btn metro-fill py-2 px-4 mt-4 text-white">Get in touch</a> -->
                         </div>
                     </div>
                 </div>
@@ -338,7 +321,7 @@
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
                     <div class="bg-light rounded">
                         <div class="border-bottom py-4 px-5 mb-4">
-                            <h4 class="magazine-main-text mb-1">OBSTETRICS & GYNAE</h4>
+                            <h4 class="magazine-main mb-1">OBSTETRICS & GYNAE</h4>
                             <small class="text-uppercase text-dark">MONDAYS</small>
                         </div>
                         <div class="p-5 pt-0">
@@ -417,7 +400,7 @@
                         </div>
                         <div class="ps-4">
                             <h5 class="mb-2">Call to ask any question</h5>
-                            <h4 class="magazine-main-text">+233 (0) 509760659</h4>
+                            <h4 class="magazine-main-text">+233 241413872</h4>
                         </div>
                     </div>
                 </div>

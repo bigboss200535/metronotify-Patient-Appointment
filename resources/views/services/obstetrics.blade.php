@@ -51,10 +51,10 @@
                     </div>
 					<!-- <a href="blogpost.php" class="nav-item nav-link">Blog</a> -->
                     <a href="/contact" class="nav-item nav-link">Contact Us</a>
-                     <a href="/appointments" class="nav-item nav-link">Appointments</a>
+                     <!-- <a href="/appointments" class="nav-item nav-link">Appointments</a> -->
                 </div>
-                <!-- <butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton> -->
-                <!-- <a href="appointment.php" class="btn btn-primary py-2 px-4 ms-3">Book Appointment</a> -->
+                 <button type="button" class="btn text-white ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
+                <a href="{{ url('/appointments') }}" class="btn metro-fill metro-text py-2 px-4 ms-3">Book Appointment</a>
             </div>
         </nav>
 

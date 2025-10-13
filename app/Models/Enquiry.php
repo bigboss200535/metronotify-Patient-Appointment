@@ -25,6 +25,7 @@ class Enquiry extends Model
         'read_status',
         'replied', //user who replied
         'replied_id',
+        'added_date',
         'status',
         'archived',
         'archived_id',
@@ -33,7 +34,7 @@ class Enquiry extends Model
     ];
 
     protected $casts = [
-        'read_status' => 'string',
+        // 'read_status' => 'string',
         'replied'     => 'string',
         'status'      => 'string',
         'archived'    => 'string',

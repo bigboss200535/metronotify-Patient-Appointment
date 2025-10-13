@@ -6,14 +6,20 @@
                         <a href="{{ url('/') }}" class="navbar-brand">
                             <h1 class="m-0"><img src="{{ asset('images/logo_1.png') }}" alt=""></i></h1>
                         </a>
-                        <p class="mt-3 mb-4">We deliver the needed healthcare services across all capabilities.
-                        We look forward to your visit. We are readily available for further discussions.</p>
-                        <form action="#" method="POST">
+                        <p class="mt-3 mb-4">
+                            We deliver the needed healthcare services across all capabilities.
+                            We look forward to your visit. We are readily available for further discussions.
+                        </p>
+                            <div id="response-message"></div>
+
+                            <!-- <form method="POST" id="newsletter_form">
+                            @csrf
                             <div class="input-group">
-                                <input type="email" class="form-control border-white p-3" placeholder="subscribe to newsletters" name="newsletters_subscription" required>
-                                <button class="btn metro-fill text-white">Sign Up</button>
+                                <input type="email" class="form-control border-white p-3" placeholder="Subscribe to newsletters" name="email" id="email" required>
+                                <button type="submit" name="save_newsletter" id="save_newsletter" class="btn metro-fill text-white">Subscribe</button>
                             </div>
-                        </form>
+                        </form> -->
+                        
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-6">

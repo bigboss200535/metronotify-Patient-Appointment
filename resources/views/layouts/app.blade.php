@@ -23,7 +23,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body>
+    <body class="header-white sidebar-white active sidebar-light">
             @include('layouts.loader')
             @include('layouts.topbar')
             @include('layouts.layoutsetting')
@@ -34,14 +34,67 @@
     <script src="{{ asset('portal/vendors/scripts/core.js') }}"></script>
     <script src="{{ asset('portal/vendors/scripts/script.min.js') }}"></script>
     <script src="{{ asset('portal/vendors/scripts/process.js') }}"></script>
-    <script src="{{ asset('portal/vendors/scripts/layout-settings.js') }}"></script>
+    <!-- <script src="{{ asset('portal/vendors/scripts/layout-settings.js') }}"></script> -->
     <script src="{{ asset('portal/src/plugins/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('portal/src/plugins/datatables/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('portal/src/plugins/datatables/js/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('portal/src/plugins/datatables/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('portal/src/plugins/datatables/js/responsive.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('portal/vendors/scripts/dashboard3.js') }}"></script>
-    
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('newsletter_form');
+        const responseMessage = document.getElementById('response-message');
+        const emailInput = document.getElementById('email');
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // Clear previous messages
+            responseMessage.textContent = '';
+            responseMessage.style.color = '';
+
+            const email = emailInput.value;
+            const csrfToken = document.querySelector('input[name="_token"]').value;
+
+            try {
+                const response = await fetch("{{ route('newsletter.subscribe') }}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': csrfToken
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    responseMessage.textContent = result.message || "Successfully subscribed!";
+                    responseMessage.style.color = 'green';
+                    emailInput.value = '';
+                } else {
+                    // Check for Laravel validation errors
+                    if (result.errors && result.errors.email) {
+                        responseMessage.textContent = result.errors.email[0];
+                    } else if (result.message) {
+                        responseMessage.textContent = result.message;
+                    } else {
+                        responseMessage.textContent = "Subscription failed.";
+                    }
+                    responseMessage.style.color = 'red';
+                }
+
+            } catch (error) {
+                console.error("Error:", error);
+                responseMessage.textContent = "An error occurred. Please try again.";
+                responseMessage.style.color = 'red';
+            }
+        });
+    });
+</script>
+
+
 
  </body>
 </html>

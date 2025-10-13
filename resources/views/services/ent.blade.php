@@ -27,7 +27,7 @@
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
             <a href="/" class="navbar-brand p-0">
-                <h1 class="m-0"><img src="{{ asset('img/logo2.png') }}" alt=""></i></h1>
+                <h1 class="m-0"><img src="{{ asset('img/loh.png') }}" alt=""></i></h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -38,17 +38,19 @@
                     <a href="{{ url('/about') }}" class="nav-item nav-link">About Us</a>
                     <!--<a href="service.php" class="nav-item nav-link">Services</a>-->
                     <div class="nav-item dropdown">
-                        <a href="{{ url('/services') }}" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown active">Our Services</a>
+                        <a href="{{ url('/services') }}" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown active">
+                           Our Services
+                        </a>
                         <div class="dropdown-menu m-0">
                              @include('includes.in_service_list') 
                         </div>
                     </div>
 					<!-- <a href="blogpost.php" class="nav-item nav-link">Blog</a> -->
                     <a href="{{ url('/contact') }}" class="nav-item nav-link">Contact Us</a>
-                     <a href="{{ url('/appointments') }}" class="nav-item nav-link">Appointments</a>
+                     <!-- <a href="{{ url('/appointments') }}" class="nav-item nav-link">Appointments</a> -->
                 </div>
-                <!-- <butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton> -->
-                <!-- <a href="appointment.php" class="btn btn-primary py-2 px-4 ms-3">Book Appointment</a> -->
+                 <button type="button" class="btn text-white ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
+                <a href="{{ url('/appointments') }}" class="btn metro-fill metro-text py-2 px-4 ms-3">Book Appointment</a>
             </div>
         </nav>
 

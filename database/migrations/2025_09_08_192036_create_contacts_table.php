@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('page_type', 50)->nullable();
             $table->string('replied', 50)->default('No');
             $table->string('replied_id', 50)->nullable();
-            $table->date('added_date', 50)->nullable();
+            $table->timestamp('added_date')->nullable();
             $table->string('status', 50)->default('Active')->index();
             $table->string('archived', 50)->default('No')->index();
             $table->string('archived_id', 50)->nullable();
