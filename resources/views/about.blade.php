@@ -121,29 +121,6 @@
             <div class="row g-5">
                 <div class="col-lg-4">
                     <div class="row g-5">
-                        <div class="col-12 wow zoomIn" data-wow-delay="0.2s">
-                            <div class="metro-fill rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                                <i class="fa fa-child text-white"></i>
-                            </div>
-                            <h4>Privacy & Trust</h4>
-                            <p class="mb-0">We protect every patient’s privacy with the highest level of discretion and professionalism. Your personal information and medical history are always handled with the utmost care and security.</p>
-                        </div>
-                        <div class="col-12 wow zoomIn" data-wow-delay="0.6s">
-                            <div class="metro-fill rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                                <i class="fa fa-handshake text-white"></i>
-                            </div>
-                            <h4>Clinical Excellence</h4>
-                            <p class="mb-0">We are committed to delivering exceptional healthcare through continuous improvement, advanced medical practices, and a dedicated team of professionals focused on quality outcomes.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4  wow zoomIn" data-wow-delay="0.9s" style="min-height: 350px;">
-                    <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.1s" src="{{ asset('img/feature.jpg') }}" style="object-fit: cover;">
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="row g-5">
                         <div class="col-12 wow zoomIn" data-wow-delay="0.4s">
                             <div class="metro-fill rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                                 <i class="fa fa-heart text-white"></i>
@@ -161,6 +138,30 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-4  wow zoomIn" data-wow-delay="0.9s" style="min-height: 350px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.1s" src="{{ asset('img/feature.jpg') }}" style="object-fit: cover;">
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="row g-5">
+                        <div class="col-12 wow zoomIn" data-wow-delay="0.2s">
+                            <div class="metro-fill rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                <i class="fa fa-child text-white"></i>
+                            </div>
+                            <h4>Privacy & Trust</h4>
+                            <p class="mb-0">We protect every patient’s privacy with the highest level of discretion and professionalism. Your personal information and medical history are always handled with the utmost care and security.</p>
+                        </div>
+                        <div class="col-12 wow zoomIn" data-wow-delay="0.6s">
+                            <div class="metro-fill rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                <i class="fa fa-handshake text-white"></i>
+                            </div>
+                            <h4>Clinical Excellence</h4>
+                            <p class="mb-0">We are committed to delivering exceptional healthcare through continuous improvement, advanced medical practices, and a dedicated team of professionals focused on quality outcomes.</p>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>

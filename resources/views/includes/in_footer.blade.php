@@ -11,15 +11,13 @@
                             We look forward to your visit. We are readily available for further discussions.
                         </p>
                             <div id="response-message"></div>
-
-                            <!-- <form method="POST" id="newsletter_form">
+                             <form method="POST" id="newsletter_form">
                             @csrf
                             <div class="input-group">
                                 <input type="email" class="form-control border-white p-3" placeholder="Subscribe to newsletters" name="email" id="email" required>
                                 <button type="submit" name="save_newsletter" id="save_newsletter" class="btn metro-fill text-white">Subscribe</button>
                             </div>
-                        </form> -->
-                        
+                        </form>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-6">
@@ -29,15 +27,15 @@
                                 <h3 class="text-light mb-0">Get in touch</h3>
                             </div>
                             <div class="d-flex mb-2">
-                                <i class="bi bi-geo-alt text-white me-2"></i>
+                                <i class="bi bi-geo-alt light-color me-2"></i>
                                 <p class="mb-0">@include('includes.in_location')</p>
                             </div>
                             <div class="d-flex mb-2">
-                                <i class="bi bi-envelope-open text-white me-2"></i>
+                                <i class="bi bi-envelope-open light-color me-2"></i>
                                 <p class="mb-0">mmagazineclinic@yahoo.com</p>
                             </div>
                             <div class="d-flex mb-2">
-                                <i class="bi bi-telephone text-white me-2"></i>
+                                <i class="bi bi-telephone light-color me-2"></i>
                                <a href="#"> <p class="mb-0 white-text">@include('includes.in_telephone')</p></a>
                             </div>
                             <div class="d-flex mt-4">
@@ -52,12 +50,12 @@
                                 <h3 class="text-light mb-0">Quick Links</h3>
                             </div>
                             <div class="link-animated d-flex flex-column justify-content-start">
-                                <a class="text-light mb-2" href="{{ url('/') }}"><i class="bi bi-arrow-right text-white  me-2"></i>Home</a>
-                                <a class="text-light mb-2" href="{{ url('/about') }}"><i class="bi bi-arrow-right text-white  me-2"></i>About Us</a>
-                                <a class="text-light mb-2" href="{{ url('/services') }}"><i class="bi bi-arrow-right text-white  me-2"></i>Our Services</a>
-                                <a class="text-light mb-2" href="{{ url('/selfservice/portal') }}"><i class="bi bi-arrow-right text-white  me-2"></i>Portal</a>
+                                <a class="text-light mb-2" href="{{ url('/') }}"><i class="bi bi-arrow-right light-color me-2"></i>Home</a>
+                                <a class="text-light mb-2" href="{{ url('/about') }}"><i class="bi bi-arrow-right light-color  me-2"></i>About Us</a>
+                                <a class="text-light mb-2" href="{{ url('/services') }}"><i class="bi bi-arrow-right light-color  me-2"></i>Our Services</a>
+                                <a class="text-light mb-2" href="{{ url('/selfservice/portal') }}"><i class="bi bi-arrow-right light-color  me-2"></i>Portal</a>
                                 <!-- <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-white  me-2"></i>Latest Blog</a> -->
-                                <a class="text-light" href="{{ url('/contact') }}"><i class="bi bi-arrow-right text-white  me-2"></i>Contact Us</a>
+                                <a class="text-light" href="{{ url('/contact') }}"><i class="bi bi-arrow-right light-color  me-2"></i>Contact Us</a>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
@@ -65,12 +63,12 @@
                                 <h3 class="text-light mb-0">Main Services</h3>
                             </div>
                             <div class="link-animated d-flex flex-column justify-content-start">
-                                <a class="text-light mb-2" href="{{ url('/services/generalmedicine') }}"><i class="bi bi-arrow-right text-white me-2"></i>General/Family Medicine</a>
-                                <a class="text-light mb-2" href="{{ url('/services/obstetrics') }}"><i class="bi bi-arrow-right text-white  me-2"></i>Obstetrics and Gynaecology</a>
-                                <a class="text-light mb-2" href="{{ url('/services/laboratory') }}"><i class="bi bi-arrow-right text-white  me-2"></i>Laboratory Service</a>
-                                <a class="text-light mb-2" href="{{ url('/services/eye') }}"><i class="bi bi-arrow-right text-white  me-2"></i>Eye Care</a>
-                                <a class="text-light mb-2" href="{{ url('/services/ent') }}"><i class="bi bi-arrow-right text-white  me-2"></i>ENT Care</a>
-                                <a class="text-light" href="{{ url('/services/surgery') }}"><i class="bi bi-arrow-right text-white  me-2"></i>Surgery</a>
+                                <a class="text-light mb-2" href="{{ url('/services/generalmedicine') }}"><i class="bi bi-arrow-right light-color me-2"></i>General/Family Medicine</a>
+                                <a class="text-light mb-2" href="{{ url('/services/obstetrics') }}"><i class="bi bi-arrow-right light-color  me-2"></i>Obstetrics and Gynaecology</a>
+                                <a class="text-light mb-2" href="{{ url('/services/laboratory') }}"><i class="bi bi-arrow-right light-color  me-2"></i>Laboratory Service</a>
+                                <a class="text-light mb-2" href="{{ url('/services/eye') }}"><i class="bi bi-arrow-right light-color  me-2"></i>Eye Care</a>
+                                <a class="text-light mb-2" href="{{ url('/services/ent') }}"><i class="bi bi-arrow-right light-color me-2"></i>ENT Care</a>
+                                <a class="text-light" href="{{ url('/services/surgery') }}"><i class="bi bi-arrow-right light-color  me-2"></i>Surgery</a>
                             </div>
                         </div>
                     </div>
@@ -78,16 +76,18 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid text-white " style="background-color: #ffffff;" >
+    <div class="container-fluid text-white" style="background-color:#0C2448">
         <div class="container text-center">
             <div class="row justify-content-end">
                 <div class="col-lg-8 col-md-6">
                     <div class="d-flex align-items-center" style="height: 75px;">
-                        <p class="mb-0 magazine-main-text">&copy; 
-                            <a class="magazine-main-text border-bottom" href="#"> @include('includes.in_facility') </a>. 
-                            All rights reserved.
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        Website by <a class="magazine-main-text border-bottom" href="https://webedgetek.com"><b>WebEdge Technologies</b></a></p>
+                        <p class="mb-0">&copy; 
+                            <a class="border-bottom" href="#" style="color:#ffffff"> @include('includes.in_facility') </a>. 
+                                All rights reserved.
+                                <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                                Website by <a style="color:#ffffff" class="border-bottom" href="https://webedgetek.com"><b>WebEdge Technologies</b>
+                            </a>
+                      </p>
                     </div>
                 </div>
             </div>
