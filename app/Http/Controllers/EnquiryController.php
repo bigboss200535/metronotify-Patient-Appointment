@@ -13,13 +13,14 @@ class EnquiryController extends Controller
 {
     public function index()
     {
-         // Example if you want to fetch all enquiries
+         // fetch all enquiries
         $enquiries = Enquiry::orderBy('enquiry_id', 'desc')->get();
 
-        return response()->json([
-            'status' => 'success',
-            // 'data' => $enquiries
-        ], 200);
+        return view('portal.enquiry.index', compact('enquiries'));
+        // return response()->json([
+        //     'status' => 'success',
+        //     // 'data' => $enquiries
+        // ], 200);
     }
 
     public function store(Request $request)

@@ -8,12 +8,12 @@
 					<div class="row">
 						<div class="col-md-6 col-sm-12">
 							<div class="title">
-								<h4>Appointments</h4>
+								<h4>Enquiries</h4>
 							</div>
 							<nav aria-label="breadcrumb" role="navigation">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="#">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Appointments</li>
+									<li class="breadcrumb-item active" aria-current="page">Enquiries</li>
 								</ol>
 							</nav>
 						</div>
@@ -23,8 +23,8 @@
 				<div class="card-box mb-30">
 					<div class="pd-20">
 						  <a href="#" class="btn-block pull-right">
-						  	<h4 class="text-blue h4">Patient Appointments</h4>
-							<input type="button" name="app_button" data-toggle="modal" data-target="#bd-example-modal-lg" id="app_button" class="btn btn-primary pull-right" value="Add Appointment">
+						  	<h4 class="text-blue h4">Patient Enquiries</h4>
+							<!-- <input type="button" name="app_button" data-toggle="modal" data-target="#bd-example-modal-lg" id="app_button" class="btn btn-primary pull-right" value="Add Appointment"> -->
 						  </a>
 					</div>
 					<div class="pb-20">
@@ -46,15 +46,15 @@
                                  $counter = 1;
                             	@endphp
 
-                                @foreach($appointment as $appointments)
+                                @foreach($enquiries as $enquiry)
 								<tr>
 									<td>{{ $counter++ }}</td>
-									<td class="table-plus">{{ $appointments->fullname }}</td>
-									<td>{{ $appointments->telephone }}</td>
-									<td>{{ $appointments->email }}</td>
-									<td>{{ $appointments->service }} </td>
-									<td>{{ substr($appointments->message , 0, 20) . "..."}}</td>
-									<td>{{ $appointments->appointment_date }}</td>
+									<td class="table-plus">{{ $enquiry->fullname }}</td>
+									<td>{{ $enquiry->telephone }}</td>
+									<td>{{ $enquiry->email }}</td>
+									<td>{{ $enquiry->service }} </td>
+									<td>{{ substr($enquiry->message , 0, 20) . "..."}}</td>
+									<td>{{ $enquiry->added_date }}</td>
 									<td>
 										<div class="dropdown">
 											<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">

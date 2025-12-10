@@ -17,7 +17,6 @@ class Appointment extends Model
 
     protected $fillable = [
         'appointment_id',
-        // 'appointment',
         'fullname',
         'telephone',
         'email',
@@ -25,14 +24,19 @@ class Appointment extends Model
         'message',
         'appointment_date',
         'appointment_time',
-        // 'appointment_reason',
-        // 'appointment_mode', //Telemedicine/Virtual, In-Person,
+        'appointment_mode',
         'doctor_id',
         'appointment_status',
         'confirmation',
         'status',
-        'archive',
-        'archive_date'
+        'added_id',
+        'added_date',
+        'updated_by',
+        'confirmation_id',
+        'archived',
+        'archived_id',
+        'archived_by',
+        'archived_date'
     ];
 
     /**

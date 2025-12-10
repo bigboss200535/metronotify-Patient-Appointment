@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('services');
+            $table->string('telephone');
+            $table->string('telephone_group');
+            $table->string('archived')->default('No');
+            $table->timestamp('archived_date');
+            $table->string('archived_by');
             $table->timestamps();
         });
     }
@@ -23,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('contacts');
     }
 };

@@ -91,7 +91,7 @@
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
                     <div class="blog-item bg-light rounded overflow-hidden">
                         <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="{{ asset('img/service-6.jpg') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('img/service-12.jpg') }}" alt="">
                             <a class="position-absolute top-0 start-0 light-color-fill text-white rounded-end mt-5 py-2 px-4" href="{{ url('/services/pharmacy') }}">Pharmacy Services</a>
                         </div>
                         <div class="p-4">
@@ -137,6 +137,23 @@
                             <p>We offer a wide range of advanced ultrasound which include; cardiology, kidney/prostate, fetal anomaly and general ultra scan
                              </p>
                             <a class="text-uppercase metro-main-text gold-text" href="{{ url('/services/ultrasound') }}">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
+                    <div class="blog-item bg-light rounded overflow-hidden">
+                        <div class="blog-img position-relative overflow-hidden">
+                            <img class="img-fluid" src="{{ asset('img/service-11.jpg') }}" alt="Magazine Clinic Laboratory">
+                            <a class="position-absolute top-0 start-0 light-color-fill text-white rounded-end mt-5 py-2 px-4" href="#">Paediatric Care</a>
+                        </div>
+                        <div class="p-4">
+                            <div class="d-flex mb-3">
+                            </div>
+                            <h4 class="mb-3"></h4>
+                            <p>We offer a wide range of services for your child. Visit our Paediatric specialist.
+                             </p>
+                            <a class="text-uppercase metro-main-text gold-text" href="#">Read More <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>

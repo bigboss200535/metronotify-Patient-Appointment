@@ -94,28 +94,14 @@
 					
                     <!-- Comment Form Start -->
                     <div class="bg-light rounded p-5">
+                        <!-- form response -->
+                        <div id="form_response" class="mt-3"></div>
+
                         <div class="section-title section-title-sm position-relative pb-3 mb-4">
                             <h3 class="mb-0">Leave a concern</h3>
                         </div>
-                         <form action="#" method="POST">
-                            <div class="row g-3">
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control bg-white border-0" placeholder="Your Name" name="name" required style="height: 55px;">
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="number" class="form-control bg-white border-0" placeholder="Telephone" name="contact" required style="height: 55px;">
-                                </div>
-                                <div class="col-12">
-                                    <input type="email" class="form-control bg-white border-0" placeholder="Email" name="email" required style="height: 55px;">
-                                </div>
-                                <div class="col-12">
-                                    <textarea class="form-control bg-white border-0" rows="5" placeholder="Comment" name="comment" required></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn metro-fill text-white w-100 py-3" type="submit">Leave your concern</button>
-                                </div>
-                            </div>
-                        </form>
+                         <!-- <form action="#" method="POST"> -->
+                           @include('includes.in_form') 
                     </div>
                     <!-- Comment Form End -->
                 </div>

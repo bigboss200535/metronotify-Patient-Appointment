@@ -70,9 +70,9 @@
                         </div>
                         <div class="ps-4">
                             <h5 class="mb-2"> Call us on</h5>
-                            <a><h6 class="light-color mb-1">+233 (0)322190051</h6></a>
+                            <h6 class="light-color mb-1">+233 (0) 322190051</h6>
                             <h6 class="light-color mb-0">@include('includes.in_telephone')</h6>
-                            <h6 class="light-color mb-0">+233 (0)544363232</h6>
+                            <h6 class="light-color mb-0">+233 (0) 544363232</h6>
                         </div>
                     </div>
                 </div>
@@ -132,10 +132,14 @@
                                 <input type="email" class="form-control border-0 bg-light px-4" placeholder="Your Email" name="email" id="email" style="height: 55px;">
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control border-0 bg-light px-4" placeholder="Your Telephone" name="telephone" id="telephone" minlength="10" maxlength="15" required style="height: 55px;">
+                                <input type="number" class="form-control border-0 bg-light px-4" placeholder="Your Telephone" name="telephone" id="telephone" minlength="10" maxlength="15" required style="height: 55px;">
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control border-0 bg-light px-4" placeholder="Subject" name="subject" id="subject" style="height: 55px;">
+                                <select class="form-control border-0 bg-light px-4" name="subject" id="subject" style="height: 55px;">
+                                     <option selected disabled>Select A Service</option>
+                                        @include('includes.in_services_option') 
+                                </select>
+                                <!-- <input type="text" class="form-control border-0 bg-light px-4" placeholder="Subject" name="subject" id="subject" style="height: 55px;"> -->
                             </div>
                             <div class="col-12">
                                 <textarea class="form-control border-0 bg-light px-4 py-3" rows="4" placeholder="Message" name="message" id="message"></textarea>

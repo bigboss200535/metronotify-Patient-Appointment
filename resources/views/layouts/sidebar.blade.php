@@ -24,9 +24,9 @@
                             <span class="micon dw dw-calendar1"></span><span class="">Appointments</span>
                         </a>
                         <ul class="submenu">
-                            <li><a href="#">Book Appointment</a></li>
+                            <!-- <li><a href="#">Book Appointment</a></li> -->
                             <li><a href="{{ route('appointment.index') }}">All Appointments</a></li>
-                            <li><a href="#">Upcoming Appointments</a></li>
+                            <!-- <li><a href="#">Upcoming Appointments</a></li> -->
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -34,9 +34,17 @@
                             <span class="micon dw dw-calendar1"></span><span class="mtext">Enquiry</span>
                         </a>
                         <ul class="submenu">
-                            <li><a href="#">All Enquiries </a></li>
-                            <li><a href="#">Contacts</a></li>
-                           
+                            <li><a href="{{ route('enquiry.index') }}">All Enquiries </a></li>
+                            <!-- <li><a href="#">Contacts</a></li> -->
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle">
+                            <span class="micon dw dw-calendar1"></span><span class="mtext">Contacts</span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="#">All Contacts </a></li>
+                            <!-- <li><a href="#">Contacts</a></li> -->
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -45,8 +53,7 @@
                         </a>
                         <ul class="submenu">
                             <li><a href="#">All Enquiries </a></li>
-                            <li><a href="#">Contacts</a></li>
-                           
+                            <!-- <li><a href="#">Contacts</a></li> -->
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -54,25 +61,25 @@
                             <span class="micon dw dw-calendar1"></span><span class="mtext">Users</span>
                         </a>
                         <ul class="submenu">
-                            <li><a href="{{ url('/users/list') }}">User List</a></li>
+                            <li><a href="{{ url('/selfservice/users/list') }}">User List</a></li>
                         </ul>
                     </li>
-                     <li>
+                     <!-- <li>
                         <div class="sidebar-small-cap">Report</div>
-                    </li>
+                    </li> -->
                     
-                    <li class="dropdown">
-                        <a href="javascript:;" class="dropdown-toggle">
-                            <span class="micon dw dw-analytics-21"></span><span class="mtext">Appointments</span>
-                        </a>
-                        <ul class="submenu">
-                            <li><a href="#">400</a></li>
+                    <!-- <li class="dropdown"> -->
+                        <!-- <a href="javascript:;" class="dropdown-toggle"> -->
+                            <!-- <span class="micon dw dw-analytics-21"></span><span class="mtext">Appointments</span> -->
+                        <!-- </a> -->
+                        <!-- <ul class="submenu"> -->
+                            <!-- <li><a href="#">Appointment</a></li> -->
                             <!-- <li><a href="403.html">403</a></li>
                             <li><a href="404.html">404</a></li>
                             <li><a href="500.html">500</a></li>
                             <li><a href="503.html">503</a></li> -->
-                        </ul>
-                    </li>
+                        <!-- </ul> -->
+                    <!-- </li> -->
 
                 </ul>
             </div>

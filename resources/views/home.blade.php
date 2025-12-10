@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magazine Clinic, Kumasi | Clinic & Medical Services, Pine Avenue</title>
     @include('includes.in_favicon') 
-
 </head>
-<body >
-
+<body>
     <!-- Spinner Start -->
      @include('includes.in_spinner') 
     <!-- Spinner End -->
@@ -323,68 +321,85 @@
                 <h1 class="mb-0" style="color: black">We provide specialised cases so support our clients schedules</h1>
             </div>
             <div class="row g-0">
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
+                <div class="col-lg-3 wow slideInUp" data-wow-delay="0.6s">
                     <div class="bg-light rounded">
                         <div class="border-bottom py-4 px-5 mb-4">
-                            <h4 class="light-color mb-1" style="color: black;">OBSTETRICS & GYNAE</h4>
+                            <h4 class="light-color mb-1" style="color: black; font-size: 20px;">OBSTETRICS & GYNAE</h4>
                             <small class="text-uppercase text-dark">MONDAYS, WEDNESDAYS & FRIDAYS</small>
                         </div>
                         <div class="p-5 pt-0">
                             <h1 class="display-5 mb-3">
-                                <small class="align-top" style="font-size: 22px; line-height: 45px;"></small>8:00<small
+                                <small class="align-top" style="font-size: 6; line-height: 45px;"></small>8:00<small
                                     class="align-bottom" style="font-size: 16px; line-height: 40px;">AM</small> -
-                                    <small class="align-top" style="font-size: 22px; line-height: 45px;"></small>5:00<small
+                                    <small class="align-top" style="font-size: 6; line-height: 45px;"></small>5:00<small
                                     class="align-bottom" style="font-size: 16px; line-height: 40px;">PM</small>
                             </h1>
+                            <hr>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
+                <div class="col-lg-3 wow slideInUp" data-wow-delay="0.3s">
                     <div class="bg-white rounded shadow position-relative" style="z-index: 1;">
                         <div class="border-bottom py-4 px-5 mb-4">
-                            <h4 class="light-color mb-1" style="color: black;"> DENTAL CLINIC</h4>
+                            <h4 class="light-color mb-1" style="color: black; font-size: 20px;"> DENTAL CLINIC</h4>
                             <small class="text-uppercase text-dark">MONDAYS TO FRIDAY</small>
                         </div>
                         <div class="p-5 pt-0">
                             <h1 class="display-5 mb-3">
-                                <small class="align-top" style="font-size: 22px; line-height: 45px;"></small>8:00<small
+                                <small class="align-top" style="font-size: 6; line-height: 45px;"></small>8:00<small
                                     class="align-bottom" style="font-size: 16px; line-height: 40px;">AM</small> -
-                                    <small class="align-top" style="font-size: 22px; line-height: 45px;"></small>4:00<small
+                                    <small class="align-top" style="font-size: 6; line-height: 45px;"></small>4:00<small
                                     class="align-bottom" style="font-size: 16px; line-height: 40px;">PM</small>
                             </h1>
-                            <hr>
                             <!-- <div class="border-bottom py-4 px-5 mb-4"> -->
                             <small class="text-uppercase text-dark">SATURDAYS</small>
                             <!-- </div> -->
                             <h1 class="display-5 mb-3">
-                                <small class="align-top" style="font-size: 22px; line-height: 45px;"></small>10:00<small
+                                <small class="align-top" style="font-size: 20px; line-height: 45px;"></small>10:00<small
                                     class="align-bottom" style="font-size: 16px; line-height: 40px;">AM</small> -
-                                    <small class="align-top" style="font-size: 22px; line-height: 45px;"></small>1:00<small
+                                    <small class="align-top" style="font-size: 20px; line-height: 45px;"></small>1:00<small
                                     class="align-bottom" style="font-size: 16px; line-height: 40px;">PM</small>
                             </h1>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
+                <div class="col-lg-3 wow slideInUp" data-wow-delay="0.9s">
                     <div class="bg-light rounded">
                         <div class="border-bottom py-4 px-5 mb-4">
-                            <h4 class="light-color mb-1" >EYE CLINIC</h4>
+                            <h4 class="light-color mb-1" style="color: black; font-size: 20px;">EYE CLINIC</h4>
                             <small class="text-uppercase text-dark">MONDAYS TO FRIDAYS</small>
                         </div>
                         <div class="p-5 pt-0">
                             <h1 class="display-5 mb-3">
-                                <small class="align-top" style="font-size: 22px; line-height: 45px;"></small>8:00<small
+                                <small class="align-top" style="font-size: 20px; line-height: 45px;"></small>8:00<small
                                     class="align-bottom" style="font-size: 16px; line-height: 40px;">AM</small> -
-                                    <small class="align-top" style="font-size: 22px; line-height: 45px;"></small>4:00<small
+                                    <small class="align-top" style="font-size: 20px; line-height: 45px;"></small>4:00<small
                                     class="align-bottom" style="font-size: 16px; line-height: 40px;">PM</small>
                             </h1>
                             <hr>
                             <!-- <div class="border-bottom py-4 px-5 mb-4"> -->
                             <small class="text-uppercase text-dark">SATURDAYS</small>
                             <h1 class="display-5 mb-3">
-                                <small class="align-top" style="font-size: 22px; line-height: 45px;"></small>9:00<small
+                                <small class="align-top" style="font-size: 20px; line-height: 45px;"></small>9:00<small
                                     class="align-bottom" style="font-size: 16px; line-height: 40px;">AM</small> -
-                                    <small class="align-top" style="font-size: 22px; line-height: 45px;"></small>1:00<small
+                                    <small class="align-top" style="font-size: 20px; line-height: 45px;"></small>1:00<small
+                                    class="align-bottom" style="font-size: 16px; line-height: 40px;">PM</small>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="col-lg-3 wow slideInUp" data-wow-delay="0.3s">
+                    <div class="bg-white rounded shadow position-relative" style="z-index: 1;">
+                        <div class="border-bottom py-4 px-5 mb-4">
+                            <h4 class="light-color mb-1" style="color: black; font-size: 20px;"> PAEDIATRIC CLINIC</h4>
+                            <small class="text-uppercase text-dark">SATURDAYS</small>
+                        </div>
+                        <div class="p-5 pt-0">
+                            <h1 class="display-5 mb-3">
+                                <small class="align-top" style="font-size: 20px; line-height: 45px;"></small>8:00<small
+                                    class="align-bottom" style="font-size: 16px; line-height: 40px;">AM</small> -
+                                    <small class="align-top" style="font-size: 20px; line-height: 45px;"></small>2:00<small
                                     class="align-bottom" style="font-size: 16px; line-height: 40px;">PM</small>
                             </h1>
                         </div>
@@ -394,7 +409,6 @@
         </div>
     </div>
     <!-- Pricing Plan End -->
-
 
  <!-- Quote Start -->
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -447,7 +461,7 @@
                                     <input type="email" class="form-control bg-light border-0" placeholder="Your Email" name="email" required style="height: 55px;">
                                 </div>
                                 <div class="col-12">
-                                    <input type="text" class="form-control bg-light border-0" placeholder="Your Telephone" name="telephone" id="telephone" minlength="10" maxlength="15" required style="height: 55px;">
+                                    <input type="number" class="form-control bg-light border-0" placeholder="Your Telephone" name="telephone" id="telephone" minlength="10" maxlength="15" required style="height: 55px;">
                                 </div>
                                 <div class="col-12">
                                     <select class="form-select bg-light border-0" name="service" id="service" required style="height: 55px;">

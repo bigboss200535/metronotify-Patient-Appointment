@@ -21,7 +21,6 @@
             gtag('config', 'UA-119386393-1');
         </script>
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="header-white sidebar-white active sidebar-light">
             @include('layouts.loader')
@@ -42,7 +41,7 @@
     <script src="{{ asset('portal/src/plugins/datatables/js/responsive.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('portal/vendors/scripts/dashboard3.js') }}"></script>
    <script>
-    document.addEventListener('DOMContentLoaded', function () {
+     document.addEventListener('DOMContentLoaded', function () {
         const form = document.getElementById('newsletter_form');
         const responseMessage = document.getElementById('response-message');
         const emailInput = document.getElementById('email');

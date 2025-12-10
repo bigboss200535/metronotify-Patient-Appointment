@@ -6,3 +6,4 @@
 <option value="Ultrasound Scan">Ultrasound Scan</option>
 <option value="Laboratory Services">Laboratory Services</option>
 <option value="Pharmacy">Pharmacy</option>
+<option value="Pharmacy">Paediatric Care</option>

@@ -38,17 +38,25 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $user_id)
     {
-        //
+        $users = User::where('user_id', $user_id)->first();
+        
+        return response()->json([
+            'data' => $users,
+        ], 201);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $user_id)
     {
-        //
+       $user = User::findOrFail($user_id);
+
+         return response()->json([
+            'data' => $user,
+        ], 200);
     }
 
     /**

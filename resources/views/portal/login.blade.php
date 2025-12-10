@@ -79,26 +79,29 @@
                                 </div>
                                  <x-input-error :messages="$errors->get('password')" class="mt-2" />
                             </div>
-                            <div class="row pb-30">
-                                <div class="col-6">
-                                    <div class="custom-control custom-checkbox">
+                            <!-- <div class="row pb-30"> -->
+                                <!-- <div class="col-6"> -->
+                                    <!-- <div class="custom-control custom-checkbox"> -->
                                         <!-- <input type="checkbox" class="custom-control-input" id="customCheck1"> -->
                                         <!-- <label class="custom-control-label" for="customCheck1">Remember</label> -->
-                                    </div>
-                                </div>
-                                <div class="col-6">
+                                    <!-- </div> -->
+                                <!-- </div> -->
+                                <!-- <div class="col-6">
                                     <div class="forgot-password"><a href="{{ url('/selfservice/forgot-password') }}">Forgot Password</a></div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="input-group mb-0">
                                         <input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign In">
                                     </div>
-                                    <div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">OR</div>
-                                    <div class="input-group mb-0">
-                                        <a class="btn btn-outline-primary btn-lg btn-block " href="{{ url('/')}}">Back to Website</a>
+                                    <div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">Or</div>
+                                    <div class="col-12" align="center">
+                                        <div align="center"><a href="{{ url('/')}}">Back to Website</a></div>
                                     </div>
+                                    <!-- <div class="input-group mb-0">
+                                        <a class="btn btn-outline-primary btn-lg btn-block " href="{{ url('/')}}">Back to Website</a>
+                                    </div> -->
                                 </div>
                             </div>
                         </form>

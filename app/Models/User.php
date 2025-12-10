@@ -28,10 +28,12 @@ class User extends Authenticatable
         'firstname',
         'email',
         'password',
+        'blocked_by',
         'is_blocked',
         'status',
-        'archive',
-        'archive_date'
+        'archived',
+        'archived_date',
+        'archived_by'
     ];
 
     /**

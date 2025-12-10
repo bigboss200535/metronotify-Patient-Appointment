@@ -6,3 +6,4 @@
 <a href="{{ url('/services/pharmacy') }}" class="dropdown-item">Pharmacy Services</a>
 <a href="{{ url('/services/laboratory') }}" class="dropdown-item">Laboratory Services</a>
 <a href="{{ url('/services/ultrasound') }}" class="dropdown-item">Ultrasound Services</a>
+<a href="#" class="dropdown-item">Paediatric Care</a>

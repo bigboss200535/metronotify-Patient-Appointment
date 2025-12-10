@@ -39,6 +39,7 @@
 									<th class="table-plus datatable-nosort">Name</th>
 									<th>Email</th>
 									<th>Status</th>
+									<th>Blocked</th>
 									<th>Date Added</th>
 									<!-- <th>Start Date</th> -->
 									<th class="datatable-nosort">Action</th>
@@ -54,15 +55,28 @@
 									<td>{{ $counter++ }}</td>
 									<td class="table-plus">{{ $user->firstname }} {{ $user->othername }}</td>
 									<td>{{ $user->email }}</td>
-									<td>{{ $user->status }}</td>
-									<td>{{ \Carbon\Carbon::parse($user->added_date)->format('d-m-Y') }}</td>
+									<td>
+										<span class="badge badge-{{ $user->status == 'Active' ? 'success' : 'secondary' }}">
+                                          {{ $user->status }}
+                                        </span>
+									</td>
+									<td>
+										<span class="badge badge-{{ $user->is_blocked == '0' ? 'primary' : 'warning' }}">
+                                          {{ $user->is_blocked== '0' ? 'Not Blocked' : 'Blocked' }}
+                                        </span>
+									</td>
+									<td>{{ Carbon\Carbon::parse($user->added_date)->format('d-m-Y') }}</td>
 									<td>
 										<div class="dropdown">
 											<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 												<i class="dw dw-more"></i>
 											</a>
 											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-												<a class="dropdown-item js-view-user" href="#" data-toggle="modal" data-target="#viewUserModal"
+												<a class="dropdown-item js-view-user" href="#"
+                              						 data-user='@json($user)'>
+                                					<i class="dw dw-eye"></i> Details
+                            					</a>
+												<!-- <a class="dropdown-item js-view-user" href="#" data-bs-toggle="modal" data-bs-target="#viewUserModal"
 													data-user-id="{{ $user->user_id }}"
 													data-firstname="{{ $user->firstname }}"
 													data-othername="{{ $user->othername }}"
@@ -73,14 +87,18 @@
 													data-added-date="{{ \Carbon\Carbon::parse($user->added_date)->format('d-m-Y') }}"
 													data-user-role="{{ $user->user_role }}"
 													data-is-blocked="{{ $user->is_blocked ? 'Yes' : 'No' }}">
-													<i class="dw dw-eye"></i> View</a>
-												<a class="dropdown-item js-edit-user" href="#" data-toggle="modal" data-target="#editUserModal"
-													data-user-id="{{ $user->user_id }}"
-													data-firstname="{{ $user->firstname }}"
-													data-othername="{{ $user->othername }}"
-													data-email="{{ $user->email }}"
-													data-status="{{ $user->status }}">
-													<i class="dw dw-edit2"></i> Edit</a>
+													<i class="dw dw-eye"></i> Details</a> -->
+												<a class="dropdown-item js-edit-user" href="#"
+   													data-user='@json($user)'>
+    												<i class="dw dw-edit2"></i> Edit
+												</a>
+													<a class="dropdown-item js-toggle-block" href="#" 
+														data-user-id="{{ $user->user_id }}"
+														data-fullname="{{ $user->firstname }} {{ $user->othername }}"
+														data-is-blocked="{{ $user->is_blocked }}">
+															<i class="dw dw-shield"></i>
+															<span class="block-text">{{ $user->is_blocked ? 'Unblock' : 'Block' }}</span>
+														</a> 
 												<a class="dropdown-item js-delete-user" href="#" data-toggle="modal" data-target="#deleteUserModal"
 													data-user-id="{{ $user->user_id }}"
 													data-fullname="{{ $user->firstname }} {{ $user->othername }}">
@@ -97,6 +115,7 @@
 									<th class="table-plus datatable-nosort">Name</th>
 									<th>Email</th>
 									<th>Status</th>
+									<th>Blocked</th>
 									<th>Date Added</th>
 									<!-- <th>Start Date</th> -->
 									<th class="datatable-nosort">Action</th>
@@ -108,7 +127,6 @@
 				<!-- Simple Datatable End -->
 			</div>
 			 
-			 
 		</div>
 	</div>
 
@@ -117,22 +135,47 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
+					<h5 class="modal-title" id="editUserLabel">User Details</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
 					<div class="table-responsive">
-						<table class="table table-striped">
+						<table class="table table-hover">
 							<tbody>
-								<tr><th>Full Name</th><td id="view_fullname"></td></tr>
-								<tr><th>Email</th><td id="view_email"></td></tr>
-								<tr><th>Telephone</th><td id="view_telephone"></td></tr>
-								<tr><th>Gender</th><td id="view_gender"></td></tr>
-								<tr><th>Status</th><td id="view_status"></td></tr>
-								<tr><th>Role</th><td id="view_role"></td></tr>
-								<tr><th>Blocked</th><td id="view_blocked"></td></tr>
-								<tr><th>Added Date</th><td id="view_added_date"></td></tr>
+								<tr>
+									<td>Full Name</td>
+									<td id="view_fullname"></td>
+								</tr>
+								<tr>
+									<td>Email</td>
+									<td id="view_email"></td>
+								</tr>
+								<tr>
+									<td>Telephone</td>
+									<td id="view_telephone"></td>
+								</tr>
+								<tr>
+									<td>Gender</td>
+									<td id="view_gender"></td>
+								</tr>
+								<tr>
+									<td>Status</td>
+									<td id="view_status"></td>
+								</tr>
+								<tr>
+									<td>Role</td>
+									<td id="view_role"></td>
+								</tr>
+								<tr>
+									<td>Blocked</td>
+									<td id="view_blocked"></td>
+								</tr>
+								<tr>
+									<td>Added Date</td>
+									<td id="view_added_date"></td>
+								</tr>
 							</tbody>
 						</table>
 					</div>
@@ -145,110 +188,171 @@
 	</div>
 
 	<!-- Edit User Modal -->
-	<div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="editUserLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<form id="editUserForm" method="POST">
-				@csrf
-				<input type="hidden" name="_method" value="PATCH">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="editUserLabel">Edit User</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="form-group">
-							<label for="edit_firstname">First Name</label>
-							<input type="text" name="firstname" id="edit_firstname" class="form-control" maxlength="150">
-						</div>
-						<div class="form-group">
-							<label for="edit_othername">Other Name</label>
-							<input type="text" name="othername" id="edit_othername" class="form-control" maxlength="150">
-						</div>
-						<div class="form-group">
-							<label for="edit_email">Email</label>
-							<input type="email" name="email" id="edit_email" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label for="edit_status">Status</label>
-							<select name="status" id="edit_status" class="form-control" required>
-								<option value="Active">Active</option>
-								<option value="Inactive">Inactive</option>
-							</select>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-						<button type="submit" class="btn btn-primary">Save Changes</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
+	<div class="modal fade" id="editUserModal" tabindex="-1">
+    <div class="modal-dialog">
+        <form id="editUserForm" method="POST">
+            @csrf
+            @method('PATCH')
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="edit_user_id">
+                    <div class="mb-3">
+                        <label>First Name</label>
+                        <input type="text" name="firstname" id="edit_firstname" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Other Name</label>
+                        <input type="text" name="othername" id="edit_othername" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label>Email</label>
+                        <input type="email" name="email" id="edit_email" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Telephone</label>
+                        <input type="text" name="telephone" id="edit_telephone" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label>Status</label>
+                        <select name="status" id="edit_status" class="form-control" required>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button> -->
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+	<!-- Block/Unblock Confirmation Modal -->
+<div class="modal fade" id="blockUserModal" tabindex="-1">
+    <div class="modal-dialog">
+        <form id="blockUserForm" method="POST">
+            @csrf
+            <input type="hidden" name="_method" id="block_method">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="blockModalTitle">Block User</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to <strong id="block_action_text">block</strong> <span id="block_username"></span>?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-warning">Confirm</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 
 	<!-- Delete User Modal -->
-	<div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteUserLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<form id="deleteUserForm" method="POST">
-				@csrf
-				<input type="hidden" name="_method" value="DELETE">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="deleteUserLabel">Delete User</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<p>Are you sure you want to delete <strong id="delete_fullname"></strong>?</p>
-						<p class="text-muted mb-0">This will archive the user and mark them as inactive.</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-						<button type="submit" class="btn btn-danger">Delete</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
+	<div class="modal fade" id="deleteUserModal" tabindex="-1">
+    <div class="modal-dialog">
+        <form id="deleteUserForm" method="POST">
+            @csrf
+            @method('DELETE')
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to <strong>delete</strong> <span id="delete_name" class="text-danger"></span>?</p>
+                    <small class="text-muted">This will delete the user permanently.</small>
+                </div>
+                <div class="modal-footer">
+                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // View User
+    document.querySelectorAll('.js-view-user').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const user = this.dataset.user ? JSON.parse(this.dataset.user) : {};
+            $('#v_firstname').text(user.firstname || '');
+			$('#v_othername').text(user.othername || '');
+            $('#v_email').text(user.email || '');
+            $('#v_telephone').text(user.telephone || '—');
+            $('#v_gender').text(user.gender || '—');
+            $('#v_role').text(user.user_role || '—');
+            $('#v_status').text(user.status || '');
+            $('#v_blocked').text(user.is_blocked ? 'Yes' : 'No');
+            $('#v_added').text(user.added_date ? new Date(user.added_date).toLocaleDateString('en-GB') : '');
+			$('#viewUserModal').attr('action', '/selfservice/users/' + user.user_id);
+            $('#viewUserModal').modal('show');
+        });
+    });
 
-	<script>
-		(function(){
-			function userPath(userId){
-				return '/users/' + userId;
-			}
+    // Edit User
+    document.querySelectorAll('.js-edit-user').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const user = JSON.parse(this.dataset.user);
+            $('#edit_user_id').val(user.user_id);
+            $('#edit_firstname').val(user.firstname);
+            $('#edit_othername').val(user.othername);
+            $('#edit_email').val(user.email);
+            $('#edit_telephone').val(user.telephone);
+            $('#edit_status').val(user.status);
 
-			$('.js-view-user').on('click', function(){
-				var btn = $(this);
-				var fullname = (btn.data('firstname') || '') + ' ' + (btn.data('othername') || '');
-				$('#view_fullname').text(fullname.trim());
-				$('#view_email').text(btn.data('email') || '');
-				$('#view_telephone').text(btn.data('telephone') || '');
-				$('#view_gender').text(btn.data('gender') || '');
-				$('#view_status').text(btn.data('status') || '');
-				$('#view_role').text(btn.data('user-role') || '');
-				$('#view_blocked').text(btn.data('is-blocked') || '');
-				$('#view_added_date').text(btn.data('added-date') || '');
-			});
+            $('#editUserForm').attr('action', '/selfservice/users/' + user.user_id);
+            $('#editUserModal').modal('show');
+        });
+    });
 
-			$('.js-edit-user').on('click', function(){
-				var btn = $(this);
-				var userId = btn.data('user-id');
-				$('#editUserForm').attr('action', userPath(userId));
-				$('#edit_firstname').val(btn.data('firstname') || '');
-				$('#edit_othername').val(btn.data('othername') || '');
-				$('#edit_email').val(btn.data('email') || '');
-				$('#edit_status').val(btn.data('status') || 'Active');
-			});
+    // Delete User
+    document.querySelectorAll('.js-delete-user').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const id = this.dataset.userId;
+            const name = this.dataset.name;
+            $('#delete_name').text(name);
+            $('#deleteUserForm').attr('action', '/selfservice/users/' + id);
+            $('#deleteUserModal').modal('show');
+        });
+    });
 
-			$('.js-delete-user').on('click', function(){
-				var btn = $(this);
-				var userId = btn.data('user-id');
-				$('#deleteUserForm').attr('action', userPath(userId));
-				$('#delete_fullname').text(btn.data('fullname'));
-			});
-		})();
-	</script>
+    // Block / Unblock
+    document.querySelectorAll('.js-toggle-block').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const id = this.dataset.userId;
+            const name = this.dataset.name;
+            const blocked = this.dataset.blocked == '1' || this.dataset.blocked === true;
+
+            const action = blocked ? 'unblock' : 'block';
+            const actionText = blocked ? 'unblock' : 'block';
+
+            $('#blockModalTitle').text((blocked ? 'Unblock' : 'Block') + ' User');
+            $('#block_action').text(actionText);
+            $('#block_name').text(name);
+
+            $('#blockUserForm')
+                .attr('action', '/selfservice/users/' + id + '/' + action)
+                .find('input[name="_method"]').remove(); // Remove if exists
+
+            if (action === 'block') {
+                $('#blockUserForm').append('<input type="hidden" name="_method" value="POST">');
+            }
+
+            $('#blockUserModal').modal('show');
+        });
+    });
+});
+</script>
 	</x-app-layout>
 	
