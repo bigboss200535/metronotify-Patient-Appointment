@@ -145,4 +145,24 @@ class AppointmentController extends Controller
 
         return back()->with('status', 'Appointment deleted successfully');
     }
+
+    /**
+     * Get appointments due within the next 5 days
+     * Returns JSON including count and list of upcoming appointments.
+     */
+    public function due_in_five_days()
+    {
+        $start = now()->startOfDay();
+        $end = now()->addDays(5)->endOfDay();
+
+        $appointments = Appointment::where('archived', 'No')
+            ->whereBetween('appointment_date', [$start, $end])
+            ->orderBy('appointment_date')
+            ->get();
+
+        return response()->json([
+            'count' => $appointments->count(),
+            'data' => $appointments,
+        ], 200);
+    }
 }

@@ -10,7 +10,7 @@ use App\Models\Contacts as ContactsModel;
 class Contacts extends Controller
 {
     /**
-     * List non-archived contacts for portal management.
+     * List all contacts
      */
     public function index()
     {
@@ -97,7 +97,7 @@ class Contacts extends Controller
     /**
      * Import contacts from CSV.
      *
-     * File must be CSV with header row: telephone, telephone_group.
+     * File must be CSV/Excel with header row: telephone, telephone_group.
      */
     public function import(Request $request)
     {

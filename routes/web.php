@@ -25,19 +25,19 @@ Route::middleware('web')->group(function () {
     Route::view('/homepage', 'home');
     Route::view('/index', 'home')->name('home');
 
-    // Main pages
+    // Main navigation page routes
     Route::view('/about', 'about')->name('about');
     Route::view('/contact', 'contact')->name('contact');
     Route::view('/appointments', 'appointments')->name('appointments');
     Route::view('/selfservice/portal', 'portal.login')->name('login');
     Route::view('/selfservice/forgot-password', 'portal.forgot')->name('forgot-password');
 
-    // Form submissions
+    // Form submissions in website
     Route::post('/subscribe', [NewsletterController::class, 'newsletter_subscription'])->name('newsletter.subscribe');
     Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiry.store');
     Route::post('/book-appointment', [EnquiryController::class, 'book_appointment'])->name('enquiry.book_appointment');
     
-    // Services group
+    // Services routes
     Route::prefix('services')->group(function () {
         Route::view('/', 'services')->name('services');
         Route::view('/dental', 'services.dental')->name('services.dental');
@@ -58,19 +58,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::prefix('users')->group(function () {
-         // list users
-        // Route::get('/list', [UserController::class, 'index'])->name('users.index');
-        // edit/update user
-        // Route::patch('/{user_id}', [UserController::class, 'update'])->name('users.update');
-        // // delete (archive) user
-        // Route::delete('/{user_id}', [UserController::class, 'destroy'])->name('users.destroy');
-        //block and unblock user
-        // Route::get('/{user_id}/block', [UserController::class, 'block'])->name('users.block');
-        // Route::get('/{user_id}/unblock', [UserController::class, 'unblock'])->name('users.unblock');
-
-        // Route::get('/appointmentlist', [AppointmentController::class, 'index'])->name('appointment.index');
-    });
 
     Route::prefix('selfservice')->group(function () {
             // Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
@@ -92,37 +79,40 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/enquiry/list', [EnquiryController::class, 'index'])->name('enquiry.index');
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
-    // Users Management – ALL UNDER /selfservice/users
-    Route::prefix('users')->group(function () {
-        Route::get('/list', [UserController::class, 'index'])->name('users.index');
-        // Edit
-        Route::patch('/{user_id}', [UserController::class, 'update'])->name('users.update');
-        // Delete (Archive)
-        Route::delete('/{user_id}', [UserController::class, 'destroy'])->name('users.destroy');
-        // Block & Unblock – use POST for state changes
-        Route::post('/{user_id}/block', [UserController::class, 'block'])->name('users.block');
-        Route::post('/{user_id}/unblock', [UserController::class, 'unblock'])->name('users.unblock');
-    });
+        // Users Management 
+        Route::prefix('users')->group(function () {
+            Route::get('/list', [UserController::class, 'index'])->name('users.index');
+            Route::get('/create', [UserController::class, 'create'])->name('users.create');
+            // Create
+            Route::post('/', [UserController::class, 'store'])->name('users.store');
+            // Edit users
+            Route::patch('/{user_id}', [UserController::class, 'update'])->name('users.update');
+            // Delete (Archive)
+            Route::delete('/{user_id}', [UserController::class, 'destroy'])->name('users.destroy');
+            // Block & Unblock – use POST for state changes
+            Route::post('/{user_id}/block', [UserController::class, 'block'])->name('users.block');
+            Route::post('/{user_id}/unblock', [UserController::class, 'unblock'])->name('users.unblock');
+        });
 
-    // Contacts Management – ALL UNDER /selfservice/contacts
-    Route::prefix('contacts')->middleware(['auth', 'verified'])->group(function () {
-        Route::get('/list', [\App\Http\Controllers\Contacts::class, 'index'])->name('contacts.index');
-        Route::post('/', [\App\Http\Controllers\Contacts::class, 'store'])->name('contacts.store');
-        Route::patch('/{id}', [\App\Http\Controllers\Contacts::class, 'update'])->name('contacts.update');
-        Route::delete('/{id}', [\App\Http\Controllers\Contacts::class, 'destroy'])->name('contacts.destroy');
-        Route::post('/import', [\App\Http\Controllers\Contacts::class, 'import'])->name('contacts.import');
-        Route::get('/export', [\App\Http\Controllers\Contacts::class, 'export'])->name('contacts.export');
-    });
+          // Contacts Management
+          Route::prefix('contacts')->middleware(['auth', 'verified'])->group(function () {
+              Route::get('/list', [\App\Http\Controllers\Contacts::class, 'index'])->name('contacts.index');
+              Route::post('/', [\App\Http\Controllers\Contacts::class, 'store'])->name('contacts.store');
+              Route::patch('/{id}', [\App\Http\Controllers\Contacts::class, 'update'])->name('contacts.update');
+              Route::delete('/{id}', [\App\Http\Controllers\Contacts::class, 'destroy'])->name('contacts.destroy');
+              Route::post('/import', [\App\Http\Controllers\Contacts::class, 'import'])->name('contacts.import');
+              Route::get('/export', [\App\Http\Controllers\Contacts::class, 'export'])->name('contacts.export');
+          });
 
-    // SMS Management – ALL UNDER /selfservice/sms
-    Route::prefix('sms')->middleware(['auth', 'verified'])->group(function () {
-        Route::get('/list', [\App\Http\Controllers\SmsController::class, 'index'])->name('sms.index');
-        Route::post('/', [\App\Http\Controllers\SmsController::class, 'store'])->name('sms.store');
-        Route::patch('/{id}', [\App\Http\Controllers\SmsController::class, 'update'])->name('sms.update');
-        Route::delete('/{id}', [\App\Http\Controllers\SmsController::class, 'destroy'])->name('sms.destroy');
-        Route::post('/send-to-all', [\App\Http\Controllers\SmsController::class, 'sendToAllContacts'])->name('sms.send_all');
-    });
-});
+          // SMS Management 
+          Route::prefix('sms')->middleware(['auth', 'verified'])->group(function () {
+              Route::get('/list', [\App\Http\Controllers\SmsController::class, 'index'])->name('sms.index');
+              Route::post('/', [\App\Http\Controllers\SmsController::class, 'store'])->name('sms.store');
+              Route::patch('/{id}', [\App\Http\Controllers\SmsController::class, 'update'])->name('sms.update');
+              Route::delete('/{id}', [\App\Http\Controllers\SmsController::class, 'destroy'])->name('sms.destroy');
+              Route::post('/send-to-all', [\App\Http\Controllers\SmsController::class, 'sendToAllContacts'])->name('sms.send_all');
+          });
+      });
 });
 
 // Route::get('/selfservice/dashboard', function () {
