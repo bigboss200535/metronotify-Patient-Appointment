@@ -18,6 +18,6 @@ Manage permissions for developers, administrators, doctors, or patient and data 
 ## Usage
 - Navigate to the dashboard to view patient and appointment summaries.
   
-## License
-
+## Snapshot
+![](/snapscout.png)
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
