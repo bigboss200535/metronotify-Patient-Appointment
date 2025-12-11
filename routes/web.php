@@ -29,7 +29,7 @@ Route::middleware('web')->group(function () {
     Route::view('/about', 'about')->name('about');
     Route::view('/contact', 'contact')->name('contact');
     Route::view('/appointments', 'appointments')->name('appointments');
-    Route::view('/selfservice/portal', 'portal.login')->name('login');
+   
     Route::view('/selfservice/forgot-password', 'portal.forgot')->name('forgot-password');
 
     // Form submissions in website
@@ -79,6 +79,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/enquiry/list', [EnquiryController::class, 'index'])->name('enquiry.index');
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
+        Route::view('/portal', 'portal.login')->name('login');
+
         // Users Management 
         Route::prefix('users')->group(function () {
             Route::get('/list', [UserController::class, 'index'])->name('users.index');
@@ -111,6 +113,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
               Route::patch('/{id}', [\App\Http\Controllers\SmsController::class, 'update'])->name('sms.update');
               Route::delete('/{id}', [\App\Http\Controllers\SmsController::class, 'destroy'])->name('sms.destroy');
               Route::post('/send-to-all', [\App\Http\Controllers\SmsController::class, 'sendToAllContacts'])->name('sms.send_all');
+          });
+
+          // Reports
+          Route::prefix('reports')->middleware(['auth', 'verified'])->group(function () {
+              Route::get('/appointments', [\App\Http\Controllers\ReportsController::class, 'appointments'])->name('reports.appointments');
+              Route::get('/users', [\App\Http\Controllers\ReportsController::class, 'users'])->name('reports.users');
+              Route::get('/enquiries', [\App\Http\Controllers\ReportsController::class, 'enquiries'])->name('reports.enquiries');
+              Route::get('/contacts', [\App\Http\Controllers\ReportsController::class, 'contacts'])->name('reports.contacts');
+              Route::get('/sms', [\App\Http\Controllers\ReportsController::class, 'sms'])->name('reports.sms');
           });
       });
 });

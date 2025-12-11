@@ -64,22 +64,22 @@
                             <li><a href="{{ url('/selfservice/users/list') }}">User List</a></li>
                         </ul>
                     </li>
-                     <!-- <li>
+                     <li>
                         <div class="sidebar-small-cap">Report</div>
-                    </li> -->
+                    </li>
                     
-                    <!-- <li class="dropdown"> -->
-                        <!-- <a href="javascript:;" class="dropdown-toggle"> -->
-                            <!-- <span class="micon dw dw-analytics-21"></span><span class="mtext">Appointments</span> -->
-                        <!-- </a> -->
-                        <!-- <ul class="submenu"> -->
-                            <!-- <li><a href="#">Appointment</a></li> -->
-                            <!-- <li><a href="403.html">403</a></li>
-                            <li><a href="404.html">404</a></li>
-                            <li><a href="500.html">500</a></li>
-                            <li><a href="503.html">503</a></li> -->
-                        <!-- </ul> -->
-                    <!-- </li> -->
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle">
+                            <span class="micon dw dw-analytics-21"></span><span class="mtext">Appointments</span>
+                        </a>
+                         <ul class="submenu">
+                            <li><a href="#">Appointment</a></li> 
+                            <li><a href="#">Enquiry</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">SMS</a></li>
+                            <!-- <li><a href="#">503</a></li> -->
+                        </ul>
+                    </li>
 
                 </ul>
             </div>

@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\Enquiry;
 use App\Models\User;
 use App\Models\Appointment;
 use App\Models\Contacts;
-use Illuminate\Support\Str;
+// use Illuminate\Support\Str;
 
 class DashboardController extends Controller
 {
     public function index()
     {
+        
         $current_hour = Carbon::now()->format('H');
         $start = Carbon::now()->startOfMonth();
         $end = Carbon::now()->endOfMonth();
@@ -43,12 +44,14 @@ class DashboardController extends Controller
         $contacts = Contacts::where('archived', 'No')->count();
          
         $enquiry_month = Enquiry::where('archived', 'No')->where('added_date', [$start, $end])->count();
+
         $enquiry_total = Enquiry::where('archived', 'No')->count();
+
         $recent_enquiry = Enquiry::where('archived', 'No')->get();
         
         $users = User::where('archived', 'No')->paginate(5);
 
-        return view('portal.dashboard', compact('users', 'contacts', 'recent_enquiry','greeting', 'appointment_month', 'contact', 'total_appointments', 'enquiry_month', 'enquiry_total'));
-        
+        return view('portal.dashboard', compact('users', 'contacts', 'recent_enquiry','greeting', 'appointment_month', 'contact', 'total_appointments', 'enquiry_month', 'enquiry_total'));    
     }
+
 }

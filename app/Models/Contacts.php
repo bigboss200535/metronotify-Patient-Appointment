@@ -21,7 +21,7 @@ class Contacts extends Model
         'telephone',
         'telephone_group',
         'archived',
-        // 'archived_id',
+        'archived_id',
         'archived_by',
         'archived_date',
     ];

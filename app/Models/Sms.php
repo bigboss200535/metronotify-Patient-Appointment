@@ -5,21 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Newsletter extends Model
+class Sms extends Model
 {
     use HasFactory;
 
-    protected $table = 'newsletter_subscription';
-    protected $primaryKey = 'subscription_id';
+    protected $table = 'sms';
+    // protected $primaryKey = 'id';
+    // public $incrementing = false;
+    // protected $keyType = 'string';
     public $timestamps = false;
 
     protected $fillable = [
-        'email',
-        'subscription_id',
-        'is_active',
-        'email_verified_at',
+        'id',
+        'sms_content',
+        'sms_type',
+        'recipient_number',
         'status',
-        'date_added',
         'archived',
         'archived_id',
         'archived_by',
@@ -27,10 +28,8 @@ class Newsletter extends Model
     ];
 
     protected $casts = [
-        'email'     => 'string',
         'status'      => 'string',
         'archived'    => 'string',
         'archived_date' => 'date',
     ];
-
 }

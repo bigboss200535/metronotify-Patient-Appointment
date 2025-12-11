@@ -20,7 +20,6 @@ class Contacts extends Controller
 
     /**
      * Create a new contact.
-     *
      * Expects: telephone (required), telephone_group (optional).
      */
     public function store(Request $request)
