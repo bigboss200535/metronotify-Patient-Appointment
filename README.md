@@ -2,6 +2,11 @@
 Metronotify is a lightweight web application designed to help patient Book appointments with Doctors. 
 It provides an organized workflow for recording transactions, tracking appintments statuses, and storing patient information in a centralized and easy-to-use interface.
 
+![WebSite](Screenshot1.png) 
+![Appointment Form](Screenshot2.png) 
+![Portal Login](Screenshot3.png) 
+![Dashboard](Screenshot4.png) 
+
 ## Features
 - Patient Management
 Add, edit, and organize patient profiles.
