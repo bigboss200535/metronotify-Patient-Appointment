@@ -122,6 +122,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
               Route::get('/enquiries', [\App\Http\Controllers\ReportsController::class, 'enquiries'])->name('reports.enquiries');
               Route::get('/contacts', [\App\Http\Controllers\ReportsController::class, 'contacts'])->name('reports.contacts');
               Route::get('/sms', [\App\Http\Controllers\ReportsController::class, 'sms'])->name('reports.sms');
+              Route::get('/all-sms', [\App\Http\Controllers\ReportsController::class, 'all-sms'])->name('reports.allsms');
           });
       });
 });
