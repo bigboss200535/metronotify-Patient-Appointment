@@ -9,11 +9,40 @@ use Illuminate\Support\Facades\Auth;
 class NotificationController extends Controller
 {
     /**
-     * Get all notifications for the authenticated user.
+     * Display the notifications page.
      */
     public function index()
     {
+        return view('portal.notifications.index');
+    }
+
+    /**
+     * Get all notifications data for authenticated user.
+     */
+    public function getAll()
+    {
         $notifications = Notification::where('user_id', Auth::user()->user_id)
+            ->orderBy('created_at', 'desc')
+            ->limit(50)
+            ->get();
+
+        $unreadCount = Notification::where('user_id', Auth::user()->user_id)
+            ->where('is_read', false)
+            ->count();
+
+        return response()->json([
+            'notifications' => $notifications,
+            'unread_count' => $unreadCount,
+        ]);
+    }
+
+    /**
+     * Get unread notifications for dropdown.
+     */
+    public function unread()
+    {
+        $notifications = Notification::where('user_id', Auth::user()->user_id)
+            ->where('is_read', false)
             ->orderBy('created_at', 'desc')
             ->limit(10)
             ->get();

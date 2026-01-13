@@ -74,28 +74,33 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(loadNotifications, 30000);
 
     function loadNotifications() {
-        fetch('{{ route("notifications.index") }}')
+        fetch('{{ route("notifications.unread") }}')
             .then(response => response.json())
             .then(data => {
                 notifications = data.notifications || [];
                 unreadCount = data.unread_count || 0;
-                updateNotificationUI();
+                // Filter to show only unread notifications
+                const unreadNotifications = notifications.filter(n => !n.is_read);
+                updateNotificationUI(unreadNotifications);
             })
             .catch(error => {
                 console.error('Error loading notifications:', error);
             });
     }
 
-    function updateNotificationUI() {
+    function updateNotificationUI(notificationsToShow = null) {
         const notificationList = document.getElementById('notificationList');
         const notificationCount = document.getElementById('notificationCount');
+        
+        // Use filtered notifications or all notifications
+        const displayNotifications = notificationsToShow || notifications.filter(n => !n.is_read);
         
         // Update count badge
         notificationCount.textContent = unreadCount;
         notificationCount.style.display = unreadCount > 0 ? 'inline-block' : 'none';
         
         // Update notification list
-        if (notifications.length === 0) {
+        if (displayNotifications.length === 0) {
             notificationList.innerHTML = `
                 <div class="text-center p-3">
                     <p class="text-muted">No notifications</p>
@@ -103,22 +108,20 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
         } else {
             let html = '<ul class="list-unstyled">';
-            notifications.forEach(notification => {
-                const readClass = notification.is_read ? 'read-notification' : 'unread-notification';
+            displayNotifications.forEach(notification => {
                 const iconClass = notification.type === 'appointment' ? 'dw-calendar' : 'dw-mail';
                 const timeAgo = formatTimeAgo(notification.created_at);
                 
                 html += `
-                    <li class="notification-item ${readClass}" data-notification-id="${notification.notification_id}">
+                    <li class="notification-item unread-notification" data-notification-id="${notification.notification_id}">
                         <a href="#" class="notification-link" onclick="handleNotificationClick('${notification.notification_id}', '${notification.type}', '${notification.related_id}'); return false;">
                             <div class="d-flex align-items-center">
-                               
                                 <div class="notification-content flex-grow-1">
                                     <h6 class="mb-1">${notification.title}</h6>
                                     <p class="mb-1 small">${notification.message}</p>
                                     <small class="text-muted">${timeAgo}</small>
                                 </div>
-                                ${!notification.is_read ? '<div class="notification-dot"></div>' : ''}
+                                <div class="notification-dot"></div>
                             </div>
                         </a>
                     </li>

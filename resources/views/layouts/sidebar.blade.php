@@ -34,26 +34,25 @@
                             <span class="micon dw dw-calendar1"></span><span class="mtext">Enquiry</span>
                         </a>
                         <ul class="submenu">
-                            <li><a href="{{ route('enquiry.index') }}">All Enquiries </a></li>
-                            <!-- <li><a href="#">Contacts</a></li> -->
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="javascript:;" class="dropdown-toggle">
-                            <span class="micon dw dw-calendar1"></span><span class="mtext">Contacts</span>
-                        </a>
-                        <ul class="submenu">
-                            <li><a href="#">All Contacts </a></li>
-                            <!-- <li><a href="#">Contacts</a></li> -->
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="javascript:;" class="dropdown-toggle">
-                            <span class="micon dw dw-calendar1"></span><span class="mtext">Notifications</span>
-                        </a>
-                        <ul class="submenu">
                             <li><a href="#">All Enquiries </a></li>
                             <!-- <li><a href="#">Contacts</a></li> -->
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle">
+                            <span class="micon dw dw-calendar1"></span><span class="mtext">SMS</span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="{{ route('sms.index') }}">All SMS </a></li>
+                            <li><a href="{{ route('contact-groups.index') }}">Contact Groups </a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle">
+                            <span class="micon dw dw-notification"></span><span class="mtext">Notifications</span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="{{ route('notifications.index') }}">All Notifications</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

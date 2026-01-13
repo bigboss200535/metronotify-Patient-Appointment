@@ -87,6 +87,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         // Notifications
         Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
+        Route::get('/notifications/data', [NotificationController::class, 'getAll'])->name('notifications.data');
+        Route::get('/notifications/unread', [NotificationController::class, 'unread'])->name('notifications.unread');
         Route::post('/notifications/{notification_id}/read', [NotificationController::class, 'markAsRead'])->name('notifications.read');
         Route::post('/notifications/read-all', [NotificationController::class, 'markAllAsRead'])->name('notifications.read-all');
         Route::delete('/notifications/{notification_id}', [NotificationController::class, 'destroy'])->name('notifications.destroy');
@@ -126,6 +128,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
               Route::patch('/{id}', [\App\Http\Controllers\SmsController::class, 'update'])->name('sms.update');
               Route::delete('/{id}', [\App\Http\Controllers\SmsController::class, 'destroy'])->name('sms.destroy');
               Route::post('/send-to-all', [\App\Http\Controllers\SmsController::class, 'sendToAllContacts'])->name('sms.send_all');
+              Route::get('/statistics', [\App\Http\Controllers\SmsController::class, 'getStatistics'])->name('sms.statistics');
+          });
+
+          // Contact Groups Management 
+          Route::prefix('contact-groups')->middleware(['auth', 'verified'])->group(function () {
+              Route::get('/', [\App\Http\Controllers\ContactGroupController::class, 'index'])->name('contact-groups.index');
+              Route::post('/', [\App\Http\Controllers\ContactGroupController::class, 'store'])->name('contact-groups.store');
+              Route::get('/{id}', [\App\Http\Controllers\ContactGroupController::class, 'show'])->name('contact-groups.show');
+              Route::post('/{id}/upload', [\App\Http\Controllers\ContactGroupController::class, 'uploadContacts'])->name('contact-groups.upload');
+              Route::get('/{id}/contacts', [\App\Http\Controllers\ContactGroupController::class, 'getContacts'])->name('contact-groups.contacts');
+              Route::delete('/{id}', [\App\Http\Controllers\ContactGroupController::class, 'destroy'])->name('contact-groups.destroy');
+              Route::get('/all', [\App\Http\Controllers\ContactGroupController::class, 'getAllGroups'])->name('contact-groups.all');
           });
 
           // Reports

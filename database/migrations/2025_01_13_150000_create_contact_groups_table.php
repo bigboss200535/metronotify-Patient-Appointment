@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sms', function (Blueprint $table) {
+        Schema::create('contact_groups', function (Blueprint $table) {
             $table->id();
-            $table->string('sms_content');
-            $table->string('sms_type')->default('individual');
-            $table->string('recipient_number');
-            $table->string('status', 50)->default('pending')->index();
+            $table->string('group_name')->unique();
+            $table->text('description')->nullable();
+            $table->integer('contact_count')->default(0);
+            $table->string('status', 50)->default('Active')->index();
             $table->string('added_id', 50)->nullable();
             $table->timestamp('added_date')->nullable();
             $table->string('archived', 50)->default('No')->index();
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sms');
+        Schema::dropIfExists('contact_groups');
     }
 };
