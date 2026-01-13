@@ -53,29 +53,16 @@ Route::middleware('web')->group(function () {
     });
 });
 
+// this middleware check if a user has verified email and is authenticated
 Route::middleware(['auth', 'verified'])->group(function () {
       // Route::get('/selfservice/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-
-    Route::prefix('selfservice')->group(function () {
-            // Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-            // Route::get('/appointments/list', [AppointmentController::class, 'index'])->name('appointment.index');
-            // Route::get('/enquiry/list', [EnquiryController::class, 'index'])->name('enquiry.index');
-              // list users
-            // Route::get('/users/list', [UserController::class, 'index'])->name('users.index');
-             // edit/update user
-            // Route::patch('/users/{user_id}', [UserController::class, 'update'])->name('users.update');
-            // delete (archive) user
-            // Route::delete('/users/{user_id}', [UserController::class, 'destroy'])->name('users.destroy');
-            //block and unblock user
-            // Route::get('/{user_id}/block', [UserController::class, 'block'])->name('users.block');
-            // Route::get('/{user_id}/unblock', [UserController::class, 'unblock'])->name('users.unblock');
-    });
-
+    // Self Service Routes 
     Route::prefix('selfservice')->middleware(['auth', 'verified'])->group(function () {
+        
         Route::get('/appointments/list', [AppointmentController::class, 'index'])->name('appointment.index');
         Route::post('/appointments', [AppointmentController::class, 'store'])->name('appointment.store');
         Route::get('/appointments/{appointment_id}', [AppointmentController::class, 'show'])->name('appointment.show');
@@ -93,7 +80,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/notifications/read-all', [NotificationController::class, 'markAllAsRead'])->name('notifications.read-all');
         Route::delete('/notifications/{notification_id}', [NotificationController::class, 'destroy'])->name('notifications.destroy');
         Route::get('/notifications/count', [NotificationController::class, 'getUnreadCount'])->name('notifications.count');
-
+        
+        // portal login
         Route::view('/portal', 'portal.login')->name('login');
 
         // Users Management 
