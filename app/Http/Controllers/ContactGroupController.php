@@ -23,26 +23,41 @@ class ContactGroupController extends Controller
     // Store a new contact group
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'group_name' => ['required', 'string', 'max:100', 'unique:contact_groups,group_name'],
-            'description' => ['nullable', 'string', 'max:500'],
-        ]);
+        try {
+            \Log::info('ContactGroup store request received', $request->all());
+            
+            $validated = $request->validate([
+                'group_name' => ['required', 'string', 'max:100', 'unique:contact_groups,group_name'],
+                'description' => ['nullable', 'string', 'max:500'],
+            ]);
 
-        $group = ContactGroup::create([
-            'group_name' => $validated['group_name'],
-            'description' => $validated['description'],
-            'contact_count' => 0,
-            'status' => 'Active',
-            'added_id' => Auth::user()->user_id ?? null,
-            'added_date' => now(),
-            'archived' => 'No',
-        ]);
+            \Log::info('Validated data:', $validated);
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Contact group created successfully',
-            'group' => $group
-        ]);
+            $group = ContactGroup::create([
+                'group_name' => $validated['group_name'],
+                'description' => $validated['description'],
+                'contact_count' => 0,
+                'status' => 'Active',
+                'added_id' => Auth::user()->user_id ?? null,
+                'added_date' => now(),
+                'archived' => 'No',
+            ]);
+
+            \Log::info('Contact group created:', $group->toArray());
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Contact group created successfully',
+                'group' => $group
+            ]);
+        } catch (\Exception $e) {
+            \Log::error('Error creating contact group: ' . $e->getMessage());
+            
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Error creating contact group: ' . $e->getMessage()
+            ], 500);
+        }
     }
 
     // Show a specific contact group
@@ -124,7 +139,7 @@ class ContactGroupController extends Controller
     public function getAllGroups()
     {
         try {
-            $groups = ContactGroup::active()->orderBy('group_name')->get(['id', 'group_name', 'contact_count']);
+            $groups = ContactGroup::where('status', 'Active')->orderBy('group_name')->get(['id', 'group_name', 'contact_count']);
             
             \Log::info('Contact groups loaded:', $groups->toArray());
             

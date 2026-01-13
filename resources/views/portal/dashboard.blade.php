@@ -12,7 +12,7 @@
                     <div class="card-box height-100-p widget-style3">
                         <div class="d-flex flex-wrap">
                             <div class="widget-data">
-                                <div class="weight-700 font-24 text-dark">70{{ $total_appointments ?? 0 }}</div>
+                                <div class="weight-700 font-24 text-dark">{{ $total_appointments ?? 0 }}</div>
                                 <div class="font-14 text-secondary weight-500">All Appointments</div>
                             </div>
                             <div class="widget-icon"style="background-color: #002d72;" >
@@ -25,7 +25,7 @@
                     <div class="card-box height-100-p widget-style3">
                         <div class="d-flex flex-wrap">
                             <div class="widget-data">
-                                <div class="weight-700 font-24 text-dark">4{{ $appointment_month ?? 0 }}</div>
+                                <div class="weight-700 font-24 text-dark">{{ $appointment_month ?? 0 }}</div>
                                 <div class="font-14 text-secondary weight-500">Appointments this month</div>
                             </div>
                             <div class="widget-icon" style="background-color:#002d72">
@@ -38,7 +38,7 @@
                     <div class="card-box height-100-p widget-style3">
                         <div class="d-flex flex-wrap">
                             <div class="widget-data">
-                                <div class="weight-700 font-24 text-dark">8{{ $enquiry_month ?? 0 }}</div>
+                                <div class="weight-700 font-24 text-dark">{{ $enquiry_month ?? 0 }}</div>
                                 <div class="font-14 text-secondary weight-500">Enquiries this month</div>
                             </div>
                             <div class="widget-icon" style="background-color:#002d72">
@@ -51,7 +51,7 @@
                     <div class="card-box height-100-p widget-style3">
                         <div class="d-flex flex-wrap">
                             <div class="widget-data">
-                                <div class="weight-700 font-24 text-dark">90{{ $enquiry_total ?? 0 }}</div>
+                                <div class="weight-700 font-24 text-dark">{{ $enquiry_total ?? 0 }}</div>
                                 <div class="font-14 text-secondary weight-500">All Enquiries</div>
                             </div>
                             <div class="widget-icon" style="background-color: #002d72;">

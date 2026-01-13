@@ -8,6 +8,8 @@
          @include('includes.in_favicon') 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
         <link rel="stylesheet" type="text/css" href="{{ asset('portal/vendors/styles/core.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('portal/vendors/styles/icon-font.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('portal/src/plugins/datatables/css/dataTables.bootstrap4.min.css') }}">
@@ -30,6 +32,8 @@
             <main>
                 {{ $slot }}
             </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.0/js/toastr.js"></script>
     <script src="{{ asset('portal/vendors/scripts/core.js') }}"></script>
     <script src="{{ asset('portal/vendors/scripts/script.min.js') }}"></script>
     <script src="{{ asset('portal/vendors/scripts/process.js') }}"></script>

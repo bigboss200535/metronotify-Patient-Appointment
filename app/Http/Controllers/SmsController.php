@@ -22,18 +22,16 @@ class SmsController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'recipient_number' => ['required', 'string', 'max:30'],
             'message' => ['required', 'string', 'max:160'],
-            'recipient_number' => ['required', 'string', 'max:20'],
-            'send_type' => ['required', 'string', 'in:individual,bulk'],
+            'sms_type' => ['nullable', 'string', 'in:individual,bulk'],
         ]);
 
-        // Create SMS record
         $sms = Sms::create([
             'sms_content' => $validated['message'],
+            'sms_type' => $validated['sms_type'] ?? 'individual',
             'recipient_number' => $validated['recipient_number'],
-            'sms_type' => 'individual',
             'status' => 'pending',
-            'archived' => 'No',
             'added_id' => Auth::user()->user_id ?? null,
             'added_date' => now(),
         ]);
@@ -47,15 +45,26 @@ class SmsController extends Controller
         return response()->json([
             'status' => 'success',
             'message' => 'SMS sent successfully',
-            'sms_id' => $sms->id
+            'data' => $sms
         ]);
     }
 
-    // Show a single SMS
-    public function show(string $id)
+    // Show SMS details
+    public function show($id)
     {
-        $item = Sms::where('id', $id)->firstOrFail();
-        return view('portal.sms.show', compact('item'));
+        $sms = Sms::find($id);
+        
+        if (!$sms) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'SMS not found'
+            ], 404);
+        }
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $sms
+        ]);
     }
 
     // edit a single SMS
@@ -154,15 +163,32 @@ class SmsController extends Controller
     // Get SMS statistics
     public function getStatistics()
     {
-        $total = Sms::where('archived', 'No')->count();
-        $delivered = Sms::where('archived', 'No')->where('status', 'delivered')->count();
-        $notDelivered = Sms::where('archived', 'No')->where('status', '!=', 'delivered')->count();
+        try {
+            $total = Sms::where('archived', 'No')->count();
+            $delivered = Sms::where('archived', 'No')->where('status', 'delivered')->count();
+            $notDelivered = Sms::where('archived', 'No')->where('status', '!=', 'delivered')->count();
 
-        return response()->json([
-            'total_sent' => $total,
-            'delivered' => $delivered,
-            'not_delivered' => $notDelivered,
-        ]);
+            \Log::info('SMS Statistics:', [
+                'total' => $total,
+                'delivered' => $delivered,
+                'not_delivered' => $notDelivered
+            ]);
+
+            return response()->json([
+                'total_sent' => $total,
+                'delivered' => $delivered,
+                'not_delivered' => $notDelivered,
+            ]);
+        } catch (\Exception $e) {
+            \Log::error('Error getting SMS statistics: ' . $e->getMessage());
+            
+            return response()->json([
+                'total_sent' => 0,
+                'delivered' => 0,
+                'not_delivered' => 0,
+                'error' => 'Failed to load statistics'
+            ]);
+        }
     }
 
     protected function dispatchSms(string $telephone, string $message): void

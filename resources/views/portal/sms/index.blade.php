@@ -169,8 +169,69 @@
 	</div>
 </div>
 
+<!-- View SMS Modal -->
+<div class="modal fade" id="viewSmsModal" tabindex="-1" role="dialog" aria-labelledby="viewSmsModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="viewSmsModalLabel">SMS Details</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Recipient Number</label>
+							<p class="form-control-plaintext" id="viewRecipient"></p>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Status</label>
+							<p class="form-control-plaintext" id="viewStatus"></p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>SMS Type</label>
+							<p class="form-control-plaintext" id="viewType"></p>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Date Sent</label>
+							<p class="form-control-plaintext" id="viewDate"></p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="form-group">
+							<label>Message</label>
+							<p class="form-control-plaintext" id="viewMessage" style="min-height: 100px; background-color: #f8f9fa; padding: 10px; border-radius: 4px;"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    // Debug route existence
+    // console.log('Available routes check:');
+    // console.log('Route contact-groups.all:', '{{ route("contact-groups.all") }}');
+    // console.log('Route sms.index:', '{{ route("sms.index") }}');
+    // console.log('Route sms.statistics:', '{{ route("sms.statistics") }}');
+    
     loadSmsData();
     loadStatistics();
     loadContactGroups();
@@ -181,23 +242,23 @@ document.addEventListener('DOMContentLoaded', function() {
         const bulkSection = document.getElementById('bulkSection');
         const groupSelect = document.getElementById('group');
         
-        console.log('Send type changed to:', this.value);
-        console.log('Individual section:', individualSection);
-        console.log('Bulk section:', bulkSection);
-        console.log('Group select:', groupSelect);
+        // console.log('Send type changed to:', this.value);
+        // console.log('Individual section:', individualSection);
+        // console.log('Bulk section:', bulkSection);
+        // console.log('Group select:', groupSelect);
         
         if (this.value === 'individual') {
             individualSection.style.display = 'block';
             bulkSection.style.display = 'none';
-            console.log('Showing individual section');
+            // console.log('Showing individual section');
         } else {
             individualSection.style.display = 'none';
             bulkSection.style.display = 'block';
-            console.log('Showing bulk section');
+            // console.l/og('Showing bulk section');
         }
     });
     
-    // Character count
+    // message Character count in textarea
     document.getElementById('message').addEventListener('input', function() {
         document.getElementById('charCount').textContent = this.value.length;
     });
@@ -208,16 +269,21 @@ document.addEventListener('DOMContentLoaded', function() {
         sendSms();
     });
     
-    // Filter buttons
+    // Filter buttons according to all, delivered or nor delivered
     document.getElementById('filterAll').addEventListener('click', () => filterSms('all'));
     document.getElementById('filterDelivered').addEventListener('click', () => filterSms('delivered'));
     document.getElementById('filterNotDelivered').addEventListener('click', () => filterSms('not_delivered'));
     
     function loadContactGroups() {
-        console.log('Loading contact groups...');
-        fetch('{{ route("contact-groups.all") }}')
+        // Debug route generation
+        const routeUrl = '{{ route("contact-groups.all") }}';
+        console.log('Contact groups route URL:', routeUrl);
+        
+        // console.log('Loading contact groups...');
+        fetch(routeUrl)
             .then(response => {
                 console.log('Response status:', response.status);
+                console.log('Response headers:', response.headers);
                 return response.json();
             })
             .then(data => {
@@ -225,7 +291,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (data.status === 'success') {
                     const groupSelect = document.getElementById('group');
                     console.log('Group select element:', groupSelect);
-                    groupSelect.innerHTML = '<option value="">Select a group...</option>';
+                    groupSelect.innerHTML = '<option value="">Select a Group...</option>';
                     
                     data.groups.forEach(group => {
                         console.log('Adding group:', group);
@@ -243,6 +309,7 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(error => {
                 console.error('Error loading contact groups:', error);
+                console.error('Error details:', error.message);
                 const groupSelect = document.getElementById('group');
                 groupSelect.innerHTML = '<option value="">Error loading groups</option>';
             });
@@ -252,7 +319,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch('{{ route("sms.index") }}')
             .then(response => response.text())
             .then(html => {
-                // For now, we'll create the table data from the items passed to the view
+                
                 displaySmsData(@json($items));
             })
             .catch(error => {
@@ -268,15 +335,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function loadStatistics() {
+        console.log('Loading SMS statistics...');
         fetch('{{ route("sms.statistics") }}')
-            .then(response => response.json())
+            .then(response => {
+                console.log('Statistics response status:', response.status);
+                return response.json();
+            })
             .then(data => {
-                document.getElementById('totalSent').textContent = data.total_sent || 0;
-                document.getElementById('deliveredCount').textContent = data.delivered || 0;
-                document.getElementById('notDeliveredCount').textContent = data.not_delivered || 0;
+                console.log('Statistics data:', data);
+                if (data.total_sent !== undefined) {
+                    document.getElementById('totalSent').textContent = data.total_sent || 0;
+                    document.getElementById('deliveredCount').textContent = data.delivered || 0;
+                    document.getElementById('notDeliveredCount').textContent = data.not_delivered || 0;
+                } else {
+                    console.error('Invalid statistics response:', data);
+                }
             })
             .catch(error => {
                 console.error('Error loading statistics:', error);
+                document.getElementById('totalSent').textContent = '0';
+                document.getElementById('deliveredCount').textContent = '0';
+                document.getElementById('notDeliveredCount').textContent = '0';
             });
     }
     
@@ -372,14 +451,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('charCount').textContent = '0';
                 loadSmsData();
                 loadStatistics();
-                alert(data.message || 'SMS sent successfully!');
+                  toastr.success(data.message || "SMS sent successfully", "Success");
+                // alert(data.message || 'SMS sent successfully!');
             } else {
-                alert('Error sending SMS: ' + (data.message || 'Unknown error'));
+                 toastr.info(data.message || "Error sending SMS:" + data.message, "Unknown error");
+                //  
             }
         })
         .catch(error => {
-            console.error('Error sending SMS:', error);
-            alert('Error sending SMS. Please try again.');
+            // console.error('Error sending SMS:', error);
+             toastr.info("Error sending SMS. Please try again.", "Info");
+            // alert('Error sending SMS. Please try again.');
         })
         .finally(() => {
             btn.disabled = false;
@@ -413,8 +495,38 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     window.viewSms = function(id) {
-        // Implement view SMS functionality
-        alert('View SMS functionality would be implemented here');
+        // Fetch SMS details
+        fetch(`/selfservice/sms/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    const sms = data.data;
+                    document.getElementById('viewRecipient').textContent = sms.recipient_number || 'N/A';
+                    document.getElementById('viewStatus').textContent = sms.status || 'Unknown';
+                    document.getElementById('viewType').textContent = sms.sms_type || 'N/A';
+                    document.getElementById('viewDate').textContent = sms.added_date ? new Date(sms.added_date).toLocaleString() : 'N/A';
+                    document.getElementById('viewMessage').textContent = sms.sms_content || 'N/A';
+                    
+                    // Set status color
+                    const statusElement = document.getElementById('viewStatus');
+                    statusElement.className = 'form-control-plaintext';
+                    if (sms.status === 'delivered') {
+                        statusElement.style.color = '#28a745';
+                    } else if (sms.status === 'not delivered' || sms.status === 'failed') {
+                        statusElement.style.color = '#dc3545';
+                    } else if (sms.status === 'pending') {
+                        statusElement.style.color = '#ffc107';
+                    }
+                    
+                    $('#viewSmsModal').modal('show');
+                } else {
+                    toastr.error('Error loading SMS details', 'Error');
+                }
+            })
+            .catch(error => {
+                console.error('Error loading SMS:', error);
+                toastr.error('Error loading SMS details', 'Error');
+            });
     };
     
     window.deleteSms = function(id) {
@@ -434,14 +546,17 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.status === 'success') {
                 loadSmsData();
                 loadStatistics();
-                alert('SMS deleted successfully');
+                  toastr.success("SMS deleted successfully", "Success");
+                // alert('SMS deleted successfully');
             } else {
-                alert('Error deleting SMS: ' + (data.message || 'Unknown error'));
+                toastr.error("Error deleting SMS:"+ data.message, "Error");
+                // alert('Error deleting SMS: ' + (data.message || 'Unknown error'));
             }
         })
         .catch(error => {
-            console.error('Error deleting SMS:', error);
-            alert('Error deleting SMS. Please try again.');
+            // console.error('Error deleting SMS:', error);
+              toastr.error("Error deleting SMS. Please try again.", "Error");
+            // alert('Error deleting SMS. Please try again.');
         });
     };
 });

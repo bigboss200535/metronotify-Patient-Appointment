@@ -41,7 +41,6 @@
 									<th>Status</th>
 									<th>Blocked</th>
 									<th>Date Added</th>
-									<!-- <th>Start Date</th> -->
 									<th class="datatable-nosort">Action</th>
 								</tr>
 							</thead>
@@ -76,18 +75,6 @@
                               						 data-user='@json($user)'>
                                 					<i class="dw dw-eye"></i> View
                             					</a>
-												<!-- <a class="dropdown-item js-view-user" href="#" data-bs-toggle="modal" data-bs-target="#viewUserModal"
-													data-user-id="{{ $user->user_id }}"
-													data-firstname="{{ $user->firstname }}"
-													data-othername="{{ $user->othername }}"
-													data-email="{{ $user->email }}"
-													data-telephone="{{ $user->telephone }}"
-													data-gender="{{ $user->gender }}"
-													data-status="{{ $user->status }}"
-													data-added-date="{{ \Carbon\Carbon::parse($user->added_date)->format('d-m-Y') }}"
-													data-user-role="{{ $user->user_role }}"
-													data-is-blocked="{{ $user->is_blocked ? 'Yes' : 'No' }}">
-													<i class="dw dw-eye"></i> Details</a> -->
 												<a class="dropdown-item js-edit-user" href="#"
    													data-user='@json($user)'>
     												<i class="dw dw-edit2"></i> Edit
@@ -117,7 +104,6 @@
 									<th>Status</th>
 									<th>Blocked</th>
 									<th>Date Added</th>
-									<!-- <th>Start Date</th> -->
 									<th class="datatable-nosort">Action</th>
 								</tr>
 							</tfoot>
@@ -217,16 +203,16 @@
 						<div class="mb-3">
 							<label>Gender</label>
 							<select name="gender" id="add_gender" class="form-control">
-								<option value="">Select Gender</option>
+								<option value="" disabled selected>Select Gender</option>
 								<option value="Male">Male</option>
 								<option value="Female">Female</option>
-								<option value="Other">Other</option>
+								<!-- <option value="Other">Other</option> -->
 							</select>
 						</div>
 						<div class="mb-3">
 							<label>User Role</label>
 							<select name="user_role" id="add_user_role" class="form-control">
-								<option value="">Select Role</option>
+								<option value="" disabled selected>Select Role</option>
 								<option value="Admin">Admin</option>
 								<option value="Staff">Staff</option>
 								<option value="User">User</option>

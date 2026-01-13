@@ -44,11 +44,21 @@ class ContactGroup extends Model
     }
 
     /**
-     * Get the contacts in this group.
+     * Get contacts in this group.
      */
     public function contacts()
     {
         return $this->hasMany(Contacts::class, 'telephone_group', 'group_name');
+    }
+
+    /**
+     * Get contacts count for this group.
+     */
+    public function getContactCount()
+    {
+        return Contacts::where('telephone_group', $this->group_name)
+            ->where('archived', 'No')
+            ->count();
     }
 
     /**
