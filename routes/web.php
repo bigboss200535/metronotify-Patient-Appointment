@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EnquiryController;
@@ -76,8 +77,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::prefix('selfservice')->middleware(['auth', 'verified'])->group(function () {
         Route::get('/appointments/list', [AppointmentController::class, 'index'])->name('appointment.index');
+        Route::post('/appointments', [AppointmentController::class, 'store'])->name('appointment.store');
+        Route::get('/appointments/{appointment_id}', [AppointmentController::class, 'show'])->name('appointment.show');
+        Route::get('/appointments/{appointment_id}/edit', [AppointmentController::class, 'edit'])->name('appointment.edit');
+        Route::patch('/appointments/{appointment_id}', [AppointmentController::class, 'update'])->name('appointment.update');
+        Route::delete('/appointments/{appointment_id}', [AppointmentController::class, 'destroy'])->name('appointment.destroy');
         Route::get('/enquiry/list', [EnquiryController::class, 'index'])->name('enquiry.index');
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
+        // Notifications
+        Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
+        Route::post('/notifications/{notification_id}/read', [NotificationController::class, 'markAsRead'])->name('notifications.read');
+        Route::post('/notifications/read-all', [NotificationController::class, 'markAllAsRead'])->name('notifications.read-all');
+        Route::delete('/notifications/{notification_id}', [NotificationController::class, 'destroy'])->name('notifications.destroy');
+        Route::get('/notifications/count', [NotificationController::class, 'getUnreadCount'])->name('notifications.count');
 
         Route::view('/portal', 'portal.login')->name('login');
 

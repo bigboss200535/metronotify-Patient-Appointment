@@ -37,7 +37,7 @@ class UserController extends Controller
             'firstname' => ['nullable', 'string', 'max:150'],
             'othername' => ['nullable', 'string', 'max:150'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique('users', 'email')],
-            'password' => ['nullable', 'string', 'min:8'],
+            'password' => ['nullable', 'string', 'min:5'],
             'status' => ['nullable', 'string', 'max:50'],
             'telephone' => ['nullable', 'string', 'max:50'],
             'gender' => ['nullable', 'string', 'max:10'],
@@ -63,6 +63,10 @@ class UserController extends Controller
         $user->added_id = Auth::user()->user_id ?? null;
         $user->added_date = now();
         $user->save();
+
+        if ($request->expectsJson()) {
+            return response()->json(['success' => true, 'message' => 'User created successfully']);
+        }
 
         return back()->with('status', 'User created successfully');
     }
@@ -112,6 +116,10 @@ class UserController extends Controller
             'status' => $validated['status'],
         ]);
 
+        if ($request->expectsJson()) {
+            return response()->json(['success' => true, 'message' => 'User updated successfully']);
+        }
+
         return back()->with('status', 'User updated successfully');
     }
 
@@ -129,6 +137,10 @@ class UserController extends Controller
         $user->status = 'Inactive';
         $user->save();
 
+        if (request()->expectsJson()) {
+            return response()->json(['success' => true, 'message' => 'User deleted successfully']);
+        }
+
         return back()->with('status', 'User deleted successfully');
     }   
     //block users from login   
@@ -136,6 +148,11 @@ class UserController extends Controller
     {
         $user = User::findOrFail($user_id);
         $user->block();
+        
+        if (request()->expectsJson()) {
+            return response()->json(['success' => true, 'message' => 'User has been blocked successfully']);
+        }
+        
         return back()->with('status', 'User has been blocked successfully');
     }
 
@@ -144,6 +161,11 @@ class UserController extends Controller
     {
         $user = User::findOrFail($user_id);
         $user->unblock();
+        
+        if (request()->expectsJson()) {
+            return response()->json(['success' => true, 'message' => 'User has been unblocked successfully']);
+        }
+        
         return back()->with('status', 'User has been unblocked successfully');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Appointment;
+use App\Models\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
@@ -42,14 +43,14 @@ class AppointmentController extends Controller
             'service' => ['nullable', 'string', 'max:100'],
             'message' => ['nullable', 'string'],
             'appointment_date' => ['nullable', 'date'],
-            'appointment_time' => ['nullable', 'date'],
+            // 'appointment_time' => ['nullable', 'date'],
             'doctor_id' => ['nullable', 'string', 'max:50'],
             'appointment_status' => ['nullable', 'string', 'max:50'],
             'confirmation' => ['nullable', 'string', 'max:50'],
         ]);
 
         // Create the appointment record
-        Appointment::create([
+        $appointment = Appointment::create([
             'fullname' => $validated['fullname'],
             'email' => $validated['email'] ?? null,
             'telephone' => $validated['telephone'] ?? null,
@@ -65,6 +66,21 @@ class AppointmentController extends Controller
             'added_id' => Auth::user()->user_id ?? null,
             'added_date' => now(),
         ]);
+
+        // Create notification for new appointment
+        if (Auth::user()) {
+            Notification::createNotification(
+                Auth::user()->user_id,
+                'appointment',
+                'New Appointment Created',
+                "A new appointment has been created for {$appointment->fullname}",
+                $appointment->appointment_id
+            );
+        }
+
+        if ($request->expectsJson()) {
+            return response()->json(['success' => true, 'message' => 'Appointment created successfully']);
+        }
 
         return back()->with('status', 'Appointment created successfully');
     }
@@ -103,7 +119,7 @@ class AppointmentController extends Controller
             'service' => ['nullable', 'string', 'max:100'],
             'message' => ['nullable', 'string'],
             'appointment_date' => ['nullable', 'date'],
-            'appointment_time' => ['nullable', 'date'],
+            // 'appointment_time' => ['nullable', 'time'],
             'doctor_id' => ['nullable', 'string', 'max:50'],
             'appointment_status' => ['nullable', 'string', 'max:50'],
             'confirmation' => ['nullable', 'string', 'max:50'],
@@ -118,7 +134,7 @@ class AppointmentController extends Controller
             'service' => $validated['service'] ?? $appointment->service,
             'message' => $validated['message'] ?? $appointment->message,
             'appointment_date' => $validated['appointment_date'] ?? $appointment->appointment_date,
-            'appointment_time' => $validated['appointment_time'] ?? $appointment->appointment_time,
+            // 'appointment_time' => $validated['appointment_time'] ?? $appointment->appointment_time,
             'doctor_id' => $validated['doctor_id'] ?? $appointment->doctor_id,
             'appointment_status' => $validated['appointment_status'] ?? $appointment->appointment_status,
             'confirmation' => $validated['confirmation'] ?? $appointment->confirmation,

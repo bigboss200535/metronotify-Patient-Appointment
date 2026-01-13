@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Appointment;
 use App\Models\Enquiry;
 use App\Models\Newsletter;
+use App\Models\Notification;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -51,6 +52,17 @@ class EnquiryController extends Controller
             'archived'   => 'No',
         ]);
 
+        // Create notification for new enquiry
+        if (Auth::user()) {
+            Notification::createNotification(
+                Auth::user()->user_id,
+                'enquiry',
+                'New Enquiry Received',
+                "A new enquiry has been received from {$enquiry->fullname}",
+                $enquiry->enquiry_id
+            );
+        }
+
         return response()->json([
             'status'  => 'success',
             'message' => 'Enquiry submitted successfully!',
@@ -80,6 +92,17 @@ class EnquiryController extends Controller
             'status'     => 'Active',
             'archived'   => 'No',
         ]);
+
+        // Create notification for new appointment from public form
+        if (Auth::user()) {
+            Notification::createNotification(
+                Auth::user()->user_id,
+                'appointment',
+                'New Appointment Booked',
+                "A new appointment has been booked by {$appointment->fullname}",
+                $appointment->appointment_id
+            );
+        }
 
         return response()->json([
             'status'  => 'success',

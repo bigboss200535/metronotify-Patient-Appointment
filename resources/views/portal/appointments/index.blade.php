@@ -36,7 +36,6 @@
 									<th>Telephone</th>
 									<th>Email</th>
 									<th>Service Type</th>
-									<th>Message</th>
 									<th>Added Date</th>
 									<th class="datatable-nosort">Action</th>
 								</tr>
@@ -49,21 +48,26 @@
                                 @foreach($appointment as $appointments)
 								<tr>
 									<td>{{ $counter++ }}</td>
-									<td class="table-plus">{{ $appointments->fullname }}</td>
+									<td class="table-plus">{{ strtoupper($appointments->fullname) }}</td>
 									<td>{{ $appointments->telephone }}</td>
 									<td>{{ $appointments->email }}</td>
 									<td>{{ $appointments->service }} </td>
-									<td>{{ substr($appointments->message , 0, 20) . "..."}}</td>
-									<td>{{ $appointments->appointment_date }}</td>
+									<td>{{ \Carbon\Carbon::parse($appointments->appointment_date)->format('d-m-Y') }}</td>
 									<td>
 										<div class="dropdown">
 											<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 												<i class="dw dw-more"></i>
 											</a>
 											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-												<a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-												<a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
-												<a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
+												<a class="dropdown-item" href="{{ route('appointment.show', $appointments->appointment_id) }}"><i class="dw dw-eye"></i> View</a>
+												<a class="dropdown-item" href="{{ route('appointment.edit', $appointments->appointment_id) }}"><i class="dw dw-edit2"></i> Edit</a>
+												<form action="{{ route('appointment.destroy', $appointments->appointment_id) }}" method="POST" style="display: inline;">
+													@csrf
+													@method('DELETE')
+													<button type="submit" class="dropdown-item" onclick="return confirm('Are you sure you want to delete this appointment?')">
+														<i class="dw dw-delete-3"></i> Delete
+													</button>
+												</form>
 											</div>
 										</div>
 									</td>
@@ -77,7 +81,6 @@
 									<th>Telephone</th>
 									<th>Email</th>
 									<th>Service Type</th>
-									<th>Message</th>
 									<th>Added Date</th>
 									<th class="datatable-nosort">Action</th>
 								</tr>
@@ -117,6 +120,12 @@
 															<input type="text" class="form-control" name="telephone" id="telephone" placeholder="Telephone">
 														</div>
 														<div class="col-12 col-md-12">
+															<input type="date" class="form-control" name="appointment_date" id="appointment_date" placeholder="Email">
+														</div>
+														<div class="col-12 col-md-12">
+															<input type="time" class="form-control" name="appointment_time" id="appointment_time" placeholder="Telephone">
+														</div>
+														<div class="col-12 col-md-12">
 															<select class="form-control" style="height: 55px;" name="service" id="service">
 																<option selected disabled>Select A Service</option>
 																@include('includes.in_services_option') 
@@ -134,7 +143,7 @@
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-											<button type="button" class="btn btn-primary">Save changes</button>
+											<button type="button" class="btn btn-primary" id="save_appointment_form">Save</button>
 										</div>
 									</div>
 								</div>
@@ -142,4 +151,35 @@
 						
 <!-- Large modal -->
 	</x-app-layout>
+
+<script>
+document.getElementById('save_appointment_form').addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const form = document.getElementById('appointment_form');
+    const formData = new FormData(form);
+    
+    fetch('{{ route("appointment.store") }}', {
+        method: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+            'Accept': 'application/json',
+        },
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Appointment created successfully!');
+            location.reload();
+        } else {
+            alert('Error creating appointment. Please try again.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error creating appointment. Please try again.');
+    });
+});
+</script>
 	

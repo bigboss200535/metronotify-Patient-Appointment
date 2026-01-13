@@ -74,7 +74,7 @@
 											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 												<a class="dropdown-item js-view-user" href="#"
                               						 data-user='@json($user)'>
-                                					<i class="dw dw-eye"></i> Details
+                                					<i class="dw dw-eye"></i> View
                             					</a>
 												<!-- <a class="dropdown-item js-view-user" href="#" data-bs-toggle="modal" data-bs-target="#viewUserModal"
 													data-user-id="{{ $user->user_id }}"
@@ -187,6 +187,72 @@
 		</div>
 	</div>
 
+	<!-- Add User Modal -->
+	<div class="modal fade" id="appointment_register" tabindex="-1">
+		<div class="modal-dialog">
+			<form id="addUserForm" method="POST">
+				@csrf
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Add New User</h5>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<div class="mb-3">
+							<label>First Name</label>
+							<input type="text" name="firstname" id="add_firstname" class="form-control" required>
+						</div>
+						<div class="mb-3">
+							<label>Other Name</label>
+							<input type="text" name="othername" id="add_othername" class="form-control">
+						</div>
+						<div class="mb-3">
+							<label>Email</label>
+							<input type="email" name="email" id="add_email" class="form-control" required>
+						</div>
+						<div class="mb-3">
+							<label>Telephone</label>
+							<input type="text" name="telephone" id="add_telephone" class="form-control">
+						</div>
+						<div class="mb-3">
+							<label>Gender</label>
+							<select name="gender" id="add_gender" class="form-control">
+								<option value="">Select Gender</option>
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
+								<option value="Other">Other</option>
+							</select>
+						</div>
+						<div class="mb-3">
+							<label>User Role</label>
+							<select name="user_role" id="add_user_role" class="form-control">
+								<option value="">Select Role</option>
+								<option value="Admin">Admin</option>
+								<option value="Staff">Staff</option>
+								<option value="User">User</option>
+							</select>
+						</div>
+						<div class="mb-3">
+							<label>Password</label>
+							<input type="password" name="password" id="add_password" class="form-control" placeholder="Leave blank to auto-generate">
+						</div>
+						<div class="mb-3">
+							<label>Status</label>
+							<select name="status" id="add_status" class="form-control" required>
+								<option value="Active">Active</option>
+								<option value="Inactive">Inactive</option>
+							</select>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+						<button type="submit" class="btn btn-primary">Add User</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
 	<!-- Edit User Modal -->
 	<div class="modal fade" id="editUserModal" tabindex="-1">
     <div class="modal-dialog">
@@ -286,16 +352,14 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.js-view-user').forEach(btn => {
         btn.addEventListener('click', function () {
             const user = this.dataset.user ? JSON.parse(this.dataset.user) : {};
-            $('#v_firstname').text(user.firstname || '');
-			$('#v_othername').text(user.othername || '');
-            $('#v_email').text(user.email || '');
-            $('#v_telephone').text(user.telephone || '—');
-            $('#v_gender').text(user.gender || '—');
-            $('#v_role').text(user.user_role || '—');
-            $('#v_status').text(user.status || '');
-            $('#v_blocked').text(user.is_blocked ? 'Yes' : 'No');
-            $('#v_added').text(user.added_date ? new Date(user.added_date).toLocaleDateString('en-GB') : '');
-			$('#viewUserModal').attr('action', '/selfservice/users/' + user.user_id);
+            $('#view_fullname').text(user.firstname + ' ' + (user.othername || ''));
+            $('#view_email').text(user.email || '');
+            $('#view_telephone').text(user.telephone || '—');
+            $('#view_gender').text(user.gender || '—');
+            $('#view_role').text(user.user_role || '—');
+            $('#view_status').text(user.status || '');
+            $('#view_blocked').text(user.is_blocked ? 'Yes' : 'No');
+            $('#view_added_date').text(user.added_date ? new Date(user.added_date).toLocaleDateString('en-GB') : '');
             $('#viewUserModal').modal('show');
         });
     });
@@ -320,7 +384,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.js-delete-user').forEach(btn => {
         btn.addEventListener('click', function () {
             const id = this.dataset.userId;
-            const name = this.dataset.name;
+            const name = this.dataset.fullname;
             $('#delete_name').text(name);
             $('#deleteUserForm').attr('action', '/selfservice/users/' + id);
             $('#deleteUserModal').modal('show');
@@ -331,25 +395,142 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.js-toggle-block').forEach(btn => {
         btn.addEventListener('click', function () {
             const id = this.dataset.userId;
-            const name = this.dataset.name;
+            const name = this.dataset.fullname;
             const blocked = this.dataset.blocked == '1' || this.dataset.blocked === true;
 
             const action = blocked ? 'unblock' : 'block';
             const actionText = blocked ? 'unblock' : 'block';
 
             $('#blockModalTitle').text((blocked ? 'Unblock' : 'Block') + ' User');
-            $('#block_action').text(actionText);
-            $('#block_name').text(name);
+            $('#block_action_text').text(actionText);
+            $('#block_username').text(name);
 
             $('#blockUserForm')
                 .attr('action', '/selfservice/users/' + id + '/' + action)
-                .find('input[name="_method"]').remove(); // Remove if exists
+                .find('input[name="_method"]').remove();
 
             if (action === 'block') {
                 $('#blockUserForm').append('<input type="hidden" name="_method" value="POST">');
             }
 
             $('#blockUserModal').modal('show');
+        });
+    });
+
+    // Add User Form Submit
+    $('#addUserForm').on('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        
+        fetch('{{ route("users.store") }}', {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                'Accept': 'application/json',
+            },
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('User created successfully!');
+                location.reload();
+            } else {
+                alert('Error creating user. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error creating user. Please try again.');
+        });
+    });
+
+    // Edit User Form Submit
+    $('#editUserForm').on('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const action = $(this).attr('action');
+        
+        fetch(action, {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                'Accept': 'application/json',
+            },
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('User updated successfully!');
+                location.reload();
+            } else {
+                alert('Error updating user. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error updating user. Please try again.');
+        });
+    });
+
+    // Delete User Form Submit
+    $('#deleteUserForm').on('submit', function(e) {
+        e.preventDefault();
+        
+        const action = $(this).attr('action');
+        
+        fetch(action, {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                'Accept': 'application/json',
+            },
+            body: new FormData(this)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('User deleted successfully!');
+                location.reload();
+            } else {
+                alert('Error deleting user. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error deleting user. Please try again.');
+        });
+    });
+
+    // Block/Unblock User Form Submit
+    $('#blockUserForm').on('submit', function(e) {
+        e.preventDefault();
+        
+        const action = $(this).attr('action');
+        
+        fetch(action, {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                'Accept': 'application/json',
+            },
+            body: new FormData(this)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message);
+                location.reload();
+            } else {
+                alert('Error updating user status. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error updating user status. Please try again.');
         });
     });
 });

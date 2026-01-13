@@ -197,7 +197,7 @@
                             <div class="font-14 weight-500 max-width-200 mx-auto pb-20" data-color="#a6a6a7">
                                 You can enjoy all our features by upgrading to pro.
                             </div>
-                            <a href="#" class="btn btn-primary btn-lg" style="background-color: ;">New Appointment</a>
+                            <a href="{ url('/selfservice/appointments/list')}" class="btn btn-primary btn-lg" style="background-color: ;">New Appointment</a>
                         </div>
                     </div>
                 </div>
